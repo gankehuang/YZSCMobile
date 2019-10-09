@@ -1,0 +1,1148 @@
+
+
+
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/homePage/homePage",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "首页",
+				"enablePullDownRefresh": false
+				// "app-plus": {
+				// 	"titleNView": false,
+				// 	"bounce": "none",
+				// 	"pullToRefresh": {
+				// 		"style": "circle",
+				// 		"offset": "70px"
+				// 	}
+				// }
+			}
+		},
+		{
+			"path": "pages/message/message",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "消息",
+				"enablePullDownRefresh": true,
+				"app-plus": {
+					"titleNView": false,
+					"bounce": "none",
+					"pullToRefresh": {
+						"style": "circle",
+						"offset": "70px"
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/console/console",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "控制台",
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+
+		{
+			"path": "pages/report/report",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "报表",
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/personalCenter/personalCenter",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "个人中心",
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "uni-app",
+				"navigationBarBackgroundColor": "#5089F9",
+				"navigationBarTextStyle": "#ffffff"
+			}
+		},
+		
+		//业务采集备份
+		{
+			"path": "pages/collection/semen-bf/add",
+			"style": {
+				"navigationBarTitleText": "精液领用关联申请",
+				"navigationBarBackgroundColor": "#5089F9",
+				"navigationBarTextStyle": "#ffffff",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"bounce": "none", //关闭窗口回弹效果
+					"titleNView": {
+						"buttons": [ //原生标题栏按钮配置,
+							{
+								"text": "•••",
+								"fontSize": "30upx"
+							}
+						]
+					}
+				}
+			}
+		},
+		//业务采集  
+		{
+			"path": "pages/collection/semenRecipients/semenRecipientsAudit",
+			"style": {
+				"navigationBarTitleText": "精液领用新增",
+				"navigationBarBackgroundColor": "#5089F9",
+				"navigationBarTextStyle": "#ffffff",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/collection/semenRecipients/semenRecipientsQuery",
+			"style": {
+				"navigationBarTitleText": "精液领用历史记录",
+				"navigationBarBackgroundColor": "#5089F9",
+				"navigationBarTextStyle": "#ffffff",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/collection/semenRecipients/semenRecipientsDetail",
+			"style": {
+				"navigationBarTitleText": "精液领用历史记录详情",
+				"navigationBarBackgroundColor": "#5089F9",
+				"navigationBarTextStyle": "#ffffff",
+				"navigationStyle": "custom"
+			}
+		},
+		
+		//物资领用
+		{
+			"path": "pages/receive/semen/semenReceiveAudit",
+			"style": {
+				"navigationBarTitleText": "精液领用新增",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/receive/semen/semenReceiveQuery",
+			"style": {
+				"navigationBarTitleText": "精液领用历史记录",
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/receive/semen/semenReceiveDetail",
+			"style": {
+				"navigationBarTitleText": "精液领用详情",
+				"navigationStyle": "custom"
+			}
+		},
+		// {
+		// 	"path": "pages/receive/semen/semen",
+		// 	"style": {
+		// 		"navigationBarTitleText": "精液领用关联申请",
+		// 		"navigationBarBackgroundColor": "#5089F9",
+		// 		"navigationBarTextStyle": "#ffffff",
+		// 		"navigationStyle": "custom",
+		// 		"app-plus": {
+		// 			"bounce": "none", //关闭窗口回弹效果
+		// 			"titleNView": {
+		// 				"buttons": [ //原生标题栏按钮配置,
+		// 					{
+		// 						"text": "•••",
+		// 						"fontSize": "30upx"
+		// 					}
+		// 				]
+		// 			}
+		// 		}
+		// 	}
+		// },
+		// {
+		// 	"path": "pages/receive/semen/semenEditor",
+		// 	"style": {
+		// 		"navigationBarTitleText": "精液领用记录编辑",
+		// 		"navigationBarBackgroundColor": "#5089F9",
+		// 		"navigationBarTextStyle": "#ffffff",
+		// 		// "navigationStyle": "custom",
+		// 		"app-plus": {
+		// 			"bounce": "none", //关闭窗口回弹效果
+		// 			"titleNView": {
+		// 				"buttons": [ //原生标题栏按钮配置,
+		// 					{
+		// 						"text": "•••",
+		// 						"fontSize": "30upx"
+		// 					}
+		// 				]
+		// 			}
+		// 		}
+		// 	}
+		// },
+		// {
+		// 	"path": "pages/receive/semen/senmenAdd",
+		// 	"style": {
+		// 		"navigationBarTitleText": "精液领用记录新增",
+		// 		"navigationBarBackgroundColor": "#5089F9",
+		// 		"navigationBarTextStyle": "#ffffff",
+		// 		// "navigationStyle": "custom",
+		// 		"app-plus": {
+		// 			"bounce": "none", //关闭窗口回弹效果
+		// 			"titleNView": {
+		// 				"buttons": [ //原生标题栏按钮配置,
+		// 					{
+		// 						"text": "•••",
+		// 						"fontSize": "30upx"
+		// 					}
+		// 				]
+		// 			}
+		// 		}
+		// 	}
+		// }, 
+		{
+			"path": "pages/receive/lowValue/select",
+			"style": {
+				"navigationBarTitleText": "低值申请查询",
+				"navigationBarBackgroundColor": "#5089F9",
+				"navigationBarTextStyle": "#ffffff",
+				// "navigationStyle": "custom",
+				"app-plus": {
+					"bounce": "none", //关闭窗口回弹效果
+					"titleNView": {
+						"buttons": [ //原生标题栏按钮配置,
+							{
+								"text": "•••",
+								"fontSize": "30upx"
+							}
+						]
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/receive/lowValue/history",
+			"style": {
+				"navigationBarTitleText": "低值领用历史记录",
+				"navigationBarBackgroundColor": "#5089F9",
+				"navigationBarTextStyle": "#ffffff",
+				// "navigationStyle": "custom",
+				"app-plus": {
+					"bounce": "none", //关闭窗口回弹效果
+					"titleNView": {
+						"buttons": [ //原生标题栏按钮配置,
+							{
+								"text": "筛选",
+								"fontSize": "30upx"
+							}
+						]
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/receive/lowValue/editor",
+			"style": {
+				"navigationBarTitleText": "低值领用编辑",
+				"navigationBarBackgroundColor": "#5089F9",
+				"navigationBarTextStyle": "#ffffff",
+				// "navigationStyle": "custom",
+				"app-plus": {
+					"bounce": "none", //关闭窗口回弹效果
+					"titleNView": {
+						"buttons": [ //原生标题栏按钮配置,
+							{
+								"text": "•••",
+								"fontSize": "30upx"
+							}
+						]
+					}
+				}
+			}
+		}, {
+			"path": "pages/receive/lowValue/newAdd",
+			"style": {
+				"navigationBarTitleText": "低值领用新增",
+				"navigationBarBackgroundColor": "#5089F9",
+				"navigationBarTextStyle": "#ffffff",
+				// "navigationStyle": "custom",
+				"app-plus": {
+					"bounce": "none", //关闭窗口回弹效果
+					"titleNView": {
+						"buttons": [ //原生标题栏按钮配置,
+							{
+								"text": "•••",
+								"fontSize": "30upx"
+							}
+						]
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/receive/lowValue/jaurnalEditor",
+			"style": {
+				"navigationBarTitleText": "低值领用分录编辑",
+				"navigationBarBackgroundColor": "#5089F9",
+				"navigationBarTextStyle": "#ffffff"
+				// "navigationStyle": "custom",
+			}
+		}, 
+		// {
+		// 	"path": "pages/receive/semen/semenHistory",
+		// 	"style": {
+		// 		"navigationBarTitleText": "精液领用历史记录",
+		// 		"navigationBarBackgroundColor": "#5089F9",
+		// 		"navigationBarTextStyle": "#ffffff",
+		// 		// "navigationStyle": "custom",
+		// 		"app-plus": {
+		// 			"bounce": "none", //关闭窗口回弹效果
+		// 			"titleNView": {
+		// 				"buttons": [ //原生标题栏按钮配置,
+		// 					{
+		// 						"text": "•••",
+		// 						"fontSize": "30upx"
+		// 					}
+		// 				]
+		// 			}
+		// 		}
+		// 	}
+		// },
+		{
+			"path": "pages/receive/drug/applyFor",
+			"style": {
+				"navigationBarTitleText": "药品申请关联",
+				"navigationBarBackgroundColor": "#5089F9",
+				"navigationBarTextStyle": "#ffffff",
+				// "navigationStyle": "custom",
+				"app-plus": {
+					"bounce": "none", //关闭窗口回弹效果
+					"titleNView": {
+						"buttons": [ //原生标题栏按钮配置,
+							{
+								"text": "•••",
+								"fontSize": "30upx"
+							}
+						]
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/health/immunizationPlan/immunizationRecordDetail",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/health/immunizationPlan/immunizationRecord",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/health/immunizationPlan/immunizationPlanEditor2",
+			"style": {
+				"navigationBarTitleText": "免疫计划调整",
+				"navigationBarBackgroundColor": "#5089F9",
+				"navigationBarTextStyle": "#ffffff"
+			}
+		},
+		{
+			"path": "pages/health/immunizationPlan/immunizationPlanDetail",
+			"style": {
+				"navigationBarTitleText": "免疫记录明细",
+				"navigationBarBackgroundColor": "#5089F9",
+				"navigationBarTextStyle": "#ffffff"
+			}
+		},
+		{
+			"path": "pages/health/immunizationPlan/immunizationPlanEditor",
+			"style": {
+				"navigationBarTitleText": "免疫计划调整",
+				"navigationBarBackgroundColor": "#5089F9",
+				"navigationBarTextStyle": "#ffffff"
+			}
+		},
+		{
+			"path": "pages/health/insurance/insuranceRecord",
+			"style": {
+				"navigationBarTitleText": "保健记录",
+				"navigationBarBackgroundColor": "#5089F9",
+				"navigationBarTextStyle": "#ffffff"
+			}
+		},
+		{
+			"path": "pages/health/insurance/addInsurance",
+			"style": {
+				"navigationBarTitleText": "新增保健记录",
+				"navigationBarBackgroundColor": "#5089F9",
+				"navigationBarTextStyle": "#ffffff"
+			}
+		},
+		{
+			"path": "pages/health/immunizationPlan/immunizationPlanList",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/health/recyclingBottles/recyclingBottlesHistory",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/health/recyclingBottles/recylingBottleEditor",
+			"style": {
+				"navigationBarTitleText": "空瓶回收编辑",
+				"navigationBarBackgroundColor": "#5089F9",
+				"navigationBarTextStyle": "#ffffff"
+			}
+		}, {
+			"path": "pages/archives/boarInfo/boarInfo",
+			"style": {
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": true,
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		}, {
+			"path": "pages/archives/boarInfo/boarDetail/boarDetail",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, {
+			"path": "pages/archives/boarInfo/boarFamily/boarFamily",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, {
+			"path": "pages/archives/boarInfo/boarSetting/boarSetting",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},{
+			"path": "pages/archives/matingBatch/matingInfo",
+			"style": {
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": true,
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		}, {
+			"path": "pages/archives/matingBatch/matingDetail/matingDetail",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, {
+			"path": "pages/archives/matingBatch/matingSetting/matingSetting",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, {
+			"path": "pages/archives/pigBatch/pigBatch",
+			"style": {
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": true,
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		}, {
+			"path": "pages/archives/pigBatch/pigBatchDetail/pigBatchDetail",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, { //配种记录新增
+			"path": "pages/dataCollection/breedRecord/breedNew",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		}, { //配种记录查询
+			"path": "pages/dataCollection/breedRecord/breedQuery",
+			"style": {
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": true,
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		}, { //配种记录编辑
+			"path": "pages/dataCollection/breedRecord/breedEditor",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, { //配种单个录入
+			"path": "pages/dataCollection/breedRecord/breedInput",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, { //配种记录审核
+			"path": "pages/dataCollection/breedRecord/breedAudit",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, { //配种记录详情
+			"path": "pages/dataCollection/breedRecord/breedDetail",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		}, { //配种记录详情-提交
+			"path": "pages/dataCollection/breedRecord/breedDetailSubmit",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, { //配种记录显示
+			"path": "pages/dataCollection/breedRecord/breedSetting",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, { //配种记录审核-编辑
+			"path": "pages/dataCollection/breedRecord/breedNewEdit",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, { //配种批量录入
+			"path": "pages/dataCollection/breedRecord/breedInputMore",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, { //分娩记录新增
+			"path": "pages/dataCollection/birthRecord/birthInputHy",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},
+		{ //分娩记录查询
+			"path": "pages/dataCollection/birthRecord/birthQuery",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		}, { //分娩记录编辑
+			"path": "pages/dataCollection/birthRecord/birthEditor",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, { //分娩记录审核
+			"path": "pages/dataCollection/birthRecord/birthAudit",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, { //分娩记录详情
+			"path": "pages/dataCollection/birthRecord/birthDetail",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		}, { //分娩记录详情-提交
+			"path": "pages/dataCollection/birthRecord/birthDetailSubmit",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, { //分娩记录审核
+			"path": "pages/dataCollection/birthRecord/birthNew",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		}, { //分娩显示设置
+			"path": "pages/dataCollection/birthRecord/birthSetting",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, { //分娩记录审核-编辑
+			"path": "pages/dataCollection/birthRecord/birthNewEdit",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, { //分娩单个录入
+			"path": "pages/dataCollection/birthRecord/birthInput",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},{ //妊检记录新增
+			"path": "pages/dataCollection/pregnancyRecord/pregnancyNew",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		}
+		,{ //断奶记录新增
+			"path": "pages/dataCollection/weaningRecord/weaningNew",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},
+		{ //死亡记录新增
+			"path": "pages/dataCollection/deathRecord/deathNew",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},{ //死亡记录详情 
+			"path": "pages/dataCollection/deathRecord/deathDetail",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},
+		{ //生产猪转群记录新增
+			"path": "pages/dataCollection/pigProduction/productionNew",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},{ //生产猪转群记录详情
+			"path": "pages/dataCollection/pigProduction/productionDetail",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},
+		{ //批次猪转舍记录新增
+			"path": "pages/dataCollection/batchPig/batchPigNew",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},{ //批次猪转舍记录详情
+			"path": "pages/dataCollection/batchPig/batchPigDetail",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},{ //后备猪健康记录新增
+			"path": "pages/dataCollection/reservePig/reservePigNew",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},{ //后备猪健康记录详情
+			"path": "pages/dataCollection/reservePig/reservePigDetail",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},
+		{ //异常猪记录新增
+			"path": "pages/dataCollection/abnormalPig/abnormalPigNew",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},{ //异常猪转舍记录详情
+			"path": "pages/dataCollection/abnormalPig/abnormalPigDetail",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},{ //妊检记录批量录入
+			"path": "pages/dataCollection/pregnancyRecord/pregnancyInputMore",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},{ //妊检记录录入
+			"path": "pages/dataCollection/pregnancyRecord/pregnancyInput",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},{ //妊检操作记录查询
+			"path": "pages/dataCollection/pregnancyRecord/pregnancyQuery",
+			
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		}
+		,{ //断奶操作记录查询
+			"path": "pages/dataCollection/weaningRecord/weaningQuery",
+			
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},{ //断奶操作记录详情
+			"path": "pages/dataCollection/weaningRecord/weaningDetail",
+			
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},{ //死亡记录查询
+			"path": "pages/dataCollection/deathRecord/deathQuery",
+			
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},{ //生产猪操作记录查询
+			"path": "pages/dataCollection/pigProduction/productionQuery",
+			
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},{ //批次猪操作记录查询
+			"path": "pages/dataCollection/batchPig/batchPigQuery",
+			
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},{ //后备猪健康记录查询 
+			"path": "pages/dataCollection/reservePig/reservePigQuery",
+			
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},{ //异常猪操作记录查询
+			"path": "pages/dataCollection/abnormalPig/abnormalPigQuery",
+			
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		}
+		,{ //妊检审批
+			"path": "pages/dataCollection/pregnancyRecord/pregnancyAudit",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},{ //妊检详情
+			"path": "pages/dataCollection/pregnancyRecord/pregnancyDetail",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},{ //发情记录审核
+			"path": "pages/dataCollection/ruttingRecord/ruttingNew",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},
+		{ //发情记录新增
+			"path": "pages/dataCollection/ruttingRecord/ruttingInputHy",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},
+		{ //发情记录查询
+			"path": "pages/dataCollection/ruttingRecord/ruttingQuery",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		}, { //发情记录编辑
+			"path": "pages/dataCollection/ruttingRecord/ruttingEditor",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, { //发情记录审核
+			"path": "pages/dataCollection/ruttingRecord/ruttingAudit",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, { //发情记录详情
+			"path": "pages/dataCollection/ruttingRecord/ruttingDetail",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		}, { //发情记录详情-提交
+			"path": "pages/dataCollection/ruttingRecord/ruttingDetailSubmit",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, { //发情显示设置
+			"path": "pages/dataCollection/ruttingRecord/ruttingSetting",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, { //发情记录审核-编辑
+			"path": "pages/dataCollection/ruttingRecord/ruttingNewEdit",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, { //发情单个录入
+			"path": "pages/dataCollection/ruttingRecord/ruttingInput",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{ //精液检测审核
+			"path": "pages/dataCollection/semenTest/semenNew",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},
+		{ //精液检测新增
+			"path": "pages/dataCollection/semenTest/semenInputHy",
+			"style": {
+				"navigationStyle": "custom"
+				
+			}
+		},
+		{ //精液检测查询
+			"path": "pages/dataCollection/semenTest/semenQuery",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		}, { //精液检测编辑
+			"path": "pages/dataCollection/semenTest/semenEditor",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, { //精液检测审核
+			"path": "pages/dataCollection/semenTest/semenAudit",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, { //精液检测详情
+			"path": "pages/dataCollection/semenTest/semenDetail",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		}, { //精液检测详情-提交
+			"path": "pages/dataCollection/semenTest/semenDetailSubmit",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, { //精液检测显示设置
+			"path": "pages/dataCollection/semenTest/semenSetting",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, { //精液检测记录审核-编辑
+			"path": "pages/dataCollection/semenTest/semenNewEdit",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, { //精液检测单个录入
+			"path": "pages/dataCollection/semenTest/semenInput",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/scanCode/scanCode",
+			"style": {
+				"navigationBarTitleText": "扫码"
+			}
+		}, {
+			"path": "pages/pigfarm/pigfarm",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, {
+			"path": "pages/archives/pigfen/pigfen",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, {
+			"path": "pages/archives/pigfen/pigfenDetail/pigfenDetail",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+
+
+		//新增饲喂管理
+		{
+			"path": "pages/freed/freedApp/freedList",
+			"style": {
+				"navigationBarTitleText": "饲喂程序",
+				"navigationBarBackgroundColor": "#5089F9",
+				"navigationBarTextStyle": "#ffffff",
+				// "navigationStyle": "custom",
+				"app-plus": {
+					"bounce": "none", //关闭窗口回弹效果
+					"titleNView": {
+						"buttons": [ //原生标题栏按钮配置,
+							{
+								"text": "查询",
+								"fontSize": "24rpx"
+							}
+						]
+					}
+				}
+			}
+		}, {
+			"path": "pages/freed/freedApp/freedDetail",
+			"style": {
+				"navigationBarTitleText": "饲喂明细",
+				"navigationBarBackgroundColor": "#5089F9",
+				"navigationBarTextStyle": "#ffffff"
+			}
+		},
+		//盘点管理
+		{
+			"path": "pages/stock/lowValue",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},{
+			"path": "pages/stock/lowValueNew",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+	    {
+            "path" : "pages/stock/lowValueRecord",
+            "style": {
+            	"navigationStyle": "custom"
+            }
+        },
+		{
+		    "path" : "pages/stock/diningHall",
+		    "style": {
+		    	"navigationStyle": "custom"
+		    }
+		},
+		{
+		    "path" : "pages/stock/diningHallNew",
+		    "style": {
+		    	"navigationStyle": "custom"
+		    }
+		},
+		{
+		    "path" : "pages/stock/diningHallRecord",
+		    "style": {
+		    	"navigationStyle": "custom"
+		    }
+		}
+        ,{
+            "path" : "pages/stock/feed",
+            "style": {
+            	"navigationStyle": "custom"
+            }
+        },{
+            "path" : "pages/stock/feedNew",
+            "style": {
+            	"navigationStyle": "custom"
+            }
+        },{
+            "path" : "pages/stock/feedRecord",
+            "style": {
+            	"navigationStyle": "custom"
+            }
+        },{
+            "path" : "pages/stock/material",
+            "style": {
+            	"navigationStyle": "custom"
+            }
+        },{
+            "path" : "pages/stock/materialNew",
+            "style": {
+            	"navigationStyle": "custom"
+            }
+        },{
+            "path" : "pages/stock/materialRecord",
+            "style": {
+            	"navigationStyle": "custom"
+            }
+        },{
+		    "path" : "pages/stock/building",
+		    "style": {
+		    	"navigationStyle": "custom"
+		    }
+		},{
+		    "path" : "pages/stock/pigResult",
+		    "style": {
+		    	"navigationStyle": "custom"
+		    }
+		},{
+		    "path" : "pages/stock/diffDetail",
+		    "style": {
+		    	"navigationStyle": "custom"
+		    }
+		},{
+		    "path" : "pages/stock/pigRecord",
+		    "style": {
+		    	"navigationStyle": "custom"
+		    }
+		},{
+		    "path" : "pages/stock/pig",
+		    "style": {
+		    	"navigationStyle": "custom"
+		    }
+		},{
+		    "path" : "pages/stock/pigNew",
+		    "style": {
+		    	"navigationStyle": "custom"
+		    }
+		}
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#3cc51f",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [{
+				"pagePath": "pages/homePage/homePage",
+				"iconPath": "static/assets/message_normal.png",
+				"selectedIconPath": "static/assets/message_selected.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/console/console",
+				"iconPath": "static/assets/console_normal.png",
+				"selectedIconPath": "static/assets/console_select.png",
+				"text": "工作台"
+			},
+			{
+				"pagePath": "pages/report/report",
+				"iconPath": "static/assets/report_normal.png",
+				"selectedIconPath": "static/assets/report_select.png",
+				"text": "报表"
+			},
+			{
+				"pagePath": "pages/personalCenter/personalCenter",
+				"iconPath": "static/assets/my_normal.png",
+				"selectedIconPath": "static/assets/my_selected.png",
+				"text": "我的"
+			}
+		]
+	}
+}

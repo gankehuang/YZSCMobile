@@ -1,0 +1,141 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.icon {
+  margin-left: 12px;
+  width: 13px;
+  height: 13px;
+}
+.page-wrapper {
+  padding-top: 65px;
+}
+.form_wrapper {
+  padding: 0 30rpx;
+}
+.editor-title {
+  height: 80rpx;
+}
+.editor-title .img {
+    line-height: 80rpx;
+}
+.editor-title .img image {
+      width: 12rpx;
+      height: 12rpx;
+      vertical-align: middle;
+}
+.editor-title text {
+    margin-left: 14rpx;
+    line-height: 80rpx;
+    font-size: 32rpx;
+}
+.editor-title .confirm-btn {
+    width: 140rpx;
+    height: 54rpx;
+}
+.editor-title .confirm-btn button {
+      width: 140rpx;
+      height: 54rpx;
+      font-size: 24rpx;
+      padding: 0;
+      background-color: #4684EA;
+}
+.editor-title.form-seat {
+    height: 120rpx;
+}
+.card-form .form-list {
+  height: 96rpx;
+  border-bottom: 1rpx solid #EBEEF2;
+  font-size: 28rpx;
+}
+.card-form .form-list .field text {
+    color: #FF6354;
+    margin-left: 10rpx;
+}
+.card-form .form-list .s-value {
+    color: #B2B2B2;
+    vertical-align: middle;
+}
+.card-form .form-list .s-value.d-num {
+      text-align: right;
+}
+.card-form .form-list .s-value.d-num input {
+        font-size: 14px;
+}
+.submits {
+  margin-top: 90rpx;
+  margin-bottom: 40rpx;
+}
+.submits button {
+    width: 316rpx;
+    height: 88rpx;
+}
+.submits button.editor-btn {
+      background-color: #F05E57;
+}
+.submits button.submit-btn {
+      background-color: #4684EA;
+}
+.editor_wraper .thead_row {
+  background-color: #70ADFF;
+  color: white;
+  height: 32px;
+  font-size: 12px;
+}
+.editor_wraper .tbody_row {
+  background-color: #EDF3F9;
+  height: 32px;
+  padding: 0 6px;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #4D4D4D;
+}
+.editor_wraper .tbody_row:nth-child(even) {
+    background-color: white;
+}
+.editor_wraper .tbody_row .input_inner {
+    border: 1px solid #E2E2E2;
+    border-radius: 2px;
+    margin: 0 2px;
+    font-size: 12px;
+    height: 46rpx;
+    background-color: white;
+    padding: 0 4px;
+}
+.flex2 {
+  -webkit-box-flex: 2;
+  -webkit-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+.flex3 {
+  -webkit-box-flex: 3;
+  -webkit-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+}
+

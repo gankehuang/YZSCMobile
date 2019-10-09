@@ -1,0 +1,18 @@
+{
+  "navigationBarTitleText": "精液领用关联申请",
+  "navigationBarBackgroundColor": "#5089F9",
+  "navigationBarTextStyle": "white",
+  "navigationStyle": "custom",
+  "bounce": "none",
+  "titleNView": {
+    "buttons": [
+      {
+        "text": "•••",
+        "fontSize": "30upx"
+      }
+    ]
+  },
+  "usingComponents": {
+    "ztable": "/components/z-table/z-table"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "navigationBarTitleText": "低值领用新增",
+  "navigationBarBackgroundColor": "#5089F9",
+  "navigationBarTextStyle": "white",
+  "bounce": "none",
+  "titleNView": {
+    "buttons": [
+      {
+        "text": "•••",
+        "fontSize": "30upx"
+      }
+    ]
+  },
+  "usingComponents": {
+    "mpvue-picker": "/components/mpvue-picker/mpvuePicker",
+    "uni-icon": "/components/uni-icon/uni-icon",
+    "popup-layer": "/components/popup/popup-layer",
+    "ztable": "/components/z-table/z-table",
+    "page-sider": "/components/pageSider",
+    "list-page": "/components/popup-list-page/index"
+  }
+}

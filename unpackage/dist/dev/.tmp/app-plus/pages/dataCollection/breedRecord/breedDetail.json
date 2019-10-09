@@ -1,0 +1,8 @@
+{
+  "navigationStyle": "custom",
+  "animationType": "fade-in",
+  "animationDuration": 300,
+  "usingComponents": {
+    "uni-popup": "/components/uni-popup/uni-popup"
+  }
+}

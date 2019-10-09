@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "保健记录",
+  "navigationBarBackgroundColor": "#5089F9",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "mpvue-picker": "/components/mpvue-picker/mpvuePicker",
+    "uni-icon": "/components/uni-icon/uni-icon",
+    "uni-cell": "/components/uni-cell/uni-cell",
+    "ztable": "/components/z-table/z-table",
+    "popup-layer": "/components/popup/popup-layer"
+  }
+}

@@ -1,0 +1,1 @@
+<view class="form-list"><view class="field"><block wx:if="{{$slots.title}}"><slot name="title"></slot></block><block wx:else>{{''+title+''}}</block><block wx:if="{{required}}"><text>*</text></block></view><view class="cell-value"><block wx:if="{{$slots.value}}"><slot name="value"></slot></block><block wx:else><text>{{value}}</text></block></view></view>

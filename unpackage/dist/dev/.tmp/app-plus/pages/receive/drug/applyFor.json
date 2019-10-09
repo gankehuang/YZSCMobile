@@ -1,0 +1,20 @@
+{
+  "navigationBarTitleText": "药品申请关联",
+  "navigationBarBackgroundColor": "#5089F9",
+  "navigationBarTextStyle": "white",
+  "bounce": "none",
+  "titleNView": {
+    "buttons": [
+      {
+        "text": "•••",
+        "fontSize": "30upx"
+      }
+    ]
+  },
+  "usingComponents": {
+    "ztable": "/components/z-table/z-table",
+    "page-sider": "/components/pageSider",
+    "popup-layer": "/components/popup/popup-layer",
+    "list-page": "/components/popup-list-page/index"
+  }
+}

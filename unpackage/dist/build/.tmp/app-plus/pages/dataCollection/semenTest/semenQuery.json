@@ -1,0 +1,8 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "ztable": "/components/z-table/z-table",
+    "popup-layer": "/components/popup/popup-layer",
+    "uni-load-more": "/components/uni-load-more"
+  }
+}
