@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view> 
 		<!-- 1这里是状态栏 -->
 		<view class="status">
 			<image class="status-bg" src="/static/assets/top_bg@2x.png" mode="widthFix"></image>
@@ -8,7 +8,7 @@
 					<image class="icon" src="/static/assets/back.png"></image>
 				</view>
 				<view class="status-title">
-					后备猪健康记录详情
+					后备猪健康详情
 				</view>
 				<view class="status-del">
 					<!-- 删除 -->
@@ -21,126 +21,84 @@
 			<view class="main-wrap">
 				<view class="main-wrap-contetnt">
 					<view class="main-wrap-contetnt-item">
+						
+						<!-- 泪斑 * -->
 						<view class="main-wrap-contetnt-item-field" style="padding-top: 0;">
-							<view class="main-wrap-contetnt-item-field-name">
-								是否跨分场
-							</view>
-							<view class="main-wrap-contetnt-item-field-value" style="display: flex;">
-								<radio-group >
-									<view style="display: block;">
-										<view style="display: flex;">
-											<label style=";padding: 0;display: flex;" >
-												<radio style="transform: scale(0.7);margin-left: 30px;"  :checked="falg3" @click="checked3"/>
-											</label>
-										</view>
-									</view>
-								</radio-group>
-							</view>
-						</view>
-						
-						<!-- 转入分场 -->
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								转入分场
+							<view style="display: flex;align-items: center;" class="main-wrap-contetnt-item-field-name">
+							 	泪斑
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<picker @change="bindPickerChange" :value="index" :range="array2">
-									<view class="picker">
-										<view class="uni-input">{{array2[index]}}</view>
-										<view class="dextrad-icon">
-											<uni-icon type="arrowright" color="#333333" size="18" />
-										</view>
-									</view>
-								</picker>
+								<input type="text"  placeholder="请输入泪斑" />
 							</view>
 						</view>
 						
-						<!-- 转出批次 * -->
+						<!-- 皮肤病 * -->
 						<view class="main-wrap-contetnt-item-field">
 							<view style="display: flex;align-items: center;" class="main-wrap-contetnt-item-field-name">
-								转出批次<text class="text-red">*</text>
-								<image @click="qr" style="margin: 0;" src="../../../static/search/qr.png" mode="" class="icon"></image>
+							 	皮肤病
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text"  placeholder="请输入转出批次" />
+								<input type="text"  placeholder="请输入皮肤病" />
 							</view>
 						</view>
 						
-						<!-- 转入批次 -->
+						<!-- 脓包 * -->
 						<view class="main-wrap-contetnt-item-field">
 							<view style="display: flex;align-items: center;" class="main-wrap-contetnt-item-field-name">
-								转入批次
-								<image @click="qr" style="margin: 0;margin-left: 5px;" src="../../../static/search/qr.png" mode="" class="icon"></image>
+							 	脓包
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text"  placeholder="请输入转入批次" />
+								<input type="text"  placeholder="请输入脓包" />
 							</view>
 						</view>
 						
-						<!-- 转群类别 * -->
-						<view class="main-wrap-contetnt-item-field" >
-							<view class="main-wrap-contetnt-item-field-name">
-								转群类别<text class="text-red">*</text>
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<picker @change="bindPickerChange" :value="index" :range="array2">
-									<view class="picker">
-										<view class="uni-input">{{array2[index]}}</view>
-										<view class="dextrad-icon">
-											<uni-icon type="arrowright" color="#333333" size="18" />
-										</view>
-									</view>
-								</picker>
-							</view>
-						</view>
-						
-						<!-- 转出日龄 -->
+						<!-- 创伤 * -->
 						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								转出日龄
+							<view style="display: flex;align-items: center;" class="main-wrap-contetnt-item-field-name">
+							 	创伤
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text"  placeholder="默认带出" />
+								<input type="text"  placeholder="请输入创伤" />
 							</view>
 						</view>
 						
-						<!-- 转入舍 -->
+						<!-- 炎症 * -->
 						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								转入舍
+							<view style="display: flex;align-items: center;" class="main-wrap-contetnt-item-field-name">
+							 	炎症
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text"  placeholder="默认带出" />
+								<input type="text"  placeholder="请输入炎症" />
 							</view>
 						</view>
 						
-						<!-- 转出舍 -->
+						<!-- 消瘦（膘情） * -->
 						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								转出舍
+							<view style="display: flex;align-items: center;" class="main-wrap-contetnt-item-field-name">
+							 	消瘦（膘情）
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text"  placeholder="默认带出" />
+								<input type="text"  placeholder="请输入消瘦" />
 							</view>
 						</view>
 						
-						<!-- 总重量 -->
+						<!-- 肢体病 * -->
 						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								总重量<text class="text-red">*</text>
+							<view style="display: flex;align-items: center;" class="main-wrap-contetnt-item-field-name">
+							 	肢体病
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text"  placeholder="请输入总重量" />
+								<input type="text"  placeholder="请输入肢体病" />
 							</view>
 						</view>
 						
-						<!-- 头数 -->
+						<!-- 批次血检抗体（190/210/入群） * -->
 						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								头数
+							<view style="display: flex;align-items: center;" class="main-wrap-contetnt-item-field-name">
+							 	批次血检抗体（190/210/入群）
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text"  placeholder="请输入头数" />
+								<input style="width: 100px;" type="text"  placeholder="请输入抗体" />
 							</view>
 						</view>
 					</view>
@@ -155,6 +113,8 @@
 </template>
 
 <script>
+	//引入图标
+	import uniIcon from '@/components/uni-icon/uni-icon.vue'
 	export default {
 		data() {
 			const currentDate = this.getDate({
@@ -177,6 +137,9 @@
 			endDate() {
 				return this.getDate('end');
 			}
+		},
+		components:{
+			uniIcon
 		},
 		methods: {
 			checked3(){

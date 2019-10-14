@@ -6,17 +6,14 @@
   "titleNView": {
     "buttons": [
       {
-        "text": "查询",
-        "fontSize": "24rpx"
+        "text": "历史记录",
+        "fontSize": "30upx",
+        "width": "150rpx"
       }
     ]
   },
   "usingComponents": {
-    "mpvue-picker": "/components/mpvue-picker/mpvuePicker",
     "uni-icon": "/components/uni-icon/uni-icon",
-    "uni-cell": "/components/uni-cell/uni-cell",
-    "ztable": "/components/z-table/z-table",
-    "draw-cell": "/components/uni-cell/draw-cell",
-    "popup-layer": "/components/popup/popup-layer"
+    "uni-cell": "/components/uni-cell/uni-cell"
   }
 }

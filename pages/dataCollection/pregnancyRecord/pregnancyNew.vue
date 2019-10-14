@@ -60,13 +60,13 @@
 
 			</view>
 		</view>
-		<view class="editor-title jus-j form-seat">
+	<!-- 	<view class="editor-title jus-j form-seat">
 			 <view class="main-wrap-contetnt-item-field-name">
 			 	耳牌号<text class="text-red">*</text>
 			 </view>
 			<view class="main-wrap-contetnt-item-field-name-icon" @click="scancode1" style="flex:1;margin-left: 5px;">
 				<image class="icon" src="/static/assets/scan-icon.png" mode=""></image>
-			</view>
+			</view> -->
 			<!-- <view class="titleicon">
 				<image src="/static/assets/rect.png" mode=""></image>
 				<text>妊检记录明细</text>
@@ -78,7 +78,7 @@
 				 class="flexc">批量录入</button>
 				<button type="warn" v-if="editStatus" class="flexc">删除(3)</button>
 			</view> -->
-		</view>
+		<!-- </view> -->
 		<!-- 列表 -->
 	<!-- 	<view class="list list-table">
 			<view class="data__wrapper">

@@ -35,7 +35,7 @@
 									<view class="picker">
 										<view class="uni-input">{{array[index]}}</view>
 										<view class="dextrad-icon">
-											<image class="icon-small" src="/static/assets/dextrad.png" mode=""></image>
+											<uni-icon type="arrowright" color="#333333" size="18"  />
 										</view>
 									</view>
 								</picker>
@@ -51,7 +51,7 @@
 									<view class="picker">
 										<view class="uni-input">{{array3[index]}}</view>
 										<view class="dextrad-icon">
-											<image class="icon-small" src="/static/assets/dextrad.png" mode=""></image>
+											<uni-icon type="arrowright" color="#333333" size="18"  />
 										</view>
 									</view>
 								</picker>
@@ -77,7 +77,7 @@
 									<view class="picker">
 										<view class="uni-input">{{array2[index]}}</view>
 										<view class="dextrad-icon">
-											<image class="icon-small" src="/static/assets/dextrad.png" mode=""></image>
+											<uni-icon type="arrowright" color="#333333" size="18"  />
 										</view>
 									</view>
 								</picker>
@@ -113,7 +113,7 @@
 									<view class="picker">
 										<view class="uni-input">{{array1[index]}}</view>
 										<view class="dextrad-icon">
-											<image class="icon-small" src="/static/assets/dextrad.png" mode=""></image>
+											<uni-icon type="arrowright" color="#333333" size="18"  />
 										</view>
 									</view>
 								</picker>
@@ -266,11 +266,12 @@
 </template>
 
 <script>
-	//import uniIcons from '@/components/uni-icons/uni-icons'
+	//引入图标
+	import uniIcon from '@/components/uni-icon/uni-icon.vue'
 	import uniPopup from '@/components/uni-popup/uni-popup'
 	export default {
 		components: {
-			//uniIcons,
+			uniIcon,
 			uniPopup
 		},
 		data() {

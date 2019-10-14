@@ -67,20 +67,22 @@
 			    </draw-cell>
 			   <!-- 与配公猪 -->
 			   <draw-cell title="与配公猪"  required="true">
-					<view slot="value" class="bg-gray jus-j">
-						<input type="text" placeholder="请填写" v-model="searchForm.immunePlan" />
-					</view>
+			   				<view slot="value" class="bg-gray jus-j">
+			   					<image @click="qr" style="margin: 0;" src="../../static/search/qr.png" mode="" class="icon"></image>
+			   					<input type="text" placeholder="请填写" v-model="searchForm.immunePlan" />
+			   				</view>
 			   </draw-cell>
 			   <!-- 耳牌号 -->
 			   <draw-cell title="耳牌"  required="true">
-					<view slot="value" class="bg-gray jus-j">
-						<image @click="qr" style="margin: 0;" src="../../../static/search/qr.png" mode="" class="icon"></image>
-						<input type="text" placeholder="请填写" v-model="searchForm.immuneProject" />
-					</view>
+			   				<view slot="value" class="bg-gray jus-j">
+			   					<image @click="qr" style="margin: 0;" src="../static/search/qr.png" mode="" class="icon"></image>
+			   					<input type="text" placeholder="请填写" v-model="searchForm.immuneProject" />
+			   				</view>
 			   </draw-cell>
 			   <!-- 配种员 -->
 			   <draw-cell title="配种员"  required="true">
 			   				<view slot="value" class="bg-gray jus-j">
+			   					<image @click="qr" style="margin: 0;" src="../../static/search/qr.png" mode="" class="icon"></image>
 			   					<input type="text" placeholder="请填写" v-model="searchForm.recyclingNum" />
 			   				</view>
 			   </draw-cell>

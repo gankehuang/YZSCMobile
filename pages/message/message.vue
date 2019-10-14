@@ -2,41 +2,52 @@
 
 	<view class="content">
 		<scroll-view style="width:100%;height: 100%;flex: 1;" scroll-y :scroll-top="scrollTop" @scrolltolower="loadMore"
-		 @scroll="scrollTopFun" :lower-threshold="50" status-bar="true">
+		@scroll="scrollTopFun" :lower-threshold="50" status-bar="true">  <!---->
 			<view class="header">
-				<uni-nav-bar id="nav_bar" left-icon="arrowleft" :right-text="righttext" @click-right="showCity" left-text="返回"
-				 @click-left="back" title="消息" color="#ffffff" font-size="16px" :fixed="true" :statusBar="true" backgroundColor="#2D70F5">
-
+				<uni-nav-bar id="nav_bar" left-icon="arrowleft" left-text="返回" :border="false"
+				 @click-left="back" title="我的任务" color="#ffffff" font-size="16px" :fixed="true" :statusBar="true" backgroundColor="#2D70F5">
 				</uni-nav-bar>
-				<!-- <scroll-view id="tab-bar" :scroll-x="true" :show-scrollbar="false" :scroll-into-view="scrollInto" class="nav__warp"
-				 :class="showComponent ? 'topnav' : ''">
+				
+				<scroll-view id="tab-bar" :scroll-x="true" :show-scrollbar="false" :scroll-into-view="scrollInto" class="nav__warp topnav"
+				  >
 					<view class="nav__list" v-for="(tab, index) in tabBars" :key="index" :id="tab.value" :data-current="index" @click="tapTab">
-						<view class="nav__item" :class="{'active': tabIndex == index}">
+						<view class="nav__item" :class="{'active1': tabIndex == index}">
 							<text class="nav__item__text">{{ tab.name }}</text>
 							<view class="nav__item__line"></view>
 						</view>
 					</view>
-				</scroll-view> -->
+				</scroll-view>
 			</view>
 			<!-- 文章列表 -->
 			<scroll-view id="list" :vertical="true" @scrolltolower="loadMore">
-				<view v-for="(item,index) in dataList" :key="index">
+				<view v-for="(item,index) in dataList" :key="index" style="margin-top: 20rpx;">
 					<view class="list_date">
+						
 						<view class="list_title" v-if="isSee(item,index)">
 							<image src="/static/assets/dateicon.png" style="height: 30rpx;width: 30rpx;margin-right: 8rpx;"></image>
 							<text>{{item.createDate}}</text>
 
 						</view>
-						<view class="badge-view" v-if="isSee(item,index)">
-							<uni-badge text="3" type="error" />
+						<view class="badge-view" v-if="isSee(item,index)" style="width: 30%; font-size: 23rpx; color: #888888;margin-top: 10rpx;">
+							<!-- <uni-badge text="3" type="error" /> -->
+							查看更多（6）
 						</view>
 					</view>
+					<view class="list_date" style="margin-left: 50rpx; font-weight: 500;display: flex;justify-content:space-between" v-if="index<2">
+					 	<view class="">审批</view>
+					 	<view class="" style="margin-right: 100rpx; color: #888888;font-size: 25rpx;">14:12</view>
+					</view>
+					<view class="list_date" style="margin-left: 50rpx; font-weight: 500;display: flex;justify-content:space-between" v-if="index>2">
+						<view class="">任务</view>
+					 	<view class="" style="margin-right: 100rpx; color: #888888;font-size: 25rpx;">14:12</view>
+					</view>
 					<view class="listItem" @click="tap(item)">
+						<image src="../../static/slices/Rectangle%20Copy%209@2x.png" mode="" style="width: 100rpx;height: 100rpx;"></image>
 						<text v-text="item.name" style="flex: 1;text-align: left;" />
 						<view class="tag-view" v-if="showtag">
 							<uni-tag :text="item.text" :type="item.type" />
 						</view>
-						<uni-icon type="forward" color="#333333" size="22" />
+						<!-- <uni-icon type="forward" color="#333333" size="22" /> -->
 
 					</view>
 				</view>
@@ -101,15 +112,7 @@
 						id: 1,
 						text:'改善',
 						type:'primary'
-					},
-					{
-						createDate: '2019-06-28',
-						name: '您有数据管理任务待办2',
-						id: 2,
-						text:'恶化',
-						type:'error'
 					}
-
 				],
 
 				tabIndex: 0, // tab组件选项卡事件参数
@@ -120,20 +123,16 @@
 
 				// 顶部菜单
 				tabBars: [{
-						name: '待办任务',
+						name: '我的待办',
 						value: 'waitTask'
 					},
 					{
-						name: '生产提醒',
+						name: '我发起的',
 						value: 'projectTip'
 					},
 					{
-						name: '任务逾期',
+						name: '我的待阅',
 						value: 'taskExpect'
-					},
-					{
-						name: '指标预警',
-						value: 'targetPrewarn'
 					}
 				],
 				scrollInto: "",
@@ -321,7 +320,7 @@
 	.header {
 		background: $headBg;
 		white-space: nowrap;
-		// padding-bottom: 20rpx;
+		//padding-bottom: 20rpx;
 		// border-bottom-left-radius: 32rpx;
 		// border-bottom-right-radius: 32rpx;
 
@@ -330,6 +329,7 @@
 			overflow-x: scroll;
 			display: flex;
 			color: #B6BCC9;
+			//margin-top: 60rpx;
 		}
 
 		.uni-navbar__header-btns:last-child {
@@ -361,7 +361,7 @@
 				width: fit-content;
 				white-space: nowrap;
 
-				&.active {
+				&.active1 {
 					.nav__item__text {
 						color: white;
 					}
@@ -386,9 +386,9 @@
 	}
 
 	.topnav {
-		position: fixed;
+		position: sticky;
 		animation: myfirst 0.2s;
-		top: 0;
+		top: 60rpx;
 		background: $headBg;
 		z-index: 1;
 	}

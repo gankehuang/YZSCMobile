@@ -1,4 +1,5 @@
 <template>
+	<!-- 免疫计划执行 -->
 	<view>
 		<!-- 这里是状态栏 -->
 		<view class="status">
@@ -31,6 +32,8 @@
 				<button type="primary" class="flexc cancel-btn">取消计划</button>
 				<button type="primary" class="flexc submit-btn" @click="changePlan">调整计划</button>
 			</view>
+			<!-- 选页 -->
+			<pageSider :pageNum="pageNum" :currentPage="pageInfo.page"></pageSider>
 			<!-- <uni-drawer :visible="showDrawer" mode="right" @close='closeDrawer'>
 			    <view style="padding:30rpx;">
 			        <view class="uni-title">{{name}}</view>
@@ -130,7 +133,9 @@
 	//引入下拉框
 	import mpvuePicker from '@/components/mpvue-picker/mpvuePicker.vue';
 	//引入图标
-	import uniIcon from '@/components/uni-icon/uni-icon.vue'
+	import uniIcon from '@/components/uni-icon/uni-icon.vue';
+	// 引入 选页
+	import pageSider from '@/components/pageSider.vue';
 	//引入时间转换
 	import {timeFormat} from '@/utils/dateUtils.js'
 	export default {
@@ -251,7 +256,8 @@
 			popupLayer,
 			drawCell,
 			mpvuePicker,
-			uniIcon
+			uniIcon,
+			pageSider
 		},
 		methods: {
 			rowTapHandler (row) {

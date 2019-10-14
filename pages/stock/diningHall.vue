@@ -16,8 +16,132 @@
 				</view>
 			</view>
 		</view>
+		<view class="main">
+			<view class="main-wrap">
+				<view class="main-wrap-contetnt">
+					<view class="main-wrap-contetnt-item">
+						<view class="main-wrap-contetnt-item-title">
+							<view class="main-wrap-contetnt-item-title-text">基本信息</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								单据编号
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<input type="text" value="" />
+							</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								盘点时间
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<picker :range="array" :value="index" @change="bindPickerChange">
+									<view class="picker">
+										<view class="uni-input">{{array[index]}}</view>
+										<view class="dextrad-icon">
+											<uni-icon type="arrowright" color="#B2B2B2" size="16" />
+										</view>
+									</view>
+								</picker>
+							</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								盘点日期
+							</view>
+							<view class="main-wrap-contetnt-item-field-value" @tap="selectDate">
+								<text></text>
+								<image src="../../static/assets/calendar.png" style="width: 40rpx;height: 40rpx;margin-right: 15rpx;"></image>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="main">
+			<view class="main-wrap" style="padding-top: 10px;">
+				<view class="main-wrap-contetnt">
+					<view class="main-wrap-contetnt-item">
+						<view class="main-wrap-contetnt-item-title">
+							<view class="main-wrap-contetnt-item-title-text">盘点明细</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								食材名称<text class="text-red">*</text>
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<input type="text" value="" />
+							</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								计量单位
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<input type="text" value="" />
+							</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								盘点数量<text class="text-red">*</text>
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<input type="text" value="" />
+							</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								基本分类
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<picker :range="array" :value="index" @change="bindPickerChange">
+									<view class="picker">
+										<view class="uni-input">{{array[index]}}</view>
+										<view class="dextrad-icon">
+											<uni-icon type="arrowright" color="#B2B2B2" size="16" />
+										</view>
+									</view>
+								</picker>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="main">
+			<view class="main-wrap" style="padding-top: 0px;">
+				<view class="main-wrap-content">
+					<view class="mian-wrap-content-item">
+						<view class="editor-title flex ali-c">
+							<view class="img">
+								<image src="/static/assets/rect.png" mode=""></image>
+								<text>上传图片</text>
+							</view>
+						</view>
+						<view class="takePhotoList">
+							<view class="takephotoItem">
+								<image class="img" src="../../static/assets/plus.png" mode=""></image>
+							</view>
+							<view class="takephotoItem">
+								<image class="img" src="../../static/assets/plus.png" mode=""></image>
+							</view>
+							<view class="takephotoItem">
+								<image class="img" src="../../static/assets/plus.png" mode=""></image>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
 		
-		<view class="health-container">
+		<view class="submits jus-b" style="padding-bottom: 15px;">
+			<!-- <button type="primary" class="flexc cancel-btn" @tap="clickCancel">取消</button> -->
+			<button type="primary"  class="flexc submit-btn">确定</button>
+		</view>
+		<mpvue-picker :themeColor="themeColor" ref="mpvuePicker" mode="dateSelector" :pickerValueDefault="pickerValueDefault" @onConfirm="onConfirmDate" @onCancelDate="onCancel"
+		 ></mpvue-picker>
+		<!-- <view class="health-container">
 			<view class="editor-title flex ali-c">
 				<view class="img">
 					<image src="/static/assets/rect.png" mode=""></image>
@@ -40,7 +164,7 @@
 			</view>
 			
 			<view class="data__wrapper">
-				<ztable :tableData="tableData" :columns="columns" :neddCheck="true"  emptyText="-" @rowTap="rowTapHandler" @checkbox="checkbox"></ztable>
+				<ztable :tableData="tableData" :columns="columns" emptyText="-" @rowTap="rowTapHandler"></ztable>
 			</view>
 			
 			<view class="editor-title flex ali-c">
@@ -61,14 +185,12 @@
 				</view>
 			</view>
 			
-			<!-- btn -->
 			<view class="submits jus-b">
 				<button type="primary" class="flexc cancel-btn" @tap="clickCancel">取消</button>
 				<button type="primary"  class="flexc submit-btn">确定</button>
 			</view>
-			
-			<PageSider :pageNum="pageNum" :currentPage="pageInfo.page" ></PageSider>
-		</view>
+		
+		</view> -->
 	</view>
 	
 </template>
@@ -81,7 +203,6 @@
 	import drawCell from '@/components/uni-cell/draw-cell.vue';
 	import ztable from '@/components/z-table/z-table'
 	import popupLayer from '@/components/popup/popup-layer.vue';
-	import PageSider from '@/components/pageSider.vue'
 	export default {
 		data() {
 			return {
@@ -151,12 +272,10 @@
 						storageNum:'55',
 						classify:'衣服'
 					}],
-					pageInfo: {
-						page: 1,
-						pageSize: 50,
-						total: 2000,
-					}
-					
+					themeColor: '#007AFF',
+					pickerValueDefault: [0],
+					index: 0,
+					array: ['请选择配种时段', '1', '2', '3'],
 			}
 		},
 		components: {
@@ -166,7 +285,6 @@
 			ztable,
 			drawCell,
 			popupLayer,
-			PageSider
 		},
 		methods: {
 			record () {
@@ -176,13 +294,15 @@
 					fail: () => {},
 					complete: () => {}
 				});
-			}
+			},
+			selectDate: function(){
+				this.$refs.mpvuePicker.show()
+			},
+			bindPickerChange: function(e) {
+				console.log('picker发送选择改变，携带值为', e.target.value)
+				this.index = e.target.value
+			},
 		},
-		computed: {
-			pageNum () {
-				return Math.ceil(this.pageInfo.total / this.pageInfo.pageSize)
-			}
-		}
 	}
 </script>
 
@@ -197,7 +317,55 @@
 			padding-left: 32%;
 		}
 	}
+	.submits {
+		margin-top: 0rpx;
+		margin-bottom: 30rpx;
 	
+		button {
+			width: 316rpx;
+			height: 88rpx;
+	
+			&.cancel-btn {
+				background-color: #F05E57;
+				}
+	
+			&.submit-btn {
+				background-color: #4684EA;
+				}
+			}
+		}
+	.main {
+		.main-wrap {
+			padding: 160rpx 23rpx 23rpx 23rpx;
+			.takePhotoList {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 0;
+			
+				.takephotoItem {
+					background: white;
+					border-radius: 22rpx;
+					height: 214rpx;
+					width: 214	rpx;
+					margin-right: 24rpx;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+			
+					.img {
+						width: 54rpx;
+						height: 54rpx;
+						vertical-align: middle;
+						}
+					&:last-child{
+						margin-right: 0;
+					}
+				}
+			}
+		}
+	}
+	// ---------------------------------------------------------------------
 .health-container{
 		background-color: #F5F5F5;
 		padding: 130rpx 30rpx 120rpx;
@@ -233,6 +401,7 @@
 			display:flex;
 			align-items:center;
 			justify-content:space-between;
+			padding: 0;
 			.takephotoItem{
 				background: white;
 				border-radius: 22rpx;
@@ -246,20 +415,23 @@
 					width: 53rpx;
 					height: 53rpx;
 					vertical-align:middle;
-				};
+				}
+				&:last-child{
+					margin-right: 0;
+				}
 			}
 		}
 		.submits {
-			margin-top: 56rpx;
-			margin-bottom:10rpx;
+			margin-top: 50rpx;
+			margin-bottom:50rpx;
 			button {
 				width:320rpx;
 				height:88rpx;
 				&.cancel-btn {
-					background-color: #4684EA;
+					background-color: #F05E57;
 				}
 				&.submit-btn {
-					background-color: #F05E57;
+					background-color: #4684EA;
 				}
 			}
 		}

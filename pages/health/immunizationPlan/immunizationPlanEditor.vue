@@ -1,4 +1,5 @@
 <template>
+	<!-- 免疫计划调整 -->
 	<view class="health-container">
 		<view class="editor-title flex ali-c">
 			<view class="img">
@@ -35,6 +36,8 @@
 		<view class="submits jus-b">
 			<button type="primary" class="flexc submit-btn" >提交</button>
 		</view>
+		<!-- 选页 -->
+		<pageSider :pageNum="pageNum" :currentPage="pageInfo.page"></pageSider>
 		<popup-layer ref="popupRef" :direction="'right'">
 		    <list-page
 			 @selectPages="selectPages"
@@ -51,7 +54,10 @@
 	import uniIcon from '@/components/uni-icon/uni-icon.vue'
 	import uniCell from '@/components/uni-cell/uni-cell.vue'
 	import ztable from '@/components/z-table/z-table'
+	// 引入 选页
+	import pageSider from '@/components/pageSider.vue';
 	// 引入弹框组件
+	import popupLayer from '@/components/popup/popup-layer.vue';
 	export default {
 		data() {
 			return {
@@ -113,7 +119,9 @@
 			mpvuePicker,
 			uniIcon,
 			uniCell,
-			ztable
+			ztable,
+			pageSider,
+			popupLayer
 		},
 		computed: {
 			pageNum () {

@@ -184,10 +184,6 @@
 	.page-wrapper{
 		padding-top: 65px;
 	}
-	.icon-big {
-		width: 24rpx;
-		height: 24rpx;
-	}
 	.page__info{
 		align-items: center;
 		font-size: 12px;

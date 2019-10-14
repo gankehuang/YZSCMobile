@@ -21,122 +21,139 @@
 			<view class="main-wrap">
 				<view class="main-wrap-contetnt">
 					<view class="main-wrap-contetnt-item">
-						<!-- 与配公猪 -->
-						<view class="main-wrap-contetnt-item-field">
+						
+						<view class="main-wrap-contetnt-item-field" style="padding-top: 0;">
 							<view class="main-wrap-contetnt-item-field-name">
-								耳牌号<text class="text-red">*</text>
-								<view class="main-wrap-contetnt-item-field-name-icon" @click="scancode">
-									<image class="icon" src="/static/assets/scan-icon.png" mode=""></image>
-								</view>
+								是否批次<text class="text-red">*</text>
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="DD0001" />
+								<picker @change="bindPickerChange" :value="index" :range="array1">
+									<view class="picker">
+										<view class="uni-input">{{array1[index]}}</view>
+										<view class="dextrad-icon">
+											<uni-icon type="arrowright" color="#B2B2B2" size="16" />
+										</view>
+									</view>
+								</picker>
 							</view>
 						</view>
 						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
-								合格公<text class="text-red">*</text>
+								耳牌号/批次号<text class="text-red">*</text>
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="5" />
+								<picker @change="bindPickerChange" :value="index" :range="array2">
+									<view class="picker">
+										<view class="uni-input">{{array2[index]}}</view>
+										<view class="dextrad-icon">
+											<uni-icon type="arrowright" color="#B2B2B2" size="16" />
+										</view>
+									</view>
+								</picker>
 							</view>
 						</view>
 						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
-								合格母<text class="text-red">*</text>
-								<view class="main-wrap-contetnt-item-field-name-icon" @click="scancode">
-									<image class="icon" src="/static/assets/scan-icon.png" mode=""></image>
-								</view>
+								存栏位置
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="5" />
+								<picker @change="bindPickerChange" :value="index" :range="array3">
+									<view class="picker">
+										<view class="uni-input">{{array3[index]}}</view>
+										<view class="dextrad-icon">
+											<uni-icon type="arrowright" color="#B2B2B2" size="16" />
+										</view>
+									</view>
+								</picker>
 							</view>
 						</view>
 						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
-								弱仔数
+								死亡原因<text class="text-red">*</text>
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="5" />
+								<picker @change="bindPickerChange" :value="index" :range="array3">
+									<view class="picker">
+										<view class="uni-input">{{array3[index]}}</view>
+										<view class="dextrad-icon">
+											<uni-icon type="arrowright" color="#B2B2B2" size="16" />
+										</view>
+									</view>
+								</picker>
 							</view>
 						</view>
 						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
-								畸形数
+								死亡头数<text class="text-red">*</text>
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入畸形数" />
+								<input type="text" value="" placeholder="请输入死亡头数" />
 							</view>
 						</view>
 						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
-								木乃伊
+								总重量<text class="text-red">*</text>
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入木乃伊" />
+								<input type="text" value="" placeholder="请输入总重量" />
 							</view>
 						</view>
 						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
-								死胎数
+								均重<text class="text-red">*</text>
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入死胎数" />
+								<input type="text" value="" placeholder="请输入均重" />
 							</view>
 						</view>
-						<view class="main-wrap-contetnt-item-field">
+						<view class="main-wrap-contetnt-item-field field-nobottom">
 							<view class="main-wrap-contetnt-item-field-name">
-								窝号
+								处理方式
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入窝号" />
+								<picker @change="bindPickerChange" :value="index" :range="array3" placeholder="请选择处理方式">
+									<view class="picker">
+										<view class="uni-input">{{array3[index]}}</view>
+										<view class="dextrad-icon">
+											<uni-icon type="arrowright" color="#B2B2B2" size="16" />
+										</view>
+									</view>
+								</picker>
 							</view>
 						</view>
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								窝重<text class="text-red">*</text>
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入窝重" />
-							</view>
-						</view>
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								窝均重<text class="text-red">*</text>
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入窝均重" />
-							</view>
-						</view>
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								活仔数<text class="text-red">*</text>
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入活仔数" />
-							</view>
-						</view>
-						<view class="main-wrap-contetnt-item-field no-bottom">
-							<view class="main-wrap-contetnt-item-field-name">
-								总仔数
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="自动求和" />
-							</view>
-						</view>
+						
 					</view>
 				</view>
 			</view>
 		</view>
+		
+		<view class="editor-title jus-j form-seat">
+			<view class="titleicon">
+				<image src="/static/assets/rect.png" mode=""></image>
+				<text>死亡照片</text>
+			</view>
+		</view>
+		<view class="takePhotoList">
+			<view class="takephotoItem">
+				<image class="img" src="/static/assets/plus.png" mode=""></image>
+			</view>
+			<view class="takephotoItem">
+				<image class="img" src="/static/assets/plus.png" mode=""></image>
+			</view>
+			<view class="takephotoItem">
+				<image class="img" src="/static/assets/plus.png" mode=""></image>
+			</view>
+		</view>
 		<view class="submits jus-b">
 			<button type="primary" class="flexc submit-btn">保存</button>
-			<button type="primary" class="flexc add-btn">编辑</button>
 		</view>
 	</view>
 
 </template>
 
 <script>
+	//引入图标
+	import uniIcon from '@/components/uni-icon/uni-icon.vue'
 	export default {
 		data() {
 			const currentDate = this.getDate({
@@ -159,6 +176,7 @@
 				return this.getDate('end');
 			}
 		},
+		components:{uniIcon},
 		methods: {
 			bindPickerChange: function(e) {
 				console.log('picker发送选择改变，携带值为', e.target.value)

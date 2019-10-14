@@ -2,12 +2,6 @@
   "navigationStyle": "custom",
   "navigationBarTitleText": "消息",
   "enablePullDownRefresh": false,
-  "titleNView": false,
-  "bounce": "none",
-  "pullToRefresh": {
-    "style": "circle",
-    "offset": "70px"
-  },
   "usingComponents": {
     "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
     "uni-icon": "/components/uni-icon/uni-icon",

@@ -21,27 +21,21 @@
 			<view class="main-wrap">
 				<view class="main-wrap-contetnt">
 					<view class="main-wrap-contetnt-item">
+						
+						<!-- 耳号 * -->
 						<view class="main-wrap-contetnt-item-field" style="padding-top: 0;">
-							<view class="main-wrap-contetnt-item-field-name">
-								是否跨分场
+							<view style="display: flex;align-items: center;" class="main-wrap-contetnt-item-field-name">
+								耳号
 							</view>
-							<view class="main-wrap-contetnt-item-field-value" style="display: flex;">
-								<radio-group >
-									<view style="display: block;">
-										<view style="display: flex;">
-											<label style=";padding: 0;display: flex;" >
-												<radio style="transform: scale(0.7);margin-left: 30px;"  :checked="falg3" @click="checked3"/>
-											</label>
-										</view>
-									</view>
-								</radio-group>
+							<view class="main-wrap-contetnt-item-field-value">
+								<input type="text" value="LY001"  placeholder="请输入耳号" />
 							</view>
 						</view>
 						
-						<!-- 转入分场 -->
+						<!-- 异常分类 -->
 						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
-								转入分场
+								异常分类
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
 								<picker @change="bindPickerChange" :value="index" :range="array2">
@@ -55,32 +49,30 @@
 							</view>
 						</view>
 						
-						<!-- 转出批次 * -->
+						<!-- 标色 -->
 						<view class="main-wrap-contetnt-item-field">
 							<view style="display: flex;align-items: center;" class="main-wrap-contetnt-item-field-name">
-								转出批次<text class="text-red">*</text>
-								<image @click="qr" style="margin: 0;" src="../../../static/search/qr.png" mode="" class="icon"></image>
+								标色
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text"  placeholder="请输入转出批次" />
+								<input type="text"  placeholder="请输入标色" />
 							</view>
 						</view>
 						
-						<!-- 转入批次 -->
+						<!-- 处理方法 -->
 						<view class="main-wrap-contetnt-item-field">
 							<view style="display: flex;align-items: center;" class="main-wrap-contetnt-item-field-name">
-								转入批次
-								<image @click="qr" style="margin: 0;margin-left: 5px;" src="../../../static/search/qr.png" mode="" class="icon"></image>
+								处理方法
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text"  placeholder="请输入转入批次" />
+								<input type="text"  placeholder="请输入处理方法" />
 							</view>
 						</view>
 						
-						<!-- 转群类别 * -->
-						<view class="main-wrap-contetnt-item-field" >
+						<!-- 执行人 -->
+						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
-								转群类别<text class="text-red">*</text>
+								执行人
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
 								<picker @change="bindPickerChange" :value="index" :range="array2">
@@ -94,55 +86,24 @@
 							</view>
 						</view>
 						
-						<!-- 转出日龄 -->
+						<!-- 责任人 -->
 						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
-								转出日龄
+								责任人
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text"  placeholder="默认带出" />
+								<picker @change="bindPickerChange" :value="index" :range="array2">
+									<view class="picker">
+										<view class="uni-input">{{array2[index]}}</view>
+										<view class="dextrad-icon">
+											<uni-icon type="arrowright" color="#333333" size="18" />
+										</view>
+									</view>
+								</picker>
 							</view>
 						</view>
 						
-						<!-- 转入舍 -->
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								转入舍
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text"  placeholder="默认带出" />
-							</view>
-						</view>
 						
-						<!-- 转出舍 -->
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								转出舍
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text"  placeholder="默认带出" />
-							</view>
-						</view>
-						
-						<!-- 总重量 -->
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								总重量<text class="text-red">*</text>
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text"  placeholder="请输入总重量" />
-							</view>
-						</view>
-						
-						<!-- 头数 -->
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								头数
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text"  placeholder="请输入头数" />
-							</view>
-						</view>
 					</view>
 				</view>
 			</view>
@@ -155,6 +116,8 @@
 </template>
 
 <script>
+	//引入图标
+	import uniIcon from '@/components/uni-icon/uni-icon.vue'
 	export default {
 		data() {
 			const currentDate = this.getDate({
@@ -177,6 +140,9 @@
 			endDate() {
 				return this.getDate('end');
 			}
+		},
+		components:{
+			uniIcon
 		},
 		methods: {
 			checked3(){

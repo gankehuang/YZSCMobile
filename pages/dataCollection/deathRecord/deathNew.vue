@@ -136,12 +136,6 @@
 			<view class="takephotoItem">
 				<image class="img" src="/static/assets/plus.png" mode=""></image>
 			</view>
-			<view class="takephotoItem">
-				<image class="img" src="/static/assets/plus.png" mode=""></image>
-			</view>
-			<view class="takephotoItem">
-				<image class="img" src="/static/assets/plus.png" mode=""></image>
-			</view>
 		</view>
 		<!-- 列表 -->
 		<view class="submits jus-b">

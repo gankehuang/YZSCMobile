@@ -194,10 +194,6 @@ page {
 .page-wrapper {
   padding-top: 65px;
 }
-.icon-big {
-  width: 24rpx;
-  height: 24rpx;
-}
 .page__info {
   -webkit-box-align: center;
   -webkit-align-items: center;
@@ -209,6 +205,12 @@ page {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: 10px 0 0;
+  color: #B2B2B2;
+}
+.page__info .icon-big {
+    width: 16rpx;
+    height: 16rpx;
+    margin-left: 16rpx;
 }
 .data__wrapper {
   padding: 0 10rpx;
@@ -337,6 +339,7 @@ page {
 }
 .card-form {
   margin: 30rpx 23rpx 23rpx;
+  height: 100rpx;
 }
 .card-form .input-style {
     color: #B2B2B2;
@@ -348,11 +351,18 @@ page {
     font-size: 28rpx;
 }
 .card-form .main-wrap-contetnt-item-field-name {
-    line-height: 80rpx;
+    line-height: 100rpx;
+    font-weight: bold;
+    font-family: PingFang-SC-Semibold;
+    color: #4d4d4d;
 }
 .card-form .text-red {
     color: red;
     margin: 0 10rpx;
+}
+.card-form .uni-input {
+    color: #B2B2B2;
+    font-family: PingFang SC;
 }
 .icon-big {
   width: 24rpx;

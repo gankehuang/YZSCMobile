@@ -30,7 +30,6 @@
 			<uni-cell title="饲养员" :value="form.projectName"></uni-cell>
 		</view>
 		<view class="submitData jus-b">
-			<button type="primary" class="flexc cancel-btn">编辑</button>
 			<button type="primary" class="flexc submit-btn" >提交</button>
 		</view>
 	</view>

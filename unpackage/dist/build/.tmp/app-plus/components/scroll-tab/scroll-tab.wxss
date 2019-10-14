@@ -77,10 +77,10 @@
   width: fit-content;
   white-space: nowrap;
 }
-.nav__item.active .nav__item__text {
+.nav__item.active1 .nav__item__text {
     color: #3A75E7;
 }
-.nav__item.active .nav__item__line {
+.nav__item.active1 .nav__item__line {
     width: 50rpx;
 }
 .nav__item .nav__item__text {

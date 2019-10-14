@@ -1,7 +1,0 @@
-{
-  "navigationStyle": "custom",
-  "usingComponents": {
-    "scroll-tab": "/components/scroll-tab/scroll-tab",
-    "ztable": "/components/z-table/z-table"
-  }
-}

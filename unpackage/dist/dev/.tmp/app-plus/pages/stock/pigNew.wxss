@@ -64,31 +64,32 @@
 }
 .status-title {
   color: #FFFFFF;
-  font-family: PingFangSC-Medium;
+  font-family: PingFangSC;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 16px;
   text-align: center;
 }
 .status-del {
   width: 10%;
   color: #FFFFFF;
-  font-family: PingFangSC-Medium;
+  font-family: PingFangSC;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 12px;
   text-align: right;
   padding-right: 3%;
+  margin-right: 10rpx;
 }
 .icon {
-  width: 36rpx;
-  height: 36rpx;
+  width: 28rpx;
+  height: 28rpx;
 }
 .icon-big {
   width: 55rpx;
@@ -312,20 +313,20 @@
           border-bottom: 0;
           margin-bottom: -40rpx;
 }
-.editor-title {
-  padding: 0 23rpx 0 30rpx;
-}
 .editor-title .img {
-    line-height: 80rpx;
+  line-height: 80rpx;
 }
 .editor-title .img image {
-      width: 12rpx;
-      height: 12rpx;
-      vertical-align: middle;
+    width: 12rpx;
+    height: 12rpx;
+    vertical-align: middle;
 }
 .editor-title text {
-    margin-left: 14rpx;
-    font-size: 32rpx;
+  margin-left: 14rpx;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: 600;
+  color: #4d4d4d;
 }
 .submits {
   margin-top: 40rpx;
@@ -335,6 +336,7 @@
     width: 320rpx;
     height: 88rpx;
     font-size: 16px;
+    font-family: PingFang SC;
 }
 .submits button.add-btn {
       background-color: #F05E57;
@@ -503,10 +505,10 @@
       height: 88rpx;
 }
 .health-container .submits button.cancel-btn {
-        background-color: #4684EA;
+        background-color: #F05E57;
 }
 .health-container .submits button.submit-btn {
-        background-color: #F05E57;
+        background-color: #4684EA;
 }
 .health-container .card-form {
     margin-top: 30rpx;

@@ -21,122 +21,107 @@
 			<view class="main-wrap">
 				<view class="main-wrap-contetnt">
 					<view class="main-wrap-contetnt-item">
-						<!-- 与配公猪 -->
+						
 						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
-								耳牌号<text class="text-red">*</text>
-								<view class="main-wrap-contetnt-item-field-name-icon" @click="scancode">
-									<image class="icon" src="/static/assets/scan-icon.png" mode=""></image>
-								</view>
+								耳牌号 <text class="text-red">*</text>
+								<image class="icon" src="/static/assets/scan-icon.png" @click="scancode" mode=""></image>
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="DD0001" />
+								<input type="text"  placeholder="请输入耳牌号" />
 							</view>
 						</view>
+						
 						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
-								合格公<text class="text-red">*</text>
+								母猪上产房 <text class="text-red">*</text>
 							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="5" />
+							<view class="main-wrap-contetnt-item-field-value" style="display: flex;">
+								<radio-group @change="radioChange">
+									<view style="display: block;">
+										<view style="display: flex;">
+											<label style=";padding: 0;display: flex;" >
+												<radio style="transform: scale(0.7);margin-left: 30px;"  :checked="falg2" @click="checked2"/>
+											</label>
+											<!-- <label  style="flex: 1;padding: 0;display: flex;" >
+												母猪上产妇<radio style="transform: scale(0.7);"  :checked="falg1" @click="checked1"/>
+											</label> -->
+										</view>
+									</view>
+								</radio-group>
 							</view>
 						</view>
+						
 						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
-								合格母<text class="text-red">*</text>
-								<view class="main-wrap-contetnt-item-field-name-icon" @click="scancode">
-									<image class="icon" src="/static/assets/scan-icon.png" mode=""></image>
-								</view>
+								转入栏舍 <text class="text-red">*</text>
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="5" />
+								<input type="text"  placeholder="请输入转入栏舍" />
 							</view>
 						</view>
+						
 						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
-								弱仔数
+								头数 <text class="text-red">*</text>
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="5" />
+								<input type="text"  placeholder="请输入头数" />
 							</view>
 						</view>
+						
 						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
-								畸形数
+								跨分场
 							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入畸形数" />
+							<view class="main-wrap-contetnt-item-field-value" style="display: flex;">
+								<radio-group @change="radioChange">
+									<view style="display: block;">
+										<view style="display: flex;">
+											<label style=";padding: 0;display: flex;" >
+												<radio style="transform: scale(0.7);margin-left: 30px;"  :checked="falg3" @click="checked3"/>
+											</label>
+											<!-- <label  style="flex: 1;padding: 0;display: flex;" >
+												母猪上产妇<radio style="transform: scale(0.7);"  :checked="falg1" @click="checked1"/>
+											</label> -->
+										</view>
+									</view>
+								</radio-group>
 							</view>
 						</view>
+						
 						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
-								木乃伊
+								转入分场
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入木乃伊" />
+								<input type="text"  placeholder="请输入转入分场" />
 							</view>
 						</view>
+						
 						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
-								死胎数
+								总重量
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入死胎数" />
+								<input type="text"  placeholder="请输入总重量" />
 							</view>
 						</view>
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								窝号
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入窝号" />
-							</view>
-						</view>
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								窝重<text class="text-red">*</text>
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入窝重" />
-							</view>
-						</view>
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								窝均重<text class="text-red">*</text>
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入窝均重" />
-							</view>
-						</view>
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								活仔数<text class="text-red">*</text>
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入活仔数" />
-							</view>
-						</view>
-						<view class="main-wrap-contetnt-item-field no-bottom">
-							<view class="main-wrap-contetnt-item-field-name">
-								总仔数
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="自动求和" />
-							</view>
-						</view>
+						
 					</view>
 				</view>
 			</view>
 		</view>
 		<view class="submits jus-b">
 			<button type="primary" class="flexc submit-btn">保存</button>
-			<button type="primary" class="flexc add-btn">编辑</button>
 		</view>
 	</view>
 
 </template>
 
 <script>
+	//引入图标
+	import uniIcon from '@/components/uni-icon/uni-icon.vue'
 	export default {
 		data() {
 			const currentDate = this.getDate({
@@ -159,6 +144,7 @@
 				return this.getDate('end');
 			}
 		},
+		components:{uniIcon},
 		methods: {
 			bindPickerChange: function(e) {
 				console.log('picker发送选择改变，携带值为', e.target.value)

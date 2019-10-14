@@ -240,11 +240,11 @@
 				height: 88rpx;
 
 				&.cancel-btn {
-					background-color: #4684EA;
+					background-color: #F05E57;
 				}
 
 				&.submit-btn {
-					background-color: #F05E57;
+					background-color: #4684EA;
 				}
 			}
 		}

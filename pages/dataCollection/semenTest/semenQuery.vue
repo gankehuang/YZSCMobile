@@ -77,7 +77,7 @@
 			   <draw-cell title="颜色" required="true">
 					<view slot="value" class="bg-gray jus-j" @click="selectPeople">
 						<text>{{searchForm.vaccineName}}</text>
-						<uni-icon type="arrowright" color="#333333" size="18" /> 
+						<uni-icon type="arrowright" color="#333333" size="18" />
 					</view>
 			    </draw-cell>
 			   <!-- 气味 -->
@@ -89,8 +89,8 @@
 			   
 			  </scroll-view>
 			  <view class="submits jus-b">
-			  			   <view class="flexc reset-btn" @click="reset">重置</view>
-			  			   <view class="flexc submit-btn" @click="find">确定</view>
+					<view class="flexc reset-btn" @click="reset">重置</view>
+					<view class="flexc submit-btn" @click="find">确定</view>
 			  </view>
 		</popup-layer>
 		
@@ -262,6 +262,7 @@
 					complete: () => {}
 				});
 			},
+			//显示抽屉
 			showFilter(){
 				this.$refs.popupRef1.show();
 			},

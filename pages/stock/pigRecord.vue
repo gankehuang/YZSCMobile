@@ -29,20 +29,27 @@
 				<image src="../../static/assets/arrow-b.png" class="icon-big" style="margin-left: 4px;"></image>
 			</text>
 		</view>
-		<view class="data__wrapper">
-			<ztable :tableData="tableData" :columns="columns" emptyText="-" @rowTap="rowTapHandler"></ztable>
+		<view class="list">
+			<view class="data__wrapper">
+				<ztable :tableData="tableData" :columns="columns" emptyText="-" @rowTap="rowTapHandler"></ztable>
+			</view>
+			<!-- 加载更多  -->
+			<view class="uni-tab-bar-loading" @click="loadMore()">
+				<uni-load-more :status="status"  :loadingType="loadingType" :contentText="loadingText"></uni-load-more>
+			</view>
 		</view>
-		<PageSider :pageNum="pageNum" :currentPage="pageInfo.page"></PageSider>
 	</view>
 </template>
 
 <script>
 	import ztable from '@/components/z-table/z-table'
-	import PageSider from '@/components/pageSider.vue'
+	import uniIcon from "@/components/uni-icon/uni-icon.vue"
+	import uniLoadMore from '@/components/uni-load-more.vue'
 	export default {
 		components: {
 			ztable,
-			PageSider
+			uniIcon,
+			uniLoadMore
 		},
 		data() {
 			return {
@@ -50,7 +57,7 @@
 				columns: [{
 					title: "单据编号",
 					key: "index",
-					width:'100'
+					width:'120'
 				},{
 					title: "盘点日期",
 					key: "name",
@@ -87,6 +94,13 @@
 						classify:'衣服',
 						unit:'件'
 					}],
+					status: 'more',
+					loadingType: 0, // 加载更多状态
+					loadingText: {
+						contentdown: '查看更多',
+						contentrefresh: '正在加载...',
+						contentnomore: '没有更多数据了'
+					},
 				pageInfo: {
 					page: 1,
 					pageSize: 50,
@@ -101,6 +115,29 @@
 			}
 		},
 		methods: {
+			// 滑动底部加载
+			loadMore() {
+				let _this = this;
+				let tableData = _this.tableData;
+				_this.loadingType = 1;
+				setTimeout(() => {
+					let getData = [
+						{
+							index:'03',
+							name: '裤子',
+							stockNum: '30',
+							classify:'衣服',
+							unit:'件'
+						}
+					];
+					let newData = tableData.concat(getData);
+					_this.tableData = newData;
+				}, 300);
+				
+				setTimeout(() => {
+					_this.loadingType = 0;
+				}, 500);
+			},
 			handOnClickBack() {
 				uni.navigateBack({})
 			}
@@ -124,15 +161,17 @@
 	.page-wrapper{
 		padding-top: 65px;
 	}
-	.icon-big {
-		width: 24rpx;
-		height: 24rpx;
-	}
 	.page__info{
 		align-items: center;
 		font-size: 12px;
 		justify-content: space-between;
 		margin: 10px 0 0;
+		color: #B2B2B2;
+		.icon-big {
+			width: 16rpx;
+			height: 16rpx;
+			margin-left: 16rpx;
+		}
 	}
 	.data__wrapper{
 		padding: 0 10rpx;
@@ -237,6 +276,7 @@
 
 				.uni-input-placeholder {
 					font-size: 28rpx;
+					color: #B2B2B2;
 				}
 			}
 		}

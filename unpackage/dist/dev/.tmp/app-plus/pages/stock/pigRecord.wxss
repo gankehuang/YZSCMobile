@@ -108,6 +108,7 @@
     font-weight: 600;
     font-size: 16px;
     text-align: center;
+    font-family: PingFang SC;
 }
 .status__bar .back__icon {
     position: absolute;
@@ -194,10 +195,6 @@ page {
 .page-wrapper {
   padding-top: 65px;
 }
-.icon-big {
-  width: 24rpx;
-  height: 24rpx;
-}
 .page__info {
   -webkit-box-align: center;
   -webkit-align-items: center;
@@ -209,6 +206,12 @@ page {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: 10px 0 0;
+  color: #B2B2B2;
+}
+.page__info .icon-big {
+    width: 16rpx;
+    height: 16rpx;
+    margin-left: 16rpx;
 }
 .data__wrapper {
   padding: 0 10rpx;
@@ -334,6 +337,7 @@ page {
 }
 .status-search .search-wrap .search-wrap-input .uni-input-placeholder {
         font-size: 28rpx;
+        color: #B2B2B2;
 }
 .icon-big {
   width: 24rpx;

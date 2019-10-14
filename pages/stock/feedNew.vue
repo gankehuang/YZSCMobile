@@ -8,7 +8,7 @@
 					<image class="icon" src="/static/assets/back.png"></image>
 				</view>
 				<view class="status-title">
-					食堂盘点单新增
+					饲料盘点单新增
 				</view>
 				<view class="status-del">
 					删除
@@ -24,15 +24,15 @@
 						<!-- 食堂名称 -->
 						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
-								食堂名称<text class="text-red">*</text>
+								饲料名称<text class="text-red">*</text>
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
 								<picker @change="bindPickerChange" :value="index" :range="array">
 									<view class="picker">
 										<view class="uni-input">{{array[index]}}</view>
-										<view class="dextrad-icon">
+										<!-- <view class="dextrad-icon">
 											<image class="icon-small" src="/static/assets/dextrad.png" mode=""></image>
-										</view>
+										</view> -->
 									</view>
 								</picker>
 							</view>
@@ -42,6 +42,15 @@
 						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
 								计量单位
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<input type="text" value="" placeholder="自动带出" v-bind:disabled="true" />
+							</view>
+						</view>
+						<!-- 库存数量 -->
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								库存数量
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
 								<input type="text" value="" placeholder="自动带出" v-bind:disabled="true" />
@@ -114,7 +123,12 @@
 	}
 	.main {
 		.main-wrap {
-			padding: 160rpx 23rpx 23rpx 23rpx;
+			padding: 160rpx 23rpx 0rpx 23rpx;
+			.main-wrap-contetnt-item{
+				.main-wrap-contetnt-item-field:first-child{
+					padding-top: 0;
+				}
+			}
 		}
 	}
 </style>

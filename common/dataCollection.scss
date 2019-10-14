@@ -22,25 +22,26 @@
 }
 .status-title {
     color: #FFFFFF;
-    font-family: PingFangSC-Medium;
+    font-family: PingFangSC;
     flex: 1;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 16px;
     text-align: center;
 }
 .status-del{
 	width: 10%;
 	color: #FFFFFF;
-	font-family: PingFangSC-Medium;
+	font-family: PingFangSC;
 	flex: 1;
-	font-weight: 600;
+	font-weight: 400;
 	font-size: 12px;
 	text-align: right;
 	padding-right: 3%;
+	margin-right: 10rpx;
 }
 .icon {
-    width: 36rpx;
-    height: 36rpx;
+    width: 28rpx;
+    height: 28rpx;
 }
 
 .icon-big {
@@ -220,7 +221,6 @@
     }
 }
 .editor-title {
-		padding: 0 23rpx 0 30rpx;
 		.img {
 			line-height: 80upx;
 			image {
@@ -232,6 +232,9 @@
 		text {
 			margin-left: 14upx;
 			font-size: 32upx;
+			font-family: PingFang SC;
+			font-weight: 600;
+			color: #4d4d4d;
 		}
 	}
 //按钮
@@ -242,6 +245,7 @@
         width: 320rpx;
         height: 88rpx;
 		font-size: 16px;
+		font-family: PingFang SC;
         &.add-btn {
             background-color: #F05E57;
         }

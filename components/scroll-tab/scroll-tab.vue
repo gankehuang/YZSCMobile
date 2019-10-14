@@ -3,7 +3,7 @@
 		<view style="position: relative;" :style="{'color': textColor}">
 			<scroll-view :scroll-into-view="scrollId" ref="scrollview" scroll-x class="nav__warp" :class="{'jc': navList.length <= 4}">
 				<view class="nav__list" :class="{'expend': expend}">
-					<view :class="{'active': index == value}" v-for="(item,index) in navList"
+					<view :style="{'width': width}" :class="{'active1': index == value}" v-for="(item,index) in navList"
 					 :key="index" class="nav__item" :id="'tab_'+randomStr+'_'+index" @tap="navTap($event,index)">
 						<text class="nav__item__text" :style="{'color': index == value ? activeTextColor : textColor}">{{ item.name }}</text>
 						<view class="nav__item__line" :style="{'background-color': activeTextColor}"></view>
@@ -43,6 +43,10 @@ export default {
 		showExpend: {
 			type: Boolean,
 			default: false
+		},
+		width: {
+			type: String,
+			default: 'auto'
 		}
 	},
 	data() {
@@ -124,12 +128,12 @@ export default {
 		margin: 0 30rpx;
 		width: fit-content;
 		white-space: nowrap;
-		&.active{
+		&.active1{
 			.nav__item__text{
 				color: #3A75E7;
 			}
 			.nav__item__line{
-				width: 50rpx;
+				width: 98rpx;
 			}
 		}
 		.nav__item__text{

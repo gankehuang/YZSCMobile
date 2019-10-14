@@ -121,10 +121,10 @@ view {
       width: fit-content;
       white-space: nowrap;
 }
-.header .nav__list .nav__item.active .nav__item__text {
+.header .nav__list .nav__item.active1 .nav__item__text {
         color: white;
 }
-.header .nav__list .nav__item.active .nav__item__line {
+.header .nav__list .nav__item.active1 .nav__item__line {
         height: 4rpx;
         background-color: white;
         border-radius: 4rpx;
@@ -141,10 +141,11 @@ view {
         color: #C0DAEE;
 }
 .topnav {
-  position: fixed;
+  position: -webkit-sticky;
+  position: sticky;
   -webkit-animation: myfirst 0.2s;
           animation: myfirst 0.2s;
-  top: 0;
+  top: 60rpx;
   background: #2D70F5;
   z-index: 1;
 }

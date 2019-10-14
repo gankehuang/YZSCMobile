@@ -1,4 +1,8 @@
 {
   "navigationStyle": "custom",
-  "usingComponents": {}
+  "animationType": "fade-in",
+  "animationDuration": 300,
+  "usingComponents": {
+    "uni-icon": "/components/uni-icon/uni-icon"
+  }
 }

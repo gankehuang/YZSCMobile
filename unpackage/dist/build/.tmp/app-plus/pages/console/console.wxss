@@ -80,10 +80,10 @@
     width: fit-content;
     white-space: nowrap;
 }
-.nav__list .nav__item.active .nav__item__text {
+.nav__list .nav__item.active1 .nav__item__text {
       color: #2C71F5;
 }
-.nav__list .nav__item.active .nav__item__line {
+.nav__list .nav__item.active1 .nav__item__line {
       height: 6rpx;
       background-color: #2C71F5;
       border-radius: 4rpx;
@@ -155,7 +155,7 @@
 }
 .g-title {
   color: #4D4D4D;
-  font-size: 11px;
+  font-size: 14px;
   font-family: PingFang SC Regular;
   font-weight: Regular;
 }

@@ -93,7 +93,7 @@
 						</view>
 					</view>
 					<view class="item-entry">
-						<text>v-3.1.4</text>
+						<text>v.3.1.4</text>
 						<uni-icon type="forward" color="#fffff" size="24" />
 					</view>
 				</view>

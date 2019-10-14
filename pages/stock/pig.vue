@@ -16,8 +16,127 @@
 				</view>
 			</view>
 		</view>
-
-		<view class="health-container">
+		<view class="main">
+			<view class="main-wrap">
+				<view class="main-wrap-contetnt">
+					<view class="main-wrap-contetnt-item">
+						<view class="main-wrap-contetnt-item-title">
+							<view class="main-wrap-contetnt-item-title-text">基本信息</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								单据号
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<input type="text" value="" />
+							</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								抽盘类型
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<picker :range="array" :value="index" @change="bindPickerChange">
+									<view class="picker">
+										<view class="uni-input">{{array[index]}}</view>
+										<view class="dextrad-icon">
+											<uni-icon type="arrowright" color="#B2B2B2" size="16" />
+										</view>
+									</view>
+								</picker>
+							</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								盘点日期
+							</view>
+							<view class="main-wrap-contetnt-item-field-value" @tap="selectDate">
+								<text></text>
+								<image src="../../static/assets/calendar.png" style="width: 40rpx;height: 40rpx;margin-right: 15rpx;"></image>
+							</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								猪场\分场
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<picker :range="array" :value="index" @change="bindPickerChange">
+									<view class="picker">
+										<view class="uni-input">{{array[index]}}</view>
+										<view class="dextrad-icon">
+											<uni-icon type="arrowright" color="#B2B2B2" size="16" />
+										</view>
+									</view>
+								</picker>
+							</view>
+						</view>
+						
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="main">
+			<view class="main-wrap" style="padding-top: 10px;">
+				<view class="main-wrap-contetnt">
+					<view class="main-wrap-contetnt-item">
+						<view class="main-wrap-contetnt-item-title">
+							<view class="main-wrap-contetnt-item-title-text">猪只扫码</view>
+							<view class="main-wrap-contetnt-item-field-name-icon" @click="scancode">
+								<image class="icon" src="/static/assets/scan-icon.png" mode=""></image>
+							</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								猪只耳号<text class="text-red">*</text>
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<input type="text" value="" />
+							</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								状态<text class="text-red">*</text>
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<input type="text" value="" />
+							</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								胎次<text class="text-red">*</text>
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<input type="text" value="" />
+							</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								栏位<text class="text-red">*</text>
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<input type="text" value="" />
+							</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								最新业务日期<text class="text-red">*</text>
+							</view>
+							<view class="main-wrap-contetnt-item-field-value" @tap="selectDate">
+								<text></text>
+								<image src="../../static/assets/calendar.png" style="width: 40rpx;height: 40rpx;margin-right: 15rpx;"></image>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="submits jus-b" style="padding-bottom: 15px;">
+			<!-- <button type="primary" class="flexc cancel-btn" @tap="clickCancel">取消</button> -->
+			<button type="primary" class="flexc submit-btn">提交</button>
+		</view>
+		<mpvue-picker :themeColor="themeColor" ref="mpvuePicker" mode="dateSelector" :pickerValueDefault="pickerValueDefault" @onConfirm="onConfirmDate" @onCancelDate="onCancel"
+		 ></mpvue-picker>
+		<!-- <view class="health-container">
 			<view class="editor-title flex ali-c">
 				<view class="img">
 					<image src="/static/assets/rect.png" mode=""></image>
@@ -37,25 +156,18 @@
 					<image class="sca" @click="scancode" src="/static/assets/scan-icon.png" mode=""></image>
 				</view>
 				<view class="btn">
-					<button type="primary" @click="jumpPage" data-jumpurl="pigNew">新增</button>
+					<button type="primary" @click="jumpPage" data-jumpurl="building">新增</button>
 				</view>
 			</view>
 
 			<view class="data__wrapper">
 				<ztable :tableData="tableData" :columns="columns" :neddCheck="true" emptyText="-" @rowTap="rowTapHandler" @checkbox="checkbox"></ztable>
 			</view>
-
-			
-			
-
-			<!-- btn -->
 			<view class="submits jus-b">
 				<button type="primary" class="flexc cancel-btn" @tap="clickCancel">取消</button>
 				<button type="primary" class="flexc submit-btn">提交</button>
 			</view>
-
-			<PageSider :pageNum="pageNum" :currentPage="pageInfo.page"></PageSider>
-		</view>
+		</view> -->
 	</view>
 
 </template>
@@ -68,7 +180,6 @@
 	import drawCell from '@/components/uni-cell/draw-cell.vue';
 	import ztable from '@/components/z-table/z-table'
 	import popupLayer from '@/components/popup/popup-layer.vue';
-	import PageSider from '@/components/pageSider.vue'
 	export default {
 		data() {
 			return {
@@ -138,12 +249,10 @@
 					storageNum: '55',
 					classify: '衣服'
 				}],
-				pageInfo: {
-					page: 1,
-					pageSize: 50,
-					total: 2000,
-				}
-
+				themeColor: '#007AFF',
+				pickerValueDefault: [0],
+				index: 0,
+				array: ['请选择配种时段', '1', '2', '3'],
 			}
 		},
 		components: {
@@ -153,23 +262,26 @@
 			ztable,
 			drawCell,
 			popupLayer,
-			PageSider
 		},
 		methods: {
 			record() {
 				uni.navigateTo({
-					url: 'materialRecord?id=' + this.id,
+					url: 'pigRecord?id=' + this.id,
 					success: res => {},
 					fail: () => {},
 					complete: () => {}
 				});
+			},
+			selectDate: function(){
+				this.$refs.mpvuePicker.show()
+			},
+			rowTapHandler(row){
+				console.log(row)
+			},
+			checkbox(e){
+				console.log(e)
 			}
 		},
-		computed: {
-			pageNum() {
-				return Math.ceil(this.pageInfo.total / this.pageInfo.pageSize)
-			}
-		}
 	}
 </script>
 
@@ -183,7 +295,38 @@
 			padding-left: 32%;
 		}
 	}
-
+	.main {
+		.main-wrap {
+			padding: 160rpx 23rpx 23rpx 23rpx;
+			.takePhotoList {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 0;
+			
+				.takephotoItem {
+					background: white;
+					border-radius: 22rpx;
+					height: 214rpx;
+					width: 214	rpx;
+					margin-right: 24rpx;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+			
+					.img {
+						width: 54rpx;
+						height: 54rpx;
+						vertical-align: middle;
+						}
+					&:last-child{
+						margin-right: 0;
+					}
+				}
+			}
+		}
+	}
+// ============================================
 	.health-container {
 		background-color: #F5F5F5;
 		padding: 130rpx 30rpx 120rpx;
@@ -219,6 +362,7 @@
 				button {
 					width: 140rpx;
 					height: 54rpx;
+					line-height: 54rpx;
 					vertical-align: middle;
 					font-size: 24rpx;
 					text-align: center;
@@ -261,11 +405,11 @@
 				height: 88rpx;
 
 				&.cancel-btn {
-					background-color: #4684EA;
+					background-color: #F05E57;
 				}
 
 				&.submit-btn {
-					background-color: #F05E57;
+					background-color: #4684EA;
 				}
 			}
 		}

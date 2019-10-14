@@ -46,11 +46,13 @@
   -webkit-box-shadow: 0 2px 5px 1px rgba(40, 120, 255, 0.08);
           box-shadow: 0 2px 5px 1px rgba(40, 120, 255, 0.08);
   width: 100%;
-  font-size: 14px;
+  font-size: 12px;
+  font-family: PingFang SC;
 }
 .pagination__wrapper .pagination__item {
     padding: 0 15px;
     border-right: 1px solid #F5F5F5;
+    color: #4d4d4d;
     height: 100%;
     line-height: 100%;
     display: -webkit-box;

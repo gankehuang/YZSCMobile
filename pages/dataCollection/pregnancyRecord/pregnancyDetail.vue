@@ -33,110 +33,131 @@
 								<input type="text" value="" placeholder="DD0001" />
 							</view>
 						</view>
+						
 						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
-								合格公<text class="text-red">*</text>
+								检测员<text class="text-red">*</text>
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="5" />
+								<picker @change="bindPickerChange" :value="index" :range="array2">
+									<view class="picker">
+										<view class="uni-input">{{array2[index]}}</view>
+										<view class="dextrad-icon">
+											<uni-icon type="arrowright" color="#333333" size="18" />
+										</view>
+									</view>
+								</picker>
 							</view>
 						</view>
+						
 						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
-								合格母<text class="text-red">*</text>
-								<view class="main-wrap-contetnt-item-field-name-icon" @click="scancode">
-									<image class="icon" src="/static/assets/scan-icon.png" mode=""></image>
-								</view>
+								检测工具<text class="text-red">*</text>
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="5" />
+								<picker @change="bindPickerChange" :value="index" :range="array2">
+									<view class="picker">
+										<view class="uni-input">{{array2[index]}}</view>
+										<view class="dextrad-icon">
+											<uni-icon type="arrowright" color="#333333" size="18" />
+										</view>
+									</view>
+								</picker>
 							</view>
 						</view>
+						
 						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
-								弱仔数
+								异常原因<text class="text-red">*</text>
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="5" />
+								<radio-group @change="radioChange">
+									<view style="display: block;">
+										<view style="display: flex;">
+											<label style="margin-right:15rpx;display: flex;" v-for="(item, index) in items" :key="item.value">
+												<radio style="transform: scale(0.7);" :value="item.value" :checked="index === current" />{{item.name}}
+											</label>
+										
+										</view>
+									</view>
+								</radio-group>
 							</view>
 						</view>
+						
+						
+						
 						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
-								畸形数
+								公猪
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入畸形数" />
-							</view>
-						</view>
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								木乃伊
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入木乃伊" />
-							</view>
-						</view>
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								死胎数
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入死胎数" />
-							</view>
-						</view>
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								窝号
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入窝号" />
-							</view>
-						</view>
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								窝重<text class="text-red">*</text>
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入窝重" />
+								<input type="text" value="" placeholder="自动带出" />
 							</view>
 						</view>
 						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
-								窝均重<text class="text-red">*</text>
+								系谱
+								
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入窝均重" />
+								<input type="text" value="" placeholder="自动带出" />
 							</view>
 						</view>
 						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
-								活仔数<text class="text-red">*</text>
+								配种天数
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入活仔数" />
+								<input type="text" value="" placeholder="自动带出" />
 							</view>
 						</view>
-						<view class="main-wrap-contetnt-item-field no-bottom">
+						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
-								总仔数
+								配种胎次
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="自动求和" />
+								<input type="text" value="" placeholder="自动带出" />
 							</view>
 						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								配种批次
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<input type="text" value="" placeholder="自动带出" />
+							</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								存栏位置<text class="text-red">*</text>
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<input type="text" value="" placeholder="自动带出" />
+							</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								提交人
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<input type="text" value="" placeholder="自动带出" />
+							</view>
+						</view>
+						
 					</view>
 				</view>
 			</view>
 		</view>
 		<view class="submits jus-b">
 			<button type="primary" class="flexc submit-btn">保存</button>
-			<button type="primary" class="flexc add-btn">编辑</button>
 		</view>
 	</view>
 
 </template>
 
 <script>
+	//引入图标
+	import uniIcon from '@/components/uni-icon/uni-icon.vue'
 	export default {
 		data() {
 			const currentDate = this.getDate({
@@ -149,6 +170,20 @@
 				array3: ['请选择配种批次', 'PC-201365', 'PC-201565', 'PC-201355', 'PC-201360'],
 				index: 0,
 				date: currentDate,
+				items: [{
+						value: 'kb',
+						name: '空杯',
+						checked: 'true'
+					},
+					{
+						value: 'fq',
+						name: '返情'
+					},
+					{
+						value: 'lc',
+						name: '流产'
+					}
+				],
 			}
 		},
 		computed: {
@@ -159,6 +194,7 @@
 				return this.getDate('end');
 			}
 		},
+		components:{uniIcon},
 		methods: {
 			bindPickerChange: function(e) {
 				console.log('picker发送选择改变，携带值为', e.target.value)

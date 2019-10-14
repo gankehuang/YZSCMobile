@@ -405,7 +405,7 @@
 		.z-table-title {
 			position: sticky;
 			top: 0;
-			height: 64upx;
+			height: 80upx;
 			z-index: 1;
 
 			.z-table-title-item {
@@ -443,11 +443,15 @@
 				@include ellipsis();
 				display: inline-flex;
 				padding: 0 16upx;
-				height: 64upx;
+				height: 80upx;
 				align-items: center;
-				line-height: 64upx;
+				line-height: 80upx;
 				box-sizing: border-box;
 				justify-content: center;
+				font-family: PingFang SC;
+			}
+			.z-table-container-col{
+				color: #4d4d4d;
 			}
 
 			&:nth-child(even) {

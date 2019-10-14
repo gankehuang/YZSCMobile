@@ -70,7 +70,7 @@
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    height: 64rpx;
+    height: 80rpx;
     z-index: 1;
 }
 .z-table .z-table-title .z-table-title-item {
@@ -123,18 +123,23 @@
       display: -ms-inline-flexbox;
       display: inline-flex;
       padding: 0 16rpx;
-      height: 64rpx;
+      height: 80rpx;
       -webkit-box-align: center;
       -webkit-align-items: center;
           -ms-flex-align: center;
               align-items: center;
-      line-height: 64rpx;
+      line-height: 80rpx;
       -webkit-box-sizing: border-box;
               box-sizing: border-box;
       -webkit-box-pack: center;
       -webkit-justify-content: center;
           -ms-flex-pack: center;
               justify-content: center;
+      font-family: PingFang SC;
+}
+.z-table .z-table-title .z-table-container-col,
+    .z-table .z-table-container-row .z-table-container-col {
+      color: #4d4d4d;
 }
 .z-table .z-table-title:nth-child(even),
     .z-table .z-table-container-row:nth-child(even) {

@@ -23,6 +23,7 @@
 				<uni-cell title="状态" required="true" :value="form.projectName"></uni-cell>
 				<uni-cell title="胎次" required="true" :value="form.projectName"></uni-cell>
 				<uni-cell title="栏位" required="true" :value="form.projectName"></uni-cell>
+				<uni-cell title="最新业务日期" required="true" :value="form.projectName"></uni-cell>
 			</view>
 
 			<!-- btn -->
@@ -234,11 +235,11 @@
 				height: 88rpx;
 
 				&.cancel-btn {
-					background-color: #4684EA;
+					background-color: #F05E57;
 				}
 
 				&.submit-btn {
-					background-color: #F05E57;
+					background-color: #4684EA;
 				}
 			}
 		}

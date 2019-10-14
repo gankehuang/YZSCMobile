@@ -619,4 +619,7 @@
 	.list-table {
 		margin-top: -120px;
 	}
+	// input{
+	// 	font-size: 14px;
+	// }
 </style>

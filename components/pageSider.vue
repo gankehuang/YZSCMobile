@@ -6,7 +6,7 @@
 				<image class=" icon" src="/static/assets/prev.png"></image>
 			</view>
 			<view class="pagination__item slide__wrap">
-				<slider class="page_slider" min="1" :value="page" @change="change" :max="pageNum" activeColor="#3A75E7" block-size="14" @changing="changing" />
+				<slider class="page_slider" min="1" :value="page" @change="change" :max="pageNum" activeColor="#3A75E7" block-size="14" block-color="#3A75E7" @changing="changing" />
 			</view>
 			<view class="pagination__item" @tap="next">
 				<image class="icon" src="/static/assets/next.png"></image>
@@ -106,10 +106,12 @@
 		align-items: center;
 		box-shadow: 0 2px 5px 1px rgba(40, 120, 255, 0.08);
 		width: 100%;
-		font-size: 14px;
+		font-size: 12px;
+		font-family: PingFang SC;
 		.pagination__item{
 			padding: 0 15px;
 			border-right: 1px solid #F5F5F5;
+			color: #4d4d4d;
 			height: 100%;
 			line-height: 100%;
 			display: flex;

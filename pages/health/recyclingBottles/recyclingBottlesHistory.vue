@@ -28,6 +28,8 @@
 			<view class="data__wrapper">
 				<ztable :tableData="tableData" :columns="columns" :neddCheck="true" emptyText="-" @rowTap="rowTapHandler" @checkbox="checkbox"></ztable>
 			</view>
+			<!-- 选页 -->
+			<pageSider :pageNum="pageNum" :currentPage="pageInfo.page"></pageSider>
 			
 			<popup-layer ref="popupRef1" :direction="'left'" >
 			   <scroll-view class="draw" scroll-y="true">
@@ -125,6 +127,8 @@
 	import mpvuePicker from '@/components/mpvue-picker/mpvuePicker.vue';
 	//引入图标
 	import uniIcon from '@/components/uni-icon/uni-icon.vue'
+	// 引入 选页
+	import pageSider from '@/components/pageSider.vue';
 	//引入时间转换
 	import {timeFormat} from '@/utils/dateUtils.js'
 	export default {
@@ -204,7 +208,8 @@
 			popupLayer,
 			drawCell,
 			mpvuePicker,
-			uniIcon
+			uniIcon,
+			pageSider
 		},
 		methods: {
 			rowTapHandler (row) {
@@ -293,6 +298,9 @@
 	.main-container{
 		padding-top: 146rpx;
 		// padding-left: 20rpx;
+	}
+	.data__wrapper {
+		padding: 0 20rpx;
 	}
 	//抽屉样式
 	.draw{

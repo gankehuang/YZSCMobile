@@ -30,7 +30,7 @@
 									<view class="picker">
 										<view class="uni-input">{{array[index]}}</view>
 										<view class="dextrad-icon">
-											<uni-icon type="arrowright" color="#333333" size="18"  />
+											<uni-icon type="arrowright" color="#333333" />
 										</view>
 									</view>
 								</picker>
@@ -45,7 +45,7 @@
 									<view class="picker">
 										<view class="uni-input">{{array3[index]}}</view>
 										<view class="dextrad-icon">
-											<uni-icon type="arrowright" color="#333333" size="18"  />
+											<uni-icon type="arrowright" color="#333333" />
 										</view>
 									</view>
 								</picker>
@@ -60,7 +60,7 @@
 									<view class="picker">
 										<view class="uni-input">{{array2[index]}}</view>
 										<view class="dextrad-icon">
-											<uni-icon type="arrowright" color="#333333" size="18"  />
+											<uni-icon type="arrowright" color="#333333" />
 										</view>
 									</view>
 								</picker>
@@ -204,7 +204,7 @@
 									<view class="picker">
 										<view class="uni-input">{{array1[index]}}</view>
 										<view class="dextrad-icon">
-											<uni-icon type="arrowright" color="#333333" size="18"  />
+											<uni-icon type="arrowright" color="#333333" size="18" />
 										</view>
 									</view>
 								</picker>
@@ -244,18 +244,18 @@
 		</view> -->
 		<view class="submits jus-b">
 			<button type="primary" v-if="submitStatus" class="flexc submit-btn">提交</button>
-			<button type="primary" v-if="submitStatus" class="flexc add-btn" @tap="clickEdit">编辑</button>
+			<!-- <button type="primary" v-if="submitStatus" class="flexc add-btn" @tap="clickEdit">编辑</button>
 			<button type="primary" v-if="editStatus" class="flexc cancel-btn" @tap="clickCancel">取消</button>
-			<button type="primary" v-if="editStatus" class="flexc add-btn">修改</button>
+			<button type="primary" v-if="editStatus" class="flexc add-btn">修改</button> -->
 		</view>
 	</view>
 
 </template>
 
 <script>
-	import ztable from '@/components/z-table/z-table'
 	//引入图标
 	import uniIcon from '@/components/uni-icon/uni-icon.vue'
+	import ztable from '@/components/z-table/z-table'
 	export default {
 		data() {
 			const currentDate = this.getDate({

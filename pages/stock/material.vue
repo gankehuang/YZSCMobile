@@ -9,15 +9,194 @@
 					<image class="icon" src="/static/assets/back.png"></image>
 				</view>
 				<view class="status-title">
-					药品盘点单
+					药品盘点单新增
 				</view>
 				<view class="status-del" @tap="record">
-					操作记录
+					<image src="../../static/assets/more@2x.png" mode="" class="more-icon icon"></image>
 				</view>
 			</view>
 		</view>
-
-		<view class="health-container">
+		<view class="main">
+			<view class="main-wrap">
+				<view class="main-wrap-contetnt">
+					<view class="main-wrap-contetnt-item">
+						<view class="main-wrap-contetnt-item-title">
+							<view class="main-wrap-contetnt-item-title-text">基本信息</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								单据编号
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<input type="text" value="" />
+							</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								盘点仓库
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<picker :range="array" :value="index" @change="bindPickerChange">
+									<view class="picker">
+										<view class="uni-input">{{array[index]}}</view>
+										<view class="dextrad-icon">
+											<uni-icon type="arrowright" color="#B2B2B2" size="16" />
+										</view>
+									</view>
+								</picker>
+							</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								领料类型
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<input type="text" value="" />
+							</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								盘点时间
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<picker :range="array" :value="index" @change="bindPickerChange">
+									<view class="picker">
+										<view class="uni-input">{{array[index]}}</view>
+										<view class="dextrad-icon">
+											<uni-icon type="arrowright" color="#B2B2B2" size="16" />
+										</view>
+									</view>
+								</picker>
+							</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								盘点日期
+							</view>
+							<view class="main-wrap-contetnt-item-field-value" @tap="selectDate">
+								<text></text>
+								<image src="../../static/assets/calendar.png" style="width: 40rpx;height: 40rpx;margin-right: 15rpx;"></image>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<!-- 药品扫描 -->
+		<view class="main">
+			<view class="main-wrap" style="padding-top: 10px;">
+				<view class="main-wrap-contetnt">
+					<view class="main-wrap-contetnt-item">
+						<view class="main-wrap-contetnt-item-title">
+							<view class="main-wrap-contetnt-item-title-text">药品扫码</view>
+							<view class="main-wrap-contetnt-item-field-name-icon" @click="scancode">
+								<image class="icon" src="/static/assets/scan-icon.png" mode=""></image>
+							</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								药品名称
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<input type="text" value="" />
+							</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								计量单位
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<input type="text" value="" />
+							</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								批次号<text class="text-red">*</text>
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<input type="text" value="" />
+							</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								库存数量
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<input type="text" value="" />
+							</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								盘点数量<text class="text-red">*</text>
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<input type="text" value="" />
+							</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								差异数量 
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<input type="text" value="" />
+							</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								生产日期
+							</view>
+							<view class="main-wrap-contetnt-item-field-value" @tap="selectDate">
+								<text></text>
+								<image src="../../static/assets/calendar.png" style="width: 40rpx;height: 40rpx;margin-right: 15rpx;"></image>
+							</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								到期日期
+							</view>
+							<view class="main-wrap-contetnt-item-field-value" @tap="selectDate">
+								<text></text>
+								<image src="../../static/assets/calendar.png" style="width: 40rpx;height: 40rpx;margin-right: 15rpx;"></image>
+							</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								基本分类 
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<input type="text" value="" />
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="main">
+			<view class="main-wrap" style="padding-top: 0px;">
+				<view class="main-wrap-content">
+					<view class="mian-wrap-content-item">
+						<view class="editor-title flex ali-c">
+							<view class="img">
+								<image src="/static/assets/rect.png" mode=""></image>
+								<text>上传图片</text>
+							</view>
+						</view>
+						<view class="takePhotoList">
+							<view class="takephotoItem">
+								<image class="img" src="../../static/assets/plus.png" mode=""></image>
+							</view>
+							<view class="takephotoItem">
+								<image class="img" src="../../static/assets/plus.png" mode=""></image>
+							</view>
+							<view class="takephotoItem">
+								<image class="img" src="../../static/assets/plus.png" mode=""></image>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<!-- <view class="health-container">
 			<view class="editor-title flex ali-c">
 				<view class="img">
 					<image src="/static/assets/rect.png" mode=""></image>
@@ -63,15 +242,16 @@
 					<image class="img" src="../../static/assets/plus.png" mode=""></image>
 				</view>
 			</view>
-
-			<!-- btn -->
 			<view class="submits jus-b">
 				<button type="primary" class="flexc cancel-btn" @tap="clickCancel">取消</button>
 				<button type="primary" class="flexc submit-btn">确定</button>
 			</view>
-
-			<PageSider :pageNum="pageNum" :currentPage="pageInfo.page"></PageSider>
+		</view> -->
+		<view class="submits jus-b" style="padding-bottom: 15px;">
+			<button type="primary" class="flexc submit-btn">提交</button>
 		</view>
+		<mpvue-picker :themeColor="themeColor" ref="mpvuePicker" mode="dateSelector" :pickerValueDefault="pickerValueDefault" @onConfirm="onConfirmDate" @onCancelDate="onCancel"
+		 ></mpvue-picker>
 	</view>
 
 </template>
@@ -84,7 +264,6 @@
 	import drawCell from '@/components/uni-cell/draw-cell.vue';
 	import ztable from '@/components/z-table/z-table'
 	import popupLayer from '@/components/popup/popup-layer.vue';
-	import PageSider from '@/components/pageSider.vue'
 	export default {
 		data() {
 			return {
@@ -154,12 +333,10 @@
 					storageNum: '55',
 					classify: '衣服'
 				}],
-				pageInfo: {
-					page: 1,
-					pageSize: 50,
-					total: 2000,
-				}
-
+				themeColor: '#007AFF',
+				pickerValueDefault: [0],
+				index: 0,
+				array: ['请选择配种时段', '1', '2', '3'],
 			}
 		},
 		components: {
@@ -169,7 +346,6 @@
 			ztable,
 			drawCell,
 			popupLayer,
-			PageSider
 		},
 		methods: {
 			record() {
@@ -179,13 +355,15 @@
 					fail: () => {},
 					complete: () => {}
 				});
-			}
+			},
+			selectDate: function(){
+				this.$refs.mpvuePicker.show()
+			},
+			bindPickerChange: function(e) {
+				console.log('picker发送选择改变，携带值为', e.target.value)
+				this.index = e.target.value
+			},
 		},
-		computed: {
-			pageNum() {
-				return Math.ceil(this.pageInfo.total / this.pageInfo.pageSize)
-			}
-		}
 	}
 </script>
 
@@ -198,149 +376,202 @@
 		.status-title {
 			padding-left: 32%;
 		}
+		.more-icon.icon{
+			padding-right: 5%;
+			width: 8rpx;
+			height: 42rpx;
+		}
 	}
-
-	.health-container {
-		background-color: #F5F5F5;
-		padding: 130rpx 30rpx 120rpx;
-
-		.editor-title {
-			height: 54rpx;
-
-			.img {
-				line-height: 54rpx;
-
-				.image {
-					width: 12rpx;
-					height: 12rpx;
-					vertical-align: middle;
+	.submits {
+		margin-top: 0rpx;
+		margin-bottom: 30rpx;
+	
+		button {
+			width: 316rpx;
+			height: 88rpx;
+	
+			&.cancel-btn {
+				background-color: #F05E57;
 				}
-				.sca {
-					width: 40rpx;
-					height: 40rpx;
-					margin-left: 30rpx;
-					margin-top: -10rpx;
-				}
-			}
-
-			text {
-				margin-left: 14rpx;
-				line-height: 54rpx;
-				font-size: 32rpx;
-			}
-
-			.btn {
-				line-height: 54rpx;
-
-				button {
-					width: 140rpx;
-					height: 54rpx;
-					vertical-align: middle;
-					font-size: 24rpx;
-					text-align: center;
-					padding: 0px;
+	
+			&.submit-btn {
+				background-color: #4684EA;
 				}
 			}
 		}
-
-		.takePhotoList {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-
-			.takephotoItem {
-				background: white;
-				border-radius: 22rpx;
-				height: 216rpx;
-				width: 216rpx;
-				margin-right: 24rpx;
+	.main {
+		.main-wrap {
+			padding: 160rpx 23rpx 23rpx 23rpx;
+			.takePhotoList {
 				display: flex;
-				justify-content: center;
 				align-items: center;
-
-				.img {
-					width: 53rpx;
-					height: 53rpx;
-					vertical-align: middle;
-				}
-
-				;
-			}
-		}
-
-		.submits {
-			margin-top: 56rpx;
-			margin-bottom: 10rpx;
-
-			button {
-				width: 320rpx;
-				height: 88rpx;
-
-				&.cancel-btn {
-					background-color: #4684EA;
-				}
-
-				&.submit-btn {
-					background-color: #F05E57;
+				justify-content: space-between;
+				padding: 0;
+			
+				.takephotoItem {
+					background: white;
+					border-radius: 22rpx;
+					height: 214rpx;
+					width: 214	rpx;
+					margin-right: 24rpx;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+			
+					.img {
+						width: 54rpx;
+						height: 54rpx;
+						vertical-align: middle;
+						}
+					&:last-child{
+						margin-right: 0;
+					}
 				}
 			}
-		}
-
-		.card-form {
-			margin-top: 0rpx;
-
-			.input-style {
-				color: #B2B2B2;
-				text-align: right;
-			}
-
-			.input-style .uni-input-wrapper .uni-input-placeholder {
-				color: #B2B2B2;
-				text-align: right;
-				font-size: 28rpx;
-			}
-		}
-
-		.editor-title {
-			height: 80rpx;
-
-			.confirm-btn {
-				width: 140rpx;
-				height: 54rpx;
-
-				button {
-					width: 140rpx;
-					height: 54rpx;
-					font-size: 24rpx;
-					padding: 0;
-					background-color: #4684EA;
-				}
-			}
-
-			&.form-seat {
-				height: 120rpx;
-			}
-		}
-
-		//抽屉样式
-		.draw {
-			padding: 30rpx;
-			width: 500rpx;
-			height: calc(100% - 118rpx);
-
-			.bg-gray {
-				background: #f5f5f5;
-				padding: 16rpx 20rpx;
-				font-size: 12px;
-				color: #4d4d4d;
-			}
-		}
-
-		.page__info {
-			align-items: center;
-			font-size: 12px;
-			justify-content: space-between;
-			margin: 10px 0 0;
 		}
 	}
+//----------------------------------------------------------
+// 	.health-container {
+// 		background-color: #F5F5F5;
+// 		padding: 130rpx 30rpx 120rpx;
+// 
+// 		.editor-title {
+// 			height: 64rpx;
+// 
+// 			.img {
+// 				line-height: 54rpx;
+// 
+// 				.image {
+// 					width: 12rpx;
+// 					height: 12rpx;
+// 					vertical-align: middle;
+// 				}
+// 				.sca {
+// 					width: 40rpx;
+// 					height: 40rpx;
+// 					margin-left: 30rpx;
+// 					margin-top: -10rpx;
+// 				}
+// 			}
+// 
+// 			text {
+// 				margin-left: 14rpx;
+// 				line-height: 54rpx;
+// 				font-size: 32rpx;
+// 			}
+// 
+// 			.btn {
+// 				button {
+// 					width: 140rpx;
+// 					height: 54rpx;
+// 					line-height: 54rpx;
+// 					vertical-align: middle;
+// 					font-size: 24rpx;
+// 					text-align: center;
+// 					padding: 0px;
+// 				}
+// 			}
+// 		}
+// 		
+// 		.takePhotoList {
+// 			display: flex;
+// 			align-items: center;
+// 			justify-content: space-between;
+// 			padding-bottom: 32rpx;
+// 
+// 			.takephotoItem {
+// 				background: white;
+// 				border-radius: 22rpx;
+// 				height: 214rpx;
+// 				width: 214	rpx;
+// 				margin-right: 24rpx;
+// 				display: flex;
+// 				justify-content: center;
+// 				align-items: center;
+// 
+// 				.img {
+// 					width: 54rpx;
+// 					height: 54rpx;
+// 					vertical-align: middle;
+// 				}
+// 			&:last-child{
+// 				margin-right: 0;
+// 			}
+// 			}
+// 		}
+// 
+// 		.submits {
+// 			margin-top: 0rpx;
+// 			margin-bottom: 30rpx;
+// 
+// 			button {
+// 				width: 316rpx;
+// 				height: 88rpx;
+// 
+// 				&.cancel-btn {
+// 					background-color: #F05E57;
+// 				}
+// 
+// 				&.submit-btn {
+// 					background-color: #4684EA;
+// 				}
+// 			}
+// 		}
+// 
+// 		.card-form {
+// 			margin-top: 0rpx;
+// 			.input-style {
+// 				color: #B2B2B2;
+// 				text-align: right;
+// 			}
+// 
+// 			.input-style .uni-input-wrapper .uni-input-placeholder {
+// 				color: #B2B2B2;
+// 				text-align: right;
+// 				font-size: 28rpx;
+// 			}
+// 		}
+// 
+// 		.editor-title {
+// 			height: 80rpx;
+// 
+// 			.confirm-btn {
+// 				width: 140rpx;
+// 				height: 54rpx;
+// 
+// 				button {
+// 					width: 140rpx;
+// 					height: 54rpx;
+// 					font-size: 24rpx;
+// 					padding: 0;
+// 					background-color: #4684EA;
+// 				}
+// 			}
+// 
+// 			&.form-seat {
+// 				height: 120rpx;
+// 			}
+// 		}
+// 
+// 		//抽屉样式
+// 		.draw {
+// 			padding: 30rpx;
+// 			width: 500rpx;
+// 			height: calc(100% - 118rpx);
+// 
+// 			.bg-gray {
+// 				background: #f5f5f5;
+// 				padding: 16rpx 20rpx;
+// 				font-size: 12px;
+// 				color: #4d4d4d;
+// 			}
+// 		}
+// 
+// 		.page__info {
+// 			align-items: center;
+// 			font-size: 12px;
+// 			justify-content: space-between;
+// 			margin: 10px 0 0;
+// 		}
+// 	}
 </style>

@@ -108,6 +108,7 @@
     font-weight: 600;
     font-size: 16px;
     text-align: center;
+    font-family: PingFang SC;
 }
 .status__bar .back__icon {
     position: absolute;

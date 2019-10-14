@@ -4,7 +4,7 @@
 			<slot name="title">
 				{{title}}
 			</slot>
-			<text v-if="required">*</text>
+			<text v-if="required" class="">*</text>
 		</view>
 		<view class="cell-value">
 			<slot name="value">
@@ -44,10 +44,12 @@
 		height: 96rpx;
 		border-bottom: 1rpx solid #EBEEF2;
 		font-size: 28rpx;
+		font-family: PingFang SC;
 		.field {
-			
+			color: #4d4d4d;
+			font-weight: bold;
 			text {
-				color: #FF6354;
+				color: #ff6354;
 				margin-left: 10rpx;
 			}
 		}

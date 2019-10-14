@@ -34,7 +34,7 @@
 						<view class="picker">
 							<view class="uni-input">{{array[index]}}</view>
 							<view class="dextrad-icon">
-								<image class="icon-small" src="/static/assets/dextrad.png" mode=""></image>
+								<image src="../../static/assets/arrow-b.png" class="icon-big" style="margin-left: 4px;"></image>
 							</view>
 						</view>
 					</picker>
@@ -164,15 +164,17 @@
 	.page-wrapper{
 		padding-top: 65px;
 	}
-	.icon-big {
-		width: 24rpx;
-		height: 24rpx;
-	}
 	.page__info{
 		align-items: center;
 		font-size: 12px;
 		justify-content: space-between;
 		margin: 10px 0 0;
+		color: #B2B2B2;
+		.icon-big {
+			width: 16rpx;
+			height: 16rpx;
+			margin-left: 16rpx;
+		}
 	}
 	.data__wrapper{
 		padding: 0 10rpx;
@@ -277,6 +279,8 @@
 
 				.uni-input-placeholder {
 					font-size: 28rpx;
+					color: #B2B2B2;
+					font-family: PingFang SC;
 				}
 			}
 		}
@@ -284,6 +288,7 @@
 	
 	.card-form{
 		margin:30rpx 23rpx 23rpx;
+		height: 100rpx;
 		.input-style {
 			color: #B2B2B2;
 			text-align: right;
@@ -294,11 +299,18 @@
 			font-size: 28rpx;
 		}
 		.main-wrap-contetnt-item-field-name{
-			line-height: 80rpx;
+			line-height: 100rpx;
+			font-weight: bold;
+			font-family: PingFang-SC-Semibold;
+			color: #4d4d4d;      
 		}
 		.text-red {
 		    color: red;
 		    margin: 0 10rpx;
+		}
+		.uni-input{
+			color: #B2B2B2;
+			font-family: PingFang SC;
 		}
 	}
 

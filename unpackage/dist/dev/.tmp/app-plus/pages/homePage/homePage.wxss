@@ -214,7 +214,7 @@ view {
   display: -ms-flexbox;
   display: flex;
   margin-top: 10rpx;
-  padding: 50rpx 20rpx 10rpx 20rpx;
+  padding: 50rpx 10rpx 10rpx 10rpx;
 }
 .indicators-warning-content .box {
     -webkit-box-flex: 1;
@@ -222,9 +222,9 @@ view {
         -ms-flex: 1;
             flex: 1;
     background-color: #fff;
-    -webkit-box-shadow: 0 1px 6px #ccc;
-            box-shadow: 0 1px 6px #ccc;
-    border-radius: 30rpx;
+    -webkit-box-shadow: 0px 10px 124px rgba(114, 121, 158, 0.32);
+            box-shadow: 0px 10px 124px rgba(114, 121, 158, 0.32);
+    border-radius: 10rpx;
     -webkit-box-align: center;
     -webkit-align-items: center;
         -ms-flex-align: center;
@@ -233,10 +233,18 @@ view {
     -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center;
-    margin: 10rpx;
-    padding: 10px;
+    margin: 20rpx;
+    padding: 40rpx 20rpx;
 }
 .indicators-warning-content .box .warning {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+          -ms-flex: 1;
+              flex: 1;
       width: 150rpx;
       height: 150rpx;
       line-height: 150rpx;
@@ -245,17 +253,51 @@ view {
       font-weight: 600;
       font-size: 55rpx;
 }
-.indicators-warning-content .box .blue {
-      border: 5px solid #E86542;
-}
-.indicators-warning-content .box .yellow {
-      border: 5px solid #FFD154;
+.indicators-warning-content .box .warning .middlebox {
+        margin: auto;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        width: 100rpx;
+        height: 100rpx;
+        line-height: 100rpx;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        border: 1px solid lightgray;
+        border-radius: 50%;
+        font-size: 35rpx;
 }
 .indicators-warning-content .box .red {
-      border: 5px solid #4875E1;
+      border: 25rpx solid #E86542;
+}
+.indicators-warning-content .box .yellow {
+      border: 25rpx solid #FFD154;
 }
 .indicators-warning-content .box .warning-title {
       margin-bottom: 10rpx;
+      margin-top: 15rpx;
+}
+.indicators-warning-content .box .cicleBottom {
+      height: 40rpx;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+          -ms-flex: 1;
+              flex: 1;
+      background-color: #FFFFFF;
+      margin-top: -40rpx;
+      border-radius: 100%;
+}
+.indicators-warning-content .box .warning-tip {
+      text-align: center;
+      font-size: 24rpx;
+      color: #929292;
 }
 .indicators-warning-content .box .task {
       border: 1px solid lightgray;

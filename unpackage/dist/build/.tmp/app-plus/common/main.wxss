@@ -1754,6 +1754,9 @@ radio-group label, checkbox-group label{
 	        box-shadow: 0px 2rpx 3rpx #ccc;
 	color: #333;
 }
+.active{
+	display: none !important;
+}
 /* 以下样式用于 hello uni-app 演示所需 */
 page {
 	background-color: #F4F5F6;

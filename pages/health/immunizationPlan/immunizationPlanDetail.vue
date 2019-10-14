@@ -1,4 +1,5 @@
 <template>
+	<!-- 免疫记录明细 -->
 	<view class="health-container">
 		<view class="editor-title flex ali-c">
 			<view class="img">

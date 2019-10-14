@@ -1,4 +1,5 @@
 <template>
+	<!-- 免疫记录 -->
 	<view class="page-wrapper">
 		<view class="status__bar">
 			<view class="status-header">

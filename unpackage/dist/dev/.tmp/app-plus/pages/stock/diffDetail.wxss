@@ -108,6 +108,7 @@
     font-weight: 600;
     font-size: 16px;
     text-align: center;
+    font-family: PingFang SC;
 }
 .status__bar .back__icon {
     position: absolute;
@@ -193,10 +194,6 @@ page {
 }
 .page-wrapper {
   padding-top: 65px;
-}
-.icon-big {
-  width: 24rpx;
-  height: 24rpx;
 }
 .page__info {
   -webkit-box-align: center;

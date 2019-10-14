@@ -14,18 +14,26 @@
 			<view class="indicators-warning indicators-warnin-top">
 				
 				<view class="indicators-warning-content">
-					<view class="box" @tap.stop="toMessage">
-						<view class="warning-title">蓝色预警</view>
-						<view class="warning blue">{{blueWarning}}</view>
-					</view>
-					<view class="box" @tap.stop="toMessage">
-						<view class="warning-title">黄色预警</view>
-						<view class="warning yellow">{{yellowWarning}}</view>
-					</view>
-					<view class="box" style="border: none;" @tap.stop="toMessage">
+					<view class="box" @tap.stop="toMessage('red')">
+						<view class="warning red">
+							<view class="middlebox">{{blueWarning}}</view>
+						</view>
+						<view class="warning-title cicleBottom"></view>
 						<view class="warning-title">红色预警</view>
-						<view class="warning red">{{redWarning}}</view>
+						<view class="warning-tip">本月新增预警指标3个</view>
 					</view>
+					<view class="box" @tap.stop="toMessage('yellow')">
+						<view class="warning yellow">
+							<view class="middlebox">{{yellowWarning}}</view>
+						</view>
+						<view class="warning-title cicleBottom"></view>
+						<view class="warning-title">黄色预警</view>
+						<view class="warning-tip">本月新增预警指标3个</view>
+					</view>
+					<!-- <view class="box" style="border: none;" @tap.stop="toMessage">
+						<view class="warning-title">红色预警</view>
+						<view class="warning blue">{{redWarning}}</view>
+					</view> -->
 				</view>
 			</view>
 			
@@ -39,7 +47,7 @@
 				<view class="indicators-warning-content tip" style="padding-top: 0px;">
 					<view class="tip-item" v-for="(item, index) in tipArray" :key="index" @tap.stop="productionItem">
 						<view class=""><image src="../../static/tipItem.png" style="width: 67rpx; height: 66rpx;"/></view>
-						<view style="margin-top: 10rpx; margin-left: 10rpx; color: #4D4D4D; text-align: left; width: 80%;">{{item.title}}</view>
+						<view style="margin-top: 10rpx; margin-left: 10rpx; color: #4D4D4D; text-align: left; width: 80%;font-size: 25rpx;">{{item.title}}</view>
 						<view style="margin-top: 10rpx; color: #DFE2E6;"><uni-icon type="arrowright" color="#B2B2B2" size="16"  /></view>
 					</view>
 				</view>
@@ -151,17 +159,17 @@
 					contentnomore: '没有更多数据了'
 				},
 				blueWarning: "05",     //预警数目
-				yellowWarning: "25",
-				redWarning: "25",
+				yellowWarning: "03",
+				redWarning: "06",
 				
 				todo: 10,   //我的任务
 				initiate: 7,
 				read: 9,
 				
 				tipArray: [
-					{title: '有6头生产公猪采精间隔天数超过7天'},
-					{title: '有36头母猪采未发情超过240天'},
-					{title: '有6头生产公猪采精间隔天数超过7天'}
+					{title: '您有20头超42天空返存栏，请尽快采取措施！'},
+					{title: '您有15头空怀超49天存栏，请尽快采取措施！'},
+					{title: '您有10头超110天未上产房存栏，请及时处理！'}
 				],
 				myUsualUses: [{ // 常用列表名 
 						title: "精液检测",
@@ -175,7 +183,8 @@
 					},
 					{
 						title: "死亡记录",
-						url: "/static/slices/Rectangle@2x(33).png"
+						url: "/static/slices/Rectangle@2x(33).png",
+						jumpurl: '/pages/dataCollection/deathRecord/deathNew'
 					},
 					{
 						title: "低值申请",
@@ -187,7 +196,8 @@
 					},
 					{
 						title: "药品领用申请",
-						url: "/static/slices/Rectangle@2x(18).png"
+						url: "/static/slices/Rectangle@2x(18).png",
+						jumpurl: '/pages/collection/semenRecipients/semenRecipientsAudit'
 					},
 					{
 						title: "药品领用申请",
@@ -232,19 +242,26 @@
 				},1000)
 			},
 
-			toMessage() {  //预警跳转
-				uni.navigateTo({
-					url: "/pages/message/message"
-				});
+			toMessage(type) {  //预警跳转
+				if(type == 'red') {
+					uni.navigateTo({
+						url: "/pages/message/redWarning"
+					});
+				}else {
+					uni.navigateTo({
+						url: "/pages/message/yellowWarning"
+					});
+				}
+				
 			},
 			production() {  //生产提醒跳转
 				uni.navigateTo({
-					url: "/pages/message/message"
+					url: "/pages/message/productionRemind"
 				});
 			},
 			productionItem() {  //生产提醒条目
 				uni.navigateTo({
-					url: "/pages/archives/boarInfo/boarInfo"
+					url: "/pages/message/productionRemind"
 				});
 			},
 			myTask() {  //我的任务跳转
@@ -504,17 +521,19 @@
 	.indicators-warning-content{
 		display: flex;
 		margin-top: 10rpx;
-		padding: 50rpx 20rpx 10rpx 20rpx;
+		padding: 50rpx 10rpx 10rpx 10rpx;
 		.box{
 			flex: 1;
 			background-color: #fff;
-			box-shadow: 0 1px 6px #ccc;
-			border-radius: 30rpx;
+			box-shadow:0px 10px 124px rgba(114,121,158,0.32);
+			border-radius: 10rpx;
 			align-items: center;
 			justify-content: center;
-			margin: 10rpx;
-			padding: 10px;
+			margin: 20rpx;
+			padding: 40rpx 20rpx;
 			.warning{
+				display: flex;
+				flex: 1;
 				width: 150rpx;
 				height: 150rpx;
 				line-height: 150rpx;
@@ -522,12 +541,37 @@
 				border-radius: 200rpx;
 				font-weight: 600;
 				font-size: 55rpx;
+				.middlebox{
+					margin: auto;
+					display: flex;
+					width: 100rpx;
+					height: 100rpx; 
+					line-height: 100rpx;
+					justify-content: center;
+					border:1px solid lightgray;
+					border-radius:50%;
+					font-size: 35rpx;
+					 
+				}
 			}
-			.blue{ border: 5px solid #E86542; }
-			.yellow{ border: 5px solid #FFD154; }
-			.red{ border: 5px solid #4875E1; }
+			.red{ border: 25rpx solid #E86542; }
+			.yellow{ border: 25rpx solid #FFD154; }
 			.warning-title{
 				margin-bottom: 10rpx;
+				margin-top: 15rpx;
+			}
+			.cicleBottom{
+				height:40rpx;
+				display: flex;
+				flex: 1; 
+				background-color: #FFFFFF; 
+				margin-top: -40rpx; 
+				border-radius: 100%;
+			}
+			.warning-tip{
+				text-align: center;
+				font-size: 24rpx;
+				color: #929292;
 			}
 			
 			.task{

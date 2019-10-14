@@ -93,8 +93,6 @@
 						<uni-icon type="arrowright" color="#333333" size="18" />
 					</view>
 				</draw-cell>
-				
-				
 			</scroll-view>
 			<view class="submits jus-b">
 				<view class="flexc reset-btn" @click="reset">重置</view>

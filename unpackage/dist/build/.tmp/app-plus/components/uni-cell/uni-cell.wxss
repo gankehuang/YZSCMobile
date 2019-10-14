@@ -28,10 +28,15 @@
   height: 96rpx;
   border-bottom: 1rpx solid #EBEEF2;
   font-size: 28rpx;
+  font-family: PingFang SC;
+}
+.form-list .field {
+    color: #4d4d4d;
+    font-weight: bold;
 }
 .form-list .field text {
-    color: #FF6354;
-    margin-left: 10rpx;
+      color: #ff6354;
+      margin-left: 10rpx;
 }
 .form-list .cell-value text {
     color: #B2B2B2;

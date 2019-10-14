@@ -58,32 +58,23 @@
 					   </view>
 				   </view>
 			   </draw-cell>
-			   <!-- 配种批次 -->
-			   <draw-cell title="配种批次" required="true">
+			   <!-- 转群类别 -->
+			   <draw-cell title="转群类别" required="true">
 					<view slot="value" class="bg-gray jus-j" @click="selectPeople">
 						<text>{{searchForm.vaccineName}}</text>
 						<uni-icon type="arrowright" color="#333333" size="18" /> 
 					</view>
 			    </draw-cell>
-			   <!-- 与配公猪 -->
-			   <draw-cell title="与配公猪"  required="true">
+			   <!-- 转出栋舍 -->
+			   <draw-cell title="转出栋舍"  required="true">
 			   				<view slot="value" class="bg-gray jus-j">
-			   					<image @click="qr" style="margin: 0;" src="../../../static/search/qr.png" mode="" class="icon"></image>
 			   					<input type="text" placeholder="请填写" v-model="searchForm.immunePlan" />
 			   				</view>
 			   </draw-cell>
-			   <!-- 耳牌号 -->
-			   <draw-cell title="耳牌"  required="true">
+			   <!-- 转入栋舍 -->
+			   <draw-cell title="转入栋舍"  required="true">
 			   				<view slot="value" class="bg-gray jus-j">
-			   					<image @click="qr" style="margin: 0;" src="../../../static/search/qr.png" mode="" class="icon"></image>
 			   					<input type="text" placeholder="请填写" v-model="searchForm.immuneProject" />
-			   				</view>
-			   </draw-cell>
-			   <!-- 配种员 -->
-			   <draw-cell title="配种员"  required="true">
-			   				<view slot="value" class="bg-gray jus-j">
-			   					<image @click="qr" style="margin: 0;" src="../../../static/search/qr.png" mode="" class="icon"></image>
-			   					<input type="text" placeholder="请填写" v-model="searchForm.recyclingNum" />
 			   				</view>
 			   </draw-cell>
 			  </scroll-view>
@@ -192,8 +183,7 @@
 					clwz: 'xx',
 					gzep: 'xx',
 					gzep: 'xx',
-					tjr: 'xxx',
-					tjsj: 'xxxx'
+					tjr: 'xxx'
 				}, {
 					id: '02',
 					index: '02',
@@ -207,8 +197,7 @@
 					clwz: 'xx',
 					gzep: 'xx',
 					gzep: 'xx',
-					tjr: 'xxx',
-					tjsj: 'xxxx'
+					tjr: 'xxx'
 				}, {
 					id: '03',
 					index: '03',
@@ -222,8 +211,7 @@
 					clwz: 'xx',
 					gzep: 'xx',
 					gzep: 'xx',
-					tjr: 'xxx',
-					tjsj: 'xxxx'
+					tjr: 'xxx'
 				}, {
 					id: '04',
 					index: '04',
@@ -237,8 +225,7 @@
 					clwz: 'xx',
 					gzep: 'xx',
 					gzep: 'xx',
-					tjr: 'xxx',
-					tjsj: 'xxxx'
+					tjr: 'xxx'
 				}, {
 					id: '05',
 					index: '05',
@@ -252,8 +239,7 @@
 					clwz: 'xx',
 					gzep: 'xx',
 					gzep: 'xx',
-					tjr: 'xxx',
-					tjsj: 'xxxx'
+					tjr: 'xxx'
 				}, {
 					id: '06',
 					index: '06',
@@ -267,8 +253,7 @@
 					clwz: 'xx',
 					gzep: 'xx',
 					gzep: 'xx',
-					tjr: 'xxx',
-					tjsj: 'xxxx'
+					tjr: 'xxx'
 				}, {
 					id: '07',
 					index: '07',
@@ -282,8 +267,7 @@
 					clwz: 'xx',
 					gzep: 'xx',
 					gzep: 'xx',
-					tjr: 'xxx',
-					tjsj: 'xxxx'
+					tjr: 'xxx'
 				}],
 				columns: [{
 						title: "序号",
@@ -307,33 +291,29 @@
 						key: "sowcard",
 						width: 150,
 					}, {
-						title: "异常原因",
+						title: "转出批次",
 						key: "ycyy",
 						width: 200,
 					}, {
-						title: "配种批次",
+						title: "转入批次",
 						key: "pzpc",
 						width: 150,
 					}, {
-						title: "状态",
+						title: "转出舍",
 						key: "zt",
 						width: 100,
 					}, {
-						title: "存栏位置",
+						title: "转入舍",
 						key: "clwz",
 						width: 150,
 					}, {
-						title: "公猪耳牌",
+						title: "重量",
 						key: "gzep",
 						width: 150,
 					}, {
-						title: "提交人",
+						title: "头数",
 						key: "tjr",
 						width: 100,
-					}, {
-						title: "提交时间",
-						key: "tjsj",
-						width: 150,
 					}
 				],
 			}

@@ -30,9 +30,6 @@
 								<picker @change="bindPickerChange" :value="index" :range="array">
 									<view class="picker">
 										<view class="uni-input">{{array[index]}}</view>
-										<view class="dextrad-icon">
-											<image class="icon-small" src="/static/assets/dextrad.png" mode=""></image>
-										</view>
 									</view>
 								</picker>
 							</view>
@@ -115,6 +112,11 @@
 	.main {
 		.main-wrap {
 			padding: 160rpx 23rpx 23rpx 23rpx;
+			.main-wrap-contetnt-item{
+				.main-wrap-contetnt-item-field:first-child{
+					padding-top: 0;
+				}
+			}
 		}
 	}
 </style>

@@ -108,6 +108,7 @@
     font-weight: 600;
     font-size: 16px;
     text-align: center;
+    font-family: PingFang SC;
 }
 .status__bar .back__icon {
     position: absolute;
@@ -248,6 +249,37 @@ page {
         -ms-flex-align: center;
             align-items: center;
 }
+.draw {
+  padding: 30rpx;
+  width: 500rpx;
+  height: calc(100% - 118rpx);
+}
+.draw .bg-gray {
+    background: #f5f5f5;
+    padding: 16rpx 20rpx;
+    font-size: 12px;
+    color: #4d4d4d;
+    min-height: 28rpx;
+}
+.submits {
+  position: fixed;
+  bottom: 0rpx;
+  left: 0;
+  width: 100%;
+}
+.submits .flexc {
+    width: 50%;
+    height: 86rpx;
+}
+.submits .flexc.reset-btn {
+      background-color: #FFFFFF;
+      border-top: 2px solid #F5F5F5;
+}
+.submits .flexc.submit-btn {
+      border-top: 2px solid #4684EA;
+      background-color: #4684EA;
+      color: #FFFFFF;
+}
 .main-container {
   padding: 20rpx 30rpx;
 }
@@ -334,6 +366,8 @@ page {
 }
 .status-search .search-wrap .search-wrap-input .uni-input-placeholder {
         font-size: 28rpx;
+        color: #B2B2B2;
+        font-family: PingFang SC;
 }
 .icon-big {
   width: 24rpx;

@@ -108,6 +108,7 @@
     font-weight: 600;
     font-size: 16px;
     text-align: center;
+    font-family: PingFang SC;
 }
 .status__bar .back__icon {
     position: absolute;
@@ -209,6 +210,7 @@ page {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: 10px 0 0;
+  font-family: PingFang SC;
 }
 .data__wrapper {
   padding: 0 10rpx;
@@ -334,6 +336,8 @@ page {
 }
 .status-search .search-wrap .search-wrap-input .uni-input-placeholder {
         font-size: 28rpx;
+        color: #B2B2B2;
+        font-family: PingFang SC;
 }
 .icon-big {
   width: 24rpx;

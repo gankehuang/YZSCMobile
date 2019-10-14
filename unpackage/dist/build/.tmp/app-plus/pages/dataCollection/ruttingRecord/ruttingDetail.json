@@ -1,4 +1,6 @@
 {
   "navigationStyle": "custom",
+  "animationType": "fade-in",
+  "animationDuration": 300,
   "usingComponents": {}
 }

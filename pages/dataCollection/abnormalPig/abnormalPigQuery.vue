@@ -45,7 +45,7 @@
 		<popup-layer ref="popupRef1" :direction="'left'"  :class='{active:active}'>
 		   <scroll-view class="draw" scroll-y="true" style="padding-top: 65px;">
 			   <!-- 配种日期 -->
-		       <draw-cell title="业务日期" required="true">
+		       <draw-cell title="业务日期" >
 				   <view slot="value" class="jus-j">
 						<view class="bg-gray jus-j" @click="selectDate" >
 							<text>{{searchForm.businessStartTime}}</text>
@@ -58,38 +58,90 @@
 					   </view>
 				   </view>
 			   </draw-cell>
-			   <!-- 配种批次 -->
-			   <draw-cell title="配种批次" required="true">
-					<view slot="value" class="bg-gray jus-j" @click="selectPeople">
-						<text>{{searchForm.vaccineName}}</text>
-						<uni-icon type="arrowright" color="#333333" size="18" /> 
-					</view>
-			    </draw-cell>
-			   <!-- 与配公猪 -->
-			   <draw-cell title="与配公猪"  required="true">
-			   				<view slot="value" class="bg-gray jus-j">
-			   					<image @click="qr" style="margin: 0;" src="../../../static/search/qr.png" mode="" class="icon"></image>
-			   					<input type="text" placeholder="请填写" v-model="searchForm.immunePlan" />
-			   				</view>
-			   </draw-cell>
-			   <!-- 耳牌号 -->
-			   <draw-cell title="耳牌"  required="true">
+			    <!-- 耳牌号 -->
+			   <draw-cell title="耳牌" >
 			   				<view slot="value" class="bg-gray jus-j">
 			   					<image @click="qr" style="margin: 0;" src="../../../static/search/qr.png" mode="" class="icon"></image>
 			   					<input type="text" placeholder="请填写" v-model="searchForm.immuneProject" />
 			   				</view>
 			   </draw-cell>
-			   <!-- 配种员 -->
-			   <draw-cell title="配种员"  required="true">
-			   				<view slot="value" class="bg-gray jus-j">
-			   					<image @click="qr" style="margin: 0;" src="../../../static/search/qr.png" mode="" class="icon"></image>
-			   					<input type="text" placeholder="请填写" v-model="searchForm.recyclingNum" />
-			   				</view>
+			   <!-- 分场 -->
+			  <draw-cell title="分场" >
+			  					<view slot="value" class="bg-gray jus-j" @click="selectPeople">
+			  						<text>{{searchForm.vaccineName}}</text>
+			  						<uni-icon type="arrowright" color="#333333" size="18" /> 
+			  					</view>
 			   </draw-cell>
+			    <!-- 猪舍 -->
+			   <draw-cell title="猪舍" >
+			   					<view slot="value" class="bg-gray jus-j" @click="selectPeople">
+			   						<text>{{searchForm.vaccineName}}</text>
+			   						<uni-icon type="arrowright" color="#333333" size="18" /> 
+			   					</view>
+			    </draw-cell>
+				 <!-- 异常分类 -->
+				<draw-cell title="异常分类" >
+									<view slot="value" class="bg-gray jus-j" @click="selectPeople">
+										<text>{{searchForm.vaccineName}}</text>
+										<uni-icon type="arrowright" color="#333333" size="18" /> 
+									</view>
+				 </draw-cell>
+			   <!-- 助产 -->
+			   <!-- <draw-cell title="助产" class='checked'>
+			   				<view slot="value" class="bg-gray jus-j">
+			   					 <checkbox value="cb" />
+			   				</view>
+			   </draw-cell> -->
+			    <!-- 发热 -->
+			   <!-- <draw-cell title="发热" class='checked'>
+			   				<view slot="value" class="bg-gray jus-j">
+			   					 <checkbox value="cb" />
+			   				</view>
+			   </draw-cell> -->
+			    <!-- 不吃料 -->
+			   <!-- <draw-cell title="不吃料" class='checked'>
+			   				<view slot="value" class="bg-gray jus-j">
+			   					 <checkbox value="cb" />
+			   				</view>
+			   </draw-cell> -->
+			    <!-- 带弱仔 -->
+			   <!-- <draw-cell title="带弱仔"  class='checked'>
+			   				<view slot="value" class="bg-gray jus-j">
+			   					 <checkbox value="cb" />
+			   				</view>
+			   </draw-cell> -->
+			    <!-- 产死胎木乃伊 -->
+			  <!-- <draw-cell title="产死胎木乃伊" class='checked'>
+			   				<view slot="value" class="bg-gray jus-j">
+			   					 <checkbox value="cb" />
+			   				</view>
+			   </draw-cell> -->
+			   <!-- 颜色 -->
+			  <draw-cell title="颜色">
+					<view slot="value" class="bg-gray jus-j" @click="selectPeople">
+						<text>{{searchForm.vaccineName}}</text>
+						<uni-icon type="arrowright" color="#333333" size="18" /> 
+					</view>
+			   </draw-cell>
+				 <!-- 执行人 -->
+			   <draw-cell title="执行人" >
+					<view slot="value" class="bg-gray jus-j" @click="selectPeople">
+						<text>{{searchForm.vaccineName}}</text>
+						<uni-icon type="arrowright" color="#333333" size="18" /> 
+					</view>
+			    </draw-cell>
+				 <!-- 责任人 -->
+			   <draw-cell title="责任人" >
+					<view slot="value" class="bg-gray jus-j" @click="selectPeople">
+						<text>{{searchForm.vaccineName}}</text>
+						<uni-icon type="arrowright" color="#333333" size="18" /> 
+					</view>
+			    </draw-cell>
+			   
 			  </scroll-view>
 			  <view class="submits jus-b">
-			  			   <view class="flexc reset-btn" @click="reset">重置</view>
-			  			   <view class="flexc submit-btn" @click="find">确定</view>
+					   <view class="flexc reset-btn" @click="reset">重置</view>
+					   <view class="flexc submit-btn" @click="find">确定</view>
 			  </view>
 		</popup-layer>
 		<mpvue-picker   :themeColor="themeColor" ref="mpvuePicker" mode="dateSelector" @onConfirm="onConfirmDate" @onCancelDate="onCancel"
@@ -526,5 +578,14 @@
 				color: #FFFFFF;
 			}
 		}
+	}
+	
+	.checked{
+		    display: flex;
+			align-items: center;
+			justify-content: space-between;
+			.jus-j{
+				background-color:#fff;
+			}
 	}
 </style>

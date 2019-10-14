@@ -32,7 +32,7 @@
 			</view> 
 		</scroll-view>
 		<view class="line-h"></view>
-		<!-- 		当前所在滑块的 index 	滑动动画时长 		1-->
+		<!-- 		当前所在滑块的 index 												滑动动画时长 		1-->
 		<swiper :current="tabIndex" class="swiper-box" style="flex: 1;height:100%;" :duration="300" @change="ontabchange">
 					<swiper-item class="swiper-item" v-for="(tab,index1) in newsList" :key="index1">
 						<scroll-view class="scroll-v list" scroll-y @scrolltolower="loadMore(index1)">
@@ -455,21 +455,23 @@
 			},
 			{
 				title: "异常猪管理",
-				url: "/static/slices/Rectangle@2x(13).png",
+				url: "/static/slices/yczgl@2x.png",
 				jumpurl: '/pages/dataCollection/abnormalPig/abnormalPigNew'
 			},
 			{
 				title: "后备猪健康",
-				url: "/static/slices/Rectangle@2x(13).png",
+				url: "/static/slices/hbzgl@2x.png",
 				jumpurl: '/pages/dataCollection/reservePig/reservePigNew'
 			},
 			{
 				title: "不发情备猪",
-				url: "/static/slices/Rectangle@2x(13).png"
+				url: "/static/slices/bfqgl.png",
+				jumpurl: '/pages/dataCollection/anestrus/anestrusNew'
 			},
 			{
 				title: "淘汰申请",
-				url: "/static/slices/Rectangle@2x(13).png"
+				url: "/static/slices/ttsq2@2x.png",
+				jumpurl: '/pages/dataCollection/eliminate/eliminateNew'
 			}
 		],
 		[
@@ -491,7 +493,7 @@
 			{
 				title: "药品领用",
 				url: "/static/slices/Rectangle@2x(20).png",
-				//jumpurl: '/pages/receive/drug/applyFor'
+				jumpurl: '/pages/receive/drug/applyFor'
 			},
 			{
 				title: "饲料领用",
@@ -500,32 +502,38 @@
 			{
 				title: "低值领用",
 				url: "/static/slices/Rectangle@2x(36).png",
-				//jumpurl: '/pages/receive/lowValue/select'
+				jumpurl: '/pages/receive/lowValue/select'
 			}
 		],
 		[{
 				title: "后备",
-				url: "/static/slices/Rectangle@2x(10).png"
+				url: "/static/slices/Rectangle@2x(10).png",
+				jumpurl: "/pages/batchTask/reserve/matchPregnant"
 			},
 			{
 				title: "公猪站",
-				url: "/static/slices/Rectangle@2x(21).png"
+				url: "/static/slices/Rectangle@2x(21).png",  
+				jumpurl: "/pages/batchTask/boarsStation/matchPregnant"
 			},
 			{
 				title: "配怀",
-				url: "/static/slices/Rectangle@2x(31).png"
+				url: "/static/slices/Rectangle@2x(31).png",
+				jumpurl: '/pages/batchTask/matchPregnant/matchPregnant'
 			},
 			{
 				title: "分娩",
-				url: "/static/slices/Rectangle@2x(37).png"
+				url: "/static/slices/Rectangle@2x(37).png",
+				jumpurl: '/pages/batchTask/childbirth/matchPregnant'
 			},
 			{
 				title: "保育",
-				url: "/static/slices/Rectangle@2x(11).png"
+				url: "/static/slices/Rectangle@2x(11).png",  
+				jumpurl: '/pages/batchTask/childCare/matchPregnant'
 			},
 			{
 				title: "育肥",
-				url: "/static/slices/Rectangle@2x(11).png"
+				url: "/static/slices/Rectangle@2x(22).png",
+				jumpurl: '/pages/batchTask/fatten/matchPregnant'
 			}
 		],
 		//  [{
@@ -539,7 +547,8 @@
 		// ],
 		[{
 				title: "三级洗消",
-				url: "/static/slices/Rectangle@2x(4).png"
+				url: "/static/slices/Rectangle@2x(4).png",
+				jumpurl: '/pages/biosafety/disinfection/disinfectionNew'
 			},
 			{
 				title: "场外巡检",
@@ -552,32 +561,39 @@
 		],
 		 [{
 				title: "药品盘点",
-				url: "/static/slices/Rectangle@2x(5).png"
+				url: "/static/slices/Rectangle@2x(5).png",
+				jumpurl: "/pages/stock/material"
 			},
 			{
 				title: "猪只盘点",
-				url: "/static/slices/Rectangle@2x(17).png"
+				url: "/static/slices/Rectangle@2x(17).png",
+				jumpurl: "/pages/stock/pig"
 			},
 			{
 				title: "饲料盘点",
-				url: "/static/slices/Rectangle@2x(26).png"
+				url: "/static/slices/Rectangle@2x(26).png",
+				jumpurl:"/pages/stock/feed"
 			},
 			{
 				title: "低值品盘点",
-				url: "/static/slices/Rectangle@2x(27).png"
+				url: "/static/slices/Rectangle@2x(27).png",
+				jumpurl:"/pages/stock/lowValue"
 			},
 			{
 				title: "食堂盘点",
-				url: "/static/slices/Rectangle Copy 16@2x.png"
+				url: "/static/slices/Rectangle Copy 16@2x.png",
+				jumpurl: "/pages/stock/diningHall"
 			}
 		],
 		 [{
 				title: "个体信息",
-				url: "/static/slices/Rectangle Copy 5@2x.png"
+				url: "/static/slices/Rectangle Copy 5@2x.png",
+				jumpurl: '/pages/businessAdjustment/personalData/personalDataNew'
 			},
 			{
 				title: "猪群等级",
-				url: "/static/slices/Rectangle Copy 6@2x.png"
+				url: "/static/slices/Rectangle Copy 6@2x.png",
+				jumpurl: '/pages/businessAdjustment/gradePig/gradePigNew'
 			}
 		],
 		 [{
@@ -593,7 +609,7 @@
 			{
 				title: "免疫调整",
 				url: "/static/slices/Rectangle Copy 9@2x.png",
-				jumpurl: '/pages/health/immunizationPlan/immunizationRecord'
+				jumpurl: '/pages/health/immunizationPlan/immunizationAdjust'
 			},
 			{
 				title: "空瓶回收",
@@ -603,12 +619,14 @@
 		],
 		 [{
 				title: "测膘调料",
-				url: "/static/slices/Rectangle Copy 11@2x.png"
+				url: "/static/slices/Rectangle Copy 11@2x.png",
+				jumpurl: '/pages/freed/fatMeasurement/measurementRecord'
 			},
 			
 			{
-				title: "称重管理",
-				url: "/static/slices/Rectangle Copy 13@2x.png"
+				title: "饲喂程序",
+				url: "/static/slices/Rectangle Copy 13@2x.png",
+				jumpurl: '/pages/freed/freedApp/freedList'
 			}
 		],
 		[{

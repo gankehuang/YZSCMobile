@@ -1,6 +1,0 @@
-{
-  "navigationStyle": "custom",
-  "usingComponents": {
-    "visible-setting": "/components/visibleSetting/visibleSetting"
-  }
-}

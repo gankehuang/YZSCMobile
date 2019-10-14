@@ -2,7 +2,7 @@
 	<view class="page-wrapper">
 		<view class="status__bar">
 			<view class="back__icon" @tap="back">
-				<image class="icon" src="../../../static/assets/back.png" mode=""></image>
+				<image class="icon" src="../../../../static/assets/back.png" mode=""></image>
 			</view>
 			<view class="status__title">
 				系谱

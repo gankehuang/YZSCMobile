@@ -1,8 +1,0 @@
-{
-  "navigationStyle": "custom",
-  "usingComponents": {
-    "scroll-tab": "/components/scroll-tab/scroll-tab",
-    "uni-load-more": "/components/uni-load-more",
-    "ztable": "/components/z-table/z-table"
-  }
-}

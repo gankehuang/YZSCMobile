@@ -58,34 +58,27 @@
 					   </view>
 				   </view>
 			   </draw-cell>
-			   <!-- 配种批次 -->
-			   <draw-cell title="配种批次" required="true">
+			   <!-- 存栏位置 -->
+			   <draw-cell title="存栏位置" required="true">
 					<view slot="value" class="bg-gray jus-j" @click="selectPeople">
 						<text>{{searchForm.vaccineName}}</text>
 						<uni-icon type="arrowright" color="#333333" size="18" /> 
 					</view>
 			    </draw-cell>
-			   <!-- 与配公猪 -->
-			   <draw-cell title="与配公猪"  required="true">
-			   				<view slot="value" class="bg-gray jus-j">
-			   					<image @click="qr" style="margin: 0;" src="../../../static/search/qr.png" mode="" class="icon"></image>
-			   					<input type="text" placeholder="请填写" v-model="searchForm.immunePlan" />
-			   				</view>
-			   </draw-cell>
-			   <!-- 耳牌号 -->
-			   <draw-cell title="耳牌"  required="true">
-			   				<view slot="value" class="bg-gray jus-j">
-			   					<image @click="qr" style="margin: 0;" src="../../../static/search/qr.png" mode="" class="icon"></image>
-			   					<input type="text" placeholder="请填写" v-model="searchForm.immuneProject" />
-			   				</view>
-			   </draw-cell>
-			   <!-- 配种员 -->
-			   <draw-cell title="配种员"  required="true">
-			   				<view slot="value" class="bg-gray jus-j">
-			   					<image @click="qr" style="margin: 0;" src="../../../static/search/qr.png" mode="" class="icon"></image>
-			   					<input type="text" placeholder="请填写" v-model="searchForm.recyclingNum" />
-			   				</view>
-			   </draw-cell>
+				<!-- 配种批次 -->
+				<draw-cell title="配种批次" required="true">
+					<view slot="value" class="bg-gray jus-j" @click="selectPeople">
+						<text>{{searchForm.vaccineName}}</text>
+						<uni-icon type="arrowright" color="#333333" size="18" /> 
+					</view>
+				 </draw-cell>
+				 <!-- 状态 -->
+				 <draw-cell title="状态" required="true">
+				 	<view slot="value" class="bg-gray jus-j">
+						<label class="radio"><radio value="r1" checked="true" />空怀</label>
+						<label class="radio"><radio value="r1"  />怀孕</label>
+				 	</view>
+				  </draw-cell>
 			  </scroll-view>
 			  <view class="submits jus-b">
 			  			   <view class="flexc reset-btn" @click="reset">重置</view>
@@ -186,14 +179,7 @@
 					jcry: '2',
 					jcgg: 'D0001',
 					sowcard: 'Y001',
-					ycyy: 'xx',
-					pzpc: 'xx',
-					zt: 'xx',
-					clwz: 'xx',
-					gzep: 'xx',
-					gzep: 'xx',
-					tjr: 'xxx',
-					tjsj: 'xxxx'
+					ycyy: 'xx'
 				}, {
 					id: '02',
 					index: '02',
@@ -201,14 +187,7 @@
 					jcry: '2',
 					jcgg: 'D0001',
 					sowcard: 'Y001',
-					ycyy: 'xx',
-					pzpc: 'xx',
-					zt: 'xx',
-					clwz: 'xx',
-					gzep: 'xx',
-					gzep: 'xx',
-					tjr: 'xxx',
-					tjsj: 'xxxx'
+					ycyy: 'xx'
 				}, {
 					id: '03',
 					index: '03',
@@ -216,14 +195,7 @@
 					jcry: '2',
 					jcgg: 'D0001',
 					sowcard: 'Y001',
-					ycyy: 'xx',
-					pzpc: 'xx',
-					zt: 'xx',
-					clwz: 'xx',
-					gzep: 'xx',
-					gzep: 'xx',
-					tjr: 'xxx',
-					tjsj: 'xxxx'
+					ycyy: 'xx'
 				}, {
 					id: '04',
 					index: '04',
@@ -231,14 +203,7 @@
 					jcry: '2',
 					jcgg: 'D0001',
 					sowcard: 'Y001',
-					ycyy: 'xx',
-					pzpc: 'xx',
-					zt: 'xx',
-					clwz: 'xx',
-					gzep: 'xx',
-					gzep: 'xx',
-					tjr: 'xxx',
-					tjsj: 'xxxx'
+					ycyy: 'xx'
 				}, {
 					id: '05',
 					index: '05',
@@ -246,14 +211,7 @@
 					jcry: '2',
 					jcgg: 'D0001',
 					sowcard: 'Y001',
-					ycyy: 'xx',
-					pzpc: 'xx',
-					zt: 'xx',
-					clwz: 'xx',
-					gzep: 'xx',
-					gzep: 'xx',
-					tjr: 'xxx',
-					tjsj: 'xxxx'
+					ycyy: 'xx'
 				}, {
 					id: '06',
 					index: '06',
@@ -261,14 +219,7 @@
 					jcry: '2',
 					jcgg: 'D0001',
 					sowcard: 'Y001',
-					ycyy: 'xx',
-					pzpc: 'xx',
-					zt: 'xx',
-					clwz: 'xx',
-					gzep: 'xx',
-					gzep: 'xx',
-					tjr: 'xxx',
-					tjsj: 'xxxx'
+					ycyy: 'xx'
 				}, {
 					id: '07',
 					index: '07',
@@ -276,64 +227,33 @@
 					jcry: '2',
 					jcgg: 'D0001',
 					sowcard: 'Y001',
-					ycyy: 'xx',
-					pzpc: 'xx',
-					zt: 'xx',
-					clwz: 'xx',
-					gzep: 'xx',
-					gzep: 'xx',
-					tjr: 'xxx',
-					tjsj: 'xxxx'
+					ycyy: 'xx'
 				}],
 				columns: [{
 						title: "序号",
 						key: "index",
 						width: 70,
 					}, {
-						title: "检测日期",
+						title: "耳牌号",
 						key: "jcrq",
 						width: 150,
 					}, {
-						title: "检测人员",
+						title: "状态",
 						key: "jcry",
 						width: 150,
 					}, {
-						title: "检测工具",
+						title: "天数",
 						key: "jcgg",
 						width: 150,
 					},
 					{
-						title: "母猪耳牌",
+						title: "配种批次",
 						key: "sowcard",
 						width: 150,
 					}, {
-						title: "异常原因",
+						title: "存栏位置",
 						key: "ycyy",
 						width: 200,
-					}, {
-						title: "配种批次",
-						key: "pzpc",
-						width: 150,
-					}, {
-						title: "状态",
-						key: "zt",
-						width: 100,
-					}, {
-						title: "存栏位置",
-						key: "clwz",
-						width: 150,
-					}, {
-						title: "公猪耳牌",
-						key: "gzep",
-						width: 150,
-					}, {
-						title: "提交人",
-						key: "tjr",
-						width: 100,
-					}, {
-						title: "提交时间",
-						key: "tjsj",
-						width: 150,
 					}
 				],
 			}
@@ -526,5 +446,13 @@
 				color: #FFFFFF;
 			}
 		}
+	}
+	.checked{
+		    display: flex;
+			align-items: center;
+			justify-content: space-between;
+			.jus-j{
+				background-color:#fff;
+			}
 	}
 </style>

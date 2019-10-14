@@ -58,20 +58,7 @@
 					   </view>
 				   </view>
 			   </draw-cell>
-			   <!-- 配种批次 -->
-			   <draw-cell title="配种批次" required="true">
-					<view slot="value" class="bg-gray jus-j" @click="selectPeople">
-						<text>{{searchForm.vaccineName}}</text>
-						<uni-icon type="arrowright" color="#333333" size="18" /> 
-					</view>
-			    </draw-cell>
-			   <!-- 与配公猪 -->
-			   <draw-cell title="与配公猪"  required="true">
-			   				<view slot="value" class="bg-gray jus-j">
-			   					<image @click="qr" style="margin: 0;" src="../../../static/search/qr.png" mode="" class="icon"></image>
-			   					<input type="text" placeholder="请填写" v-model="searchForm.immunePlan" />
-			   				</view>
-			   </draw-cell>
+			   
 			   <!-- 耳牌号 -->
 			   <draw-cell title="耳牌"  required="true">
 			   				<view slot="value" class="bg-gray jus-j">
@@ -79,11 +66,17 @@
 			   					<input type="text" placeholder="请填写" v-model="searchForm.immuneProject" />
 			   				</view>
 			   </draw-cell>
-			   <!-- 配种员 -->
-			   <draw-cell title="配种员"  required="true">
+			   <!-- 存栏位置 -->
+			   <draw-cell title="存栏位置" required="true">
+					<view slot="value" class="bg-gray jus-j" @click="selectPeople">
+						<text>{{searchForm.vaccineName}}</text>
+						<uni-icon type="arrowright" color="#333333" size="18" /> 
+					</view>
+			    </draw-cell>
+			   <!-- 配种批次 -->
+			   <draw-cell title="配种批次"  required="true">
 			   				<view slot="value" class="bg-gray jus-j">
-			   					<image @click="qr" style="margin: 0;" src="../../../static/search/qr.png" mode="" class="icon"></image>
-			   					<input type="text" placeholder="请填写" v-model="searchForm.recyclingNum" />
+			   					<input type="text" placeholder="请填写" v-model="searchForm.immunePlan" />
 			   				</view>
 			   </draw-cell>
 			  </scroll-view>
@@ -290,28 +283,28 @@
 						key: "index",
 						width: 70,
 					}, {
-						title: "检测日期",
+						title: "母猪耳牌",
 						key: "jcrq",
 						width: 150,
 					}, {
-						title: "检测人员",
+						title: "断奶数",
 						key: "jcry",
 						width: 150,
 					}, {
-						title: "检测工具",
+						title: "断奶均重",
 						key: "jcgg",
 						width: 150,
 					},
 					{
-						title: "母猪耳牌",
+						title: "断奶窝重",
 						key: "sowcard",
 						width: 150,
 					}, {
-						title: "异常原因",
+						title: " 存栏位置",
 						key: "ycyy",
 						width: 200,
 					}, {
-						title: "配种批次",
+						title: "母猪转入位置",
 						key: "pzpc",
 						width: 150,
 					}, {

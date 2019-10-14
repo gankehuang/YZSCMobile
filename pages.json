@@ -24,17 +24,61 @@
 			"style": {
 				"navigationStyle": "custom",
 				"navigationBarTitleText": "消息",
-				"enablePullDownRefresh": true,
+				"enablePullDownRefresh": false
+				// "app-plus": {
+				// 	"titleNView": false,
+				// 	"bounce": "none",
+				// 	"pullToRefresh": {
+				// 		"style": "circle",
+				// 		"offset": "70px"
+				// 	}
+				// }
+			}
+		},
+		//首页红色预警详情
+		{
+			"path": "pages/message/redWarning",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "红色预警",
+				"enablePullDownRefresh": false
+			}
+		},
+		//首页黄色预警详情
+		{
+			"path": "pages/message/yellowWarning",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "黄色预警",
+				"enablePullDownRefresh": false
+			}
+		},
+		//首页生产提醒详情  productionRemind
+		{
+			"path": "pages/message/productionRemind",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "生产提醒",
+				"enablePullDownRefresh": false,
+				
+				"navigationBarBackgroundColor": "#5089F9",
+				"navigationBarTextStyle": "#ffffff",
+				// "navigationStyle": "custom",
 				"app-plus": {
-					"titleNView": false,
-					"bounce": "none",
-					"pullToRefresh": {
-						"style": "circle",
-						"offset": "70px"
+					"bounce": "none", //关闭窗口回弹效果
+					"titleNView": {
+						"buttons": [ //原生标题栏按钮配置,
+							{
+								"text": "•••",
+								"fontSize": "30upx"
+							}
+						]
 					}
 				}
 			}
 		},
+		
+		
 		{
 			"path": "pages/console/console",
 			"style": {
@@ -74,7 +118,6 @@
 				"navigationBarTextStyle": "#ffffff"
 			}
 		},
-		
 		//业务采集备份
 		{
 			"path": "pages/collection/semen-bf/add",
@@ -148,7 +191,482 @@
 				"navigationStyle": "custom"
 			}
 		},
+		
+		
+		//批次任务单_后备
+		{
+			"path": "pages/batchTask/reserve/matchPregnant",
+			"style": {
+				"navigationBarTitleText": "后备",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/reserve/warningTask",
+			"style": {
+				"navigationBarTitleText": "预警任务",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/reserve/taskRecord",
+			"style": {
+				"navigationBarTitleText": "任务记录",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/reserve/taskRecordDetail",
+			"style": {
+				"navigationBarTitleText": "任务记录详情列表",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/reserve/taskRecordDetailDetail",
+			"style": {
+				"navigationBarTitleText": "任务记录详情",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/reserve/startTask",
+			"style": {
+				"navigationBarTitleText": "开始任务",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/reserve/startTask7Day",
+			"style": {
+				"navigationBarTitleText": "开始任务1",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/reserve/startTask10Day",
+			"style": {
+				"navigationBarTitleText": "开始任务2",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/reserve/startTask4",
+			"style": {
+				"navigationBarTitleText": "开始任务3",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/reserve/startTask15Day",
+			"style": {
+				"navigationBarTitleText": "开始任务4",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/reserve/startTask5",
+			"style": {
+				"navigationBarTitleText": "开始任务5",
+				"navigationStyle": "custom"
+			}
+		},
+		
+		//批次任务单_公猪站
+		{
+			"path": "pages/batchTask/boarsStation/matchPregnant",
+			"style": {
+				"navigationBarTitleText": "后备",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/boarsStation/warningTask",
+			"style": {
+				"navigationBarTitleText": "预警任务",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/boarsStation/taskRecord",
+			"style": {
+				"navigationBarTitleText": "任务记录",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/boarsStation/taskRecordDetail",
+			"style": {
+				"navigationBarTitleText": "任务记录详情列表",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/boarsStation/taskRecordDetailDetail",
+			"style": {
+				"navigationBarTitleText": "任务记录详情",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/boarsStation/startTask",
+			"style": {
+				"navigationBarTitleText": "开始任务",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/boarsStation/startTask7Day",
+			"style": {
+				"navigationBarTitleText": "开始任务1",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/boarsStation/startTask10Day",
+			"style": {
+				"navigationBarTitleText": "开始任务2",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/boarsStation/startTask4",
+			"style": {
+				"navigationBarTitleText": "开始任务3",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/boarsStation/startTask15Day",
+			"style": {
+				"navigationBarTitleText": "开始任务4",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/boarsStation/startTask5",
+			"style": {
+				"navigationBarTitleText": "开始任务5",
+				"navigationStyle": "custom"
+			}
+		},
+		
+		//批次任务单_配怀
+		{
+			"path": "pages/batchTask/matchPregnant/matchPregnant",
+			"style": {
+				"navigationBarTitleText": "配怀",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/matchPregnant/warningTask",
+			"style": {
+				"navigationBarTitleText": "预警任务",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/matchPregnant/taskRecord",
+			"style": {
+				"navigationBarTitleText": "任务记录",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/matchPregnant/taskRecordDetail",
+			"style": {
+				"navigationBarTitleText": "任务记录详情列表",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/matchPregnant/taskRecordDetailDetail",
+			"style": {
+				"navigationBarTitleText": "任务记录详情",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/matchPregnant/startTask",
+			"style": {
+				"navigationBarTitleText": "开始任务",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/matchPregnant/startTask7Day",
+			"style": {
+				"navigationBarTitleText": "开始任务1",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/matchPregnant/startTask10Day",
+			"style": {
+				"navigationBarTitleText": "开始任务2",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/matchPregnant/startTask4",
+			"style": {
+				"navigationBarTitleText": "开始任务3",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/matchPregnant/startTask15Day",
+			"style": {
+				"navigationBarTitleText": "开始任务4",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/matchPregnant/startTask5",
+			"style": {
+				"navigationBarTitleText": "开始任务5",
+				"navigationStyle": "custom"
+			}
+		},
+		//批次任务单_分娩
+		{
+			"path": "pages/batchTask/childbirth/matchPregnant",
+			"style": {
+				"navigationBarTitleText": "分娩",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/childbirth/warningTask",
+			"style": {
+				"navigationBarTitleText": "预警任务",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/childbirth/taskRecord",
+			"style": {
+				"navigationBarTitleText": "任务记录",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/childbirth/taskRecordDetail",
+			"style": {
+				"navigationBarTitleText": "任务记录详情列表",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/childbirth/taskRecordDetailDetail",
+			"style": {
+				"navigationBarTitleText": "任务记录详情",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/childbirth/startTask",
+			"style": {
+				"navigationBarTitleText": "开始任务",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/childbirth/startTask7Day",
+			"style": {
+				"navigationBarTitleText": "开始任务1",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/childbirth/startTask10Day",
+			"style": {
+				"navigationBarTitleText": "开始任务2",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/childbirth/startTask4",
+			"style": {
+				"navigationBarTitleText": "开始任务3",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/childbirth/startTask15Day",
+			"style": {
+				"navigationBarTitleText": "开始任务4",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/childbirth/startTask5",
+			"style": {
+				"navigationBarTitleText": "开始任务5",
+				"navigationStyle": "custom"
+			}
+		},
+		//批次任务单_保育
+		{
+			"path": "pages/batchTask/childCare/matchPregnant",
+			"style": {
+				"navigationBarTitleText": "保育",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/childCare/warningTask",
+			"style": {
+				"navigationBarTitleText": "预警任务",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/childCare/taskRecord",
+			"style": {
+				"navigationBarTitleText": "任务记录",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/childCare/taskRecordDetail",
+			"style": {
+				"navigationBarTitleText": "任务记录详情列表",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/childCare/taskRecordDetailDetail",
+			"style": {
+				"navigationBarTitleText": "任务记录详情",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/childCare/startTask",
+			"style": {
+				"navigationBarTitleText": "开始任务",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/childCare/startTask7Day",
+			"style": {
+				"navigationBarTitleText": "开始任务1",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/childCare/startTask10Day",
+			"style": {
+				"navigationBarTitleText": "开始任务2",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/childCare/startTask4",
+			"style": {
+				"navigationBarTitleText": "开始任务3",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/childCare/startTask15Day",
+			"style": {
+				"navigationBarTitleText": "开始任务4",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/childCare/startTask5",
+			"style": {
+				"navigationBarTitleText": "开始任务5",
+				"navigationStyle": "custom"
+			}
+		},
+		//批次任务单_育肥
+		{
+			"path": "pages/batchTask/fatten/matchPregnant",
+			"style": {
+				"navigationBarTitleText": "育肥",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/fatten/warningTask",
+			"style": {
+				"navigationBarTitleText": "预警任务",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/fatten/taskRecord",
+			"style": {
+				"navigationBarTitleText": "任务记录",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/fatten/taskRecordDetail",
+			"style": {
+				"navigationBarTitleText": "任务记录详情列表",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/fatten/taskRecordDetailDetail",
+			"style": {
+				"navigationBarTitleText": "任务记录详情",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/fatten/startTask",
+			"style": {
+				"navigationBarTitleText": "开始任务",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/fatten/startTask7Day",
+			"style": {
+				"navigationBarTitleText": "开始任务1",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/fatten/startTask10Day",
+			"style": {
+				"navigationBarTitleText": "开始任务2",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/fatten/startTask4",
+			"style": {
+				"navigationBarTitleText": "开始任务3",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/fatten/startTask15Day",
+			"style": {
+				"navigationBarTitleText": "开始任务4",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/batchTask/fatten/startTask5",
+			"style": {
+				"navigationBarTitleText": "开始任务5",
+				"navigationStyle": "custom"
+			}
+		},
+		
+		// ,
 		// {
+		// 	
 		// 	"path": "pages/receive/semen/semen",
 		// 	"style": {
 		// 		"navigationBarTitleText": "精液领用关联申请",
@@ -167,7 +685,8 @@
 		// 			}
 		// 		}
 		// 	}
-		// },
+		// }
+		// ,
 		// {
 		// 	"path": "pages/receive/semen/semenEditor",
 		// 	"style": {
@@ -187,7 +706,8 @@
 		// 			}
 		// 		}
 		// 	}
-		// },
+		// }
+		// ,
 		// {
 		// 	"path": "pages/receive/semen/senmenAdd",
 		// 	"style": {
@@ -207,8 +727,8 @@
 		// 			}
 		// 		}
 		// 	}
-		// }, 
-		{
+		// }
+		 {
 			"path": "pages/receive/lowValue/select",
 			"style": {
 				"navigationBarTitleText": "低值申请查询",
@@ -295,7 +815,7 @@
 				"navigationBarTextStyle": "#ffffff"
 				// "navigationStyle": "custom",
 			}
-		}, 
+		},
 		// {
 		// 	"path": "pages/receive/semen/semenHistory",
 		// 	"style": {
@@ -336,27 +856,22 @@
 				}
 			}
 		},
-		{
-			"path": "pages/health/immunizationPlan/immunizationRecordDetail",
+		
+		/* 健康管理 */
+		//免疫计划
+		{//免疫计划执行
+			"path": "pages/health/immunizationPlan/immunizationPlanList",
 			"style": {
 				"navigationStyle": "custom"
 			}
-		},
-		{
-			"path": "pages/health/immunizationPlan/immunizationRecord",
-			"style": {
-				"navigationStyle": "custom"
-			}
-		},
-		{
-			"path": "pages/health/immunizationPlan/immunizationPlanEditor2",
+		},{// 免疫计划调整
+			"path": "pages/health/immunizationPlan/immunizationPlanEditor",
 			"style": {
 				"navigationBarTitleText": "免疫计划调整",
 				"navigationBarBackgroundColor": "#5089F9",
 				"navigationBarTextStyle": "#ffffff"
 			}
-		},
-		{
+		},{// 免疫记录明细
 			"path": "pages/health/immunizationPlan/immunizationPlanDetail",
 			"style": {
 				"navigationBarTitleText": "免疫记录明细",
@@ -364,14 +879,52 @@
 				"navigationBarTextStyle": "#ffffff"
 			}
 		},
-		{
-			"path": "pages/health/immunizationPlan/immunizationPlanEditor",
+		// 免疫调整
+		{// 免疫调整
+			"path": "pages/health/immunizationPlan/immunizationAdjust",
 			"style": {
 				"navigationBarTitleText": "免疫计划调整",
 				"navigationBarBackgroundColor": "#5089F9",
 				"navigationBarTextStyle": "#ffffff"
 			}
 		},
+		// 免疫记录
+		{//免疫记录
+			"path": "pages/health/immunizationPlan/immunizationRecord",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{// 免疫记录执行
+			"path": "pages/health/immunizationPlan/immunizationRecordDetail",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{// ?
+			"path": "pages/health/immunizationPlan/immunizationPlanEditor2",
+			"style": {
+				"navigationBarTitleText": "免疫计划调整",
+				"navigationBarBackgroundColor": "#5089F9",
+				"navigationBarTextStyle": "#ffffff"
+			}
+		},
+		// 空瓶回收
+		{// 空瓶回收明细
+			"path": "pages/health/recyclingBottles/recyclingBottlesHistory",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{// 空瓶回收编辑
+			"path": "pages/health/recyclingBottles/recylingBottleEditor",
+			"style": {
+				"navigationBarTitleText": "空瓶回收编辑",
+				"navigationBarBackgroundColor": "#5089F9",
+				"navigationBarTextStyle": "#ffffff"
+			}
+		},
+		
 		{
 			"path": "pages/health/insurance/insuranceRecord",
 			"style": {
@@ -388,26 +941,105 @@
 				"navigationBarTextStyle": "#ffffff"
 			}
 		},
-		{
-			"path": "pages/health/immunizationPlan/immunizationPlanList",
+		
+		/* 饲喂管理 */
+		//新增饲喂管理
+		{// 测膘调料记录
+			"path": "pages/freed/fatMeasurement/measurementRecord",
+			"style": {
+				"navigationBarTitleText": "测膘调料记录",
+				"navigationBarBackgroundColor": "#5089F9",
+				"navigationBarTextStyle": "#ffffff",
+				// "navigationStyle": "custom",
+				"app-plus": {
+					"bounce": "none", //关闭窗口回弹效果
+					"titleNView": {
+						"buttons": [ //原生标题栏按钮配置,
+							{
+								"text": "查询",
+								"fontSize": "30upx", //rpx无效果
+								"width": "100rpx" // 由于无padding，增大宽度调整其位置
+							}
+						]
+					}
+				}
+			}
+		},{// 测膘调料-批次日龄调整历史记录
+			"path": "pages/freed/fatMeasurement/measurementHistory",
 			"style": {
 				"navigationStyle": "custom"
 			}
-		},
-		{
-			"path": "pages/health/recyclingBottles/recyclingBottlesHistory",
+		},{// 新增测膘记录
+			"path": "pages/freed/fatMeasurement/measurementNew",
 			"style": {
-				"navigationStyle": "custom"
-			}
-		},
-		{
-			"path": "pages/health/recyclingBottles/recylingBottleEditor",
-			"style": {
-				"navigationBarTitleText": "空瓶回收编辑",
+				"navigationBarTitleText": "新增测膘记录",
 				"navigationBarBackgroundColor": "#5089F9",
 				"navigationBarTextStyle": "#ffffff"
+				// "navigationStyle": "custom",
 			}
-		}, {
+		},
+		// 饲喂程序
+		{// 饲喂程序
+			"path": "pages/freed/freedApp/freedList",
+			"style": {
+				"navigationBarTitleText": "饲喂程序",
+				"navigationBarBackgroundColor": "#5089F9",
+				"navigationBarTextStyle": "#ffffff",
+				// "navigationStyle": "custom",
+				"app-plus": {
+					"bounce": "none", //关闭窗口回弹效果
+					"titleNView": {
+						"buttons": [ //原生标题栏按钮配置,
+							{
+								"text": "历史记录",
+								"fontSize": "30upx", //rpx无效果
+								"width": "150rpx" // 由于无padding，增大宽度调整其位置
+							}
+						]
+					}
+				}
+			}
+		}, {// 饲喂程序历史记录
+		    "path" : "pages/freed/freedApp/freedHistory",
+		    "style" : {
+				"navigationBarTitleText": "饲喂历史记录",
+				"navigationBarBackgroundColor": "#5089F9",
+				"navigationBarTextStyle": "#ffffff",
+				"app-plus":{
+					"bounce":"none", //关闭窗口回弹效果
+					"titleNView":{
+						"buttons": [
+							{
+								"text": "查询",
+								"fontSize": "30upx",
+								"width": "100rpx"
+							}
+						]
+					}
+				}
+			}
+		},{// 饲喂程序饲喂明细
+			"path": "pages/freed/freedApp/freedDetail",
+			"style": {
+				"navigationBarTitleText": "饲喂明细",
+				"navigationBarBackgroundColor": "#5089F9",
+				"navigationBarTextStyle": "#ffffff",
+				"app-plus":{
+					"bounce":"none", //关闭窗口回弹效果
+					"titleNView":{
+						"buttons": [
+							{
+								"text": "删除",
+								"fontSize": "30upx",
+								"width": "100rpx"
+							}
+						]
+					}
+				}
+			}
+		},
+		
+		 {
 			"path": "pages/archives/boarInfo/boarInfo",
 			"style": {
 				"navigationStyle": "custom",
@@ -617,6 +1249,35 @@
 				}
 			}
 		},
+		{ //消毒记录新增
+			"path": "pages/biosafety/disinfection/disinfectionNew",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},
+		{ //个体信息新增
+			"path": "pages/businessAdjustment/personalData/personalDataNew",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},{ //猪群等级新增
+			"path": "pages/businessAdjustment/gradePig/gradePigNew",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},
 		{ //死亡记录新增
 			"path": "pages/dataCollection/deathRecord/deathNew",
 			"style": {
@@ -710,6 +1371,44 @@
 				"animationDuration": 300
 				}
 			}
+		},
+		{ //不发情猪记录新增
+			"path": "pages/dataCollection/anestrus/anestrusNew",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},{ //不发情猪转舍记录详情
+			"path": "pages/dataCollection/anestrus/anestrusDetail",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},
+		{ //淘汰申请新增
+			"path": "pages/dataCollection/eliminate/eliminateNew",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},{ //淘汰申请详情
+			"path": "pages/dataCollection/eliminate/eliminateDetail",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
 		},{ //妊检记录批量录入
 			"path": "pages/dataCollection/pregnancyRecord/pregnancyInputMore",
 			"style": {
@@ -745,6 +1444,74 @@
 			}
 		},{ //断奶操作记录详情
 			"path": "pages/dataCollection/weaningRecord/weaningDetail",
+			
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},
+		{ //消毒记录查询
+			"path": "pages/biosafety/disinfection/disinfectionQuery",
+			
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},{ //消毒记录详情
+			"path": "pages/biosafety/disinfection/disinfectionDetail",
+			
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},
+		{ //个体信息调整查询
+			"path": "pages/businessAdjustment/personalData/personalDataQuery",
+			
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},{ //体信息调整详情
+			"path": "pages/businessAdjustment/personalData/personalDataDetail",
+			
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},{ //猪群等级查询
+			"path": "pages/businessAdjustment/gradePig/gradePigQuery",
+			
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},{ //猪群等级详情
+			"path": "pages/businessAdjustment/gradePig/gradePigDetail",
 			
 			"style": {
 				"enablePullDownRefresh": true,
@@ -800,6 +1567,28 @@
 			}
 		},{ //异常猪操作记录查询
 			"path": "pages/dataCollection/abnormalPig/abnormalPigQuery",
+			
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},{ //不发情猪操作记录查询
+			"path": "pages/dataCollection/anestrus/anestrusQuery",
+			
+			"style": {
+				"enablePullDownRefresh": true,
+				"navigationStyle": "custom",
+				"app-plus": {
+				"animationType": "fade-in",
+				"animationDuration": 300
+				}
+			}
+		},{ //淘汰申请查询
+			"path": "pages/dataCollection/eliminate/eliminateQuery",
 			
 			"style": {
 				"enablePullDownRefresh": true,
@@ -981,35 +1770,7 @@
 			}
 		},
 
-
-		//新增饲喂管理
-		{
-			"path": "pages/freed/freedApp/freedList",
-			"style": {
-				"navigationBarTitleText": "饲喂程序",
-				"navigationBarBackgroundColor": "#5089F9",
-				"navigationBarTextStyle": "#ffffff",
-				// "navigationStyle": "custom",
-				"app-plus": {
-					"bounce": "none", //关闭窗口回弹效果
-					"titleNView": {
-						"buttons": [ //原生标题栏按钮配置,
-							{
-								"text": "查询",
-								"fontSize": "24rpx"
-							}
-						]
-					}
-				}
-			}
-		}, {
-			"path": "pages/freed/freedApp/freedDetail",
-			"style": {
-				"navigationBarTitleText": "饲喂明细",
-				"navigationBarBackgroundColor": "#5089F9",
-				"navigationBarTextStyle": "#ffffff"
-			}
-		},
+		
 		//盘点管理
 		{
 			"path": "pages/stock/lowValue",
@@ -1107,6 +1868,7 @@
 		    	"navigationStyle": "custom"
 		    }
 		}
+        
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -1116,7 +1878,7 @@
 	},
 	"tabBar": {
 		"color": "#7A7E83",
-		"selectedColor": "#3cc51f",
+		"selectedColor": "#5089f9",
 		"borderStyle": "black",
 		"backgroundColor": "#ffffff",
 		"list": [{
@@ -1142,6 +1904,16 @@
 				"iconPath": "static/assets/my_normal.png",
 				"selectedIconPath": "static/assets/my_selected.png",
 				"text": "我的"
+			}
+		]
+	},
+	"condition" : { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [
+			{
+				"name": "", //模式名称
+				"path": "", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
 			}
 		]
 	}

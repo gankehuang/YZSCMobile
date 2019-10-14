@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view> 
 		<!-- 1这里是状态栏 -->
 		<view class="status">
 			<image class="status-bg" src="/static/assets/top_bg@2x.png" mode="widthFix"></image>
@@ -21,107 +21,49 @@
 			<view class="main-wrap">
 				<view class="main-wrap-contetnt">
 					<view class="main-wrap-contetnt-item">
-						<!-- 与配公猪 -->
-						<view class="main-wrap-contetnt-item-field">
+						
+						<view class="main-wrap-contetnt-item-field" style="padding-top: 0;">
 							<view class="main-wrap-contetnt-item-field-name">
-								耳牌号<text class="text-red">*</text>
-								<view class="main-wrap-contetnt-item-field-name-icon" @click="scancode">
-									<image class="icon" src="/static/assets/scan-icon.png" mode=""></image>
-								</view>
+								耳牌号 <text class="text-red">*</text>
+								<image class="icon" src="/static/assets/scan-icon.png" @click="scancode" mode=""></image>
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="DD0001" />
+								<input type="text"  placeholder="自动带出" />
 							</view>
 						</view>
 						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
-								合格公<text class="text-red">*</text>
+								断奶数 <text class="text-red">*</text>
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="5" />
+								<input type="text"  placeholder="请输入断奶数" />
 							</view>
 						</view>
+						
 						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
-								合格母<text class="text-red">*</text>
-								<view class="main-wrap-contetnt-item-field-name-icon" @click="scancode">
-									<image class="icon" src="/static/assets/scan-icon.png" mode=""></image>
-								</view>
+								断奶均重 <text class="text-red">*</text>
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="5" />
+								<input type="text"  placeholder="请输入断奶均重" />
 							</view>
 						</view>
+						
 						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
-								弱仔数
+								断奶窝重 <text class="text-red">*</text>
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="5" />
+								<input type="text"  placeholder="请输入断奶窝重" />
 							</view>
 						</view>
+						
 						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
-								畸形数
+								母猪转入位置 <text class="text-red">*</text>
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入畸形数" />
-							</view>
-						</view>
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								木乃伊
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入木乃伊" />
-							</view>
-						</view>
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								死胎数
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入死胎数" />
-							</view>
-						</view>
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								窝号
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入窝号" />
-							</view>
-						</view>
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								窝重<text class="text-red">*</text>
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入窝重" />
-							</view>
-						</view>
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								窝均重<text class="text-red">*</text>
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入窝均重" />
-							</view>
-						</view>
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								活仔数<text class="text-red">*</text>
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入活仔数" />
-							</view>
-						</view>
-						<view class="main-wrap-contetnt-item-field no-bottom">
-							<view class="main-wrap-contetnt-item-field-name">
-								总仔数
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="自动求和" />
+								<input type="text"  placeholder="请输入母猪转入位置" />
 							</view>
 						</view>
 					</view>
@@ -130,7 +72,6 @@
 		</view>
 		<view class="submits jus-b">
 			<button type="primary" class="flexc submit-btn">保存</button>
-			<button type="primary" class="flexc add-btn">编辑</button>
 		</view>
 	</view>
 

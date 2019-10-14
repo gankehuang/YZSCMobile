@@ -155,6 +155,8 @@
 </template>
 
 <script>
+	//引入图标
+	import uniIcon from '@/components/uni-icon/uni-icon.vue'
 	export default {
 		data() {
 			const currentDate = this.getDate({
@@ -177,6 +179,9 @@
 			endDate() {
 				return this.getDate('end');
 			}
+		},
+		components:{
+			uniIcon
 		},
 		methods: {
 			checked3(){

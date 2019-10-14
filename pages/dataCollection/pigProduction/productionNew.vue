@@ -160,7 +160,7 @@
 								<image class="icon" src="/static/assets/scan-icon.png" @click="scancode" mode=""></image>
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text"  placeholder="请输入断奶数" />
+								<input type="text"  placeholder="请输入耳牌号" />
 							</view>
 						</view>
 						

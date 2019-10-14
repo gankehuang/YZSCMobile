@@ -230,7 +230,8 @@
 				month = month > 9 ? month : '0' + month;;
 				day = day > 9 ? day : '0' + day;
 				return `${year}-${month}-${day}`;
-			},clickEdit() {
+			},
+			clickEdit() {
 				this.neddCheck = true;
 				this.editStatus=true;
 				this.submitStatus=false;
