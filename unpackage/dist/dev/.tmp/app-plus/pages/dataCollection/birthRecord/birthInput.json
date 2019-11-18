@@ -1,4 +1,9 @@
 {
   "navigationStyle": "custom",
-  "usingComponents": {}
+  "usingComponents": {
+    "uni-icon": "/components/uni-icon/uni-icon",
+    "uni-popup": "/components/uni-popup/uni-popup",
+    "ztable": "/components/z-table/z-table",
+    "str-autocomplete": "/components/str-autocomplete/str-autocomplete"
+  }
 }

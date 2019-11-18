@@ -1,6 +1,6 @@
 {
   "navigationStyle": "custom",
   "usingComponents": {
-    "ztable": "/components/z-table/z-table"
+    "str-autocomplete": "/components/str-autocomplete/str-autocomplete"
   }
 }

@@ -17,6 +17,7 @@
 			</view>
 		</view>
 		<!-- 内容 -->
+	<form @submit="formSubmit">
 		<view class="main">
 			<view class="main-wrap">
 				<view class="main-wrap-contetnt">
@@ -31,22 +32,22 @@
 							</view>
 						</view> -->
 						
-						<view class="main-wrap-contetnt-item-field" style="padding-top: 0;">
+						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
 								检测员
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text"  value="张三" />
+								<input type="text" name="jcyname" placeholder="张三" />
 							</view>
 						</view>
-						<view class="main-wrap-contetnt-item-field">
+						<view class="main-wrap-contetnt-item-field field-nobottom">
 							<view class="main-wrap-contetnt-item-field-name">
 								检测工具<text class="text-red">*</text>
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<picker @change="bindPickerChange" :value="index" :range="array2">
+								<picker @change="bindPickerChange" name="jctool" :value="index2" :range="array1[0]">
 									<view class="picker">
-										<view class="uni-input">{{array2[index]}}</view>
+										<view class="uni-input">{{array1[0][index2]?array1[0][index2]:'-'}} </view>
 										<view class="dextrad-icon">
 											<uni-icon type="arrowright" color="#333333" size="18" />
 										</view>
@@ -60,38 +61,13 @@
 
 			</view>
 		</view>
-	<!-- 	<view class="editor-title jus-j form-seat">
-			 <view class="main-wrap-contetnt-item-field-name">
-			 	耳牌号<text class="text-red">*</text>
-			 </view>
-			<view class="main-wrap-contetnt-item-field-name-icon" @click="scancode1" style="flex:1;margin-left: 5px;">
-				<image class="icon" src="/static/assets/scan-icon.png" mode=""></image>
-			</view> -->
-			<!-- <view class="titleicon">
-				<image src="/static/assets/rect.png" mode=""></image>
-				<text>妊检记录明细</text>
-			</view> -->
-			<!-- <view class="confirm-btn" >
-				<button type="primary" v-if="submitStatus" @click="jumpPage" data-key="单个录入" data-jumpurl="/pages/dataCollection/pregnancyRecord/pregnancyInput"
-				 class="flexc">单个录入</button>
-				<button type="primary" v-if="submitStatus" @click="jumpPage" data-key="批量录入" data-jumpurl="/pages/dataCollection/pregnancyRecord/pregnancyInputMore"
-				 class="flexc">批量录入</button>
-				<button type="warn" v-if="editStatus" class="flexc">删除(3)</button>
-			</view> -->
-		<!-- </view> -->
-		<!-- 列表 -->
-	<!-- 	<view class="list list-table">
-			<view class="data__wrapper">
-				<ztable :tableData="tableData" :columns="columns" :neddCheck="neddCheck" emptyText="-" :showBottomSum="false"></ztable>
-			</view>
-		</view> -->
 		<!-- 内容 -->
 		<view class="main">
-			<view class="main-wrap" style="padding-top: 0;">
+			<view class="main-wrap" style="padding-top: 10rpx;">
 				<view class="main-wrap-contetnt">
 					<view class="main-wrap-contetnt-item">
 						<view class="main-wrap-contetnt-item-title">
-							<view class="main-wrap-contetnt-item-title-text" style="font-size: 14px;">添加妊检明细</view>
+							<view class="main-wrap-contetnt-item-title-text">添加妊检明细</view>
 						</view>
 						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
@@ -101,7 +77,8 @@
 								</view>
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入耳牌号" />
+								<!-- <input type="text" name="cfsownonum" value="" placeholder="请输入耳牌号" /> -->
+								<str-autocomplete :stringList="stringList1[0]" :importvalue="title1" @select="selectOne1"  backgroundColor='#fff' highlightColor="#FF0000" v-model="title1"></str-autocomplete>
 							</view>
 						</view>
 						<view class="main-wrap-contetnt-item-field field-nobottom">
@@ -109,7 +86,7 @@
 								异常原因<text class="text-red">*</text>
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<radio-group @change="radioChange">
+								<radio-group @change="radioChange" name="ycreason">
 									<view style="display: block;">
 										<view style="display: flex;">
 											<label style="margin-right:15rpx;display: flex;" v-for="(item, index) in items" :key="item.value">
@@ -126,11 +103,13 @@
 			</view>
 		</view>
 		<view class="submits jus-b">
-			<button type="primary" v-if="submitStatus" class="flexc submit-btn">提交</button>
+			<button form-type="submit" type="primary"  class="flexc submit-btn">提交</button>
 		</view>
+	</form>	
+		
 		
 		<!-- // 弹窗 -->
-		<uni-popup :show="type === 'middle'" position="middle" mode="fixed" @hidePopup="togglePopup('')">
+		<!-- <uni-popup :show="type === 'middle'" position="middle" mode="fixed" @hidePopup="togglePopup('')">
 			<view class="popview">
 				<view class="main-wrap-contetnt-item-field field-nobottom">
 					<view class="main-wrap-contetnt-item-field-name">
@@ -152,130 +131,124 @@
 				<view @click="togglePopup('')" class="out-btn1">取消</view>
 				<view @click="togglePopup('')" class="out-btn2">确定</view>
 			</view>
-		</uni-popup>
+		</uni-popup> -->
 	</view>
 
 </template>
 
 <script>
+	import strAutocomplete from '@/components/str-autocomplete/str-autocomplete.vue'  //输入框
 		// 弹窗 
-		import uniPopup from '@/components/uni-popup/uni-popup'
+	import uniPopup from '@/components/uni-popup/uni-popup'
 	//引入抽屉单元格组件
 	import drawCell from '@/components/uni-cell/draw-cell.vue';
 	//引入图标
 	import uniIcon from '@/components/uni-icon/uni-icon.vue'
 	import ztable from '@/components/z-table/z-table'
+	import common from '../../../utils/common.js'
 	export default {
+		onLoad: function(options) {
+			this.tools()
+		},
 		data() {
-			const currentDate = this.getDate({
-				format: true
-			})
 			return {
+				title1: '', // 耳牌 
+				stringList1: [['apple2','apple22']], // 耳牌 
 				type: '',
-				index: 0,
-				items: [{
-						value: 'kb',
-						name: '空杯',
-						checked: 'true'
-					},
-					{
-						value: 'fq',
-						name: '返情'
-					},
-					{
-						value: 'lc',
-						name: '流产'
-					}
+				index2: 0,
+				items: [
+					// {
+					// 	value: 'kb',
+					// 	name: '空杯',
+					// },
+					// {
+					// 	value: 'fq',
+					// 	name: '返情'
+					// },
+					// {
+					// 	value: 'lc',
+					// 	name: '流产'
+					// }
 				],
 				current: 0,
-				array2: ['B超', 'A超'],
-				date: currentDate,
-				neddCheck:false,
-				submitStatus:true,
-				editStatus:false,
-				tableData: [{
-					id: '01',
-					index: '01',
-					sowcard: 'Y001', 
-					ycyy: 'xx', 
-					pzpc: 'xx',
-					zt: 'xx',
-					clzw: 'xx',
-					gzeh: 'xx'
-				},{
-					id: '02',
-					index: '02',
-					sowcard: 'Y002', 
-					ycyy: 'xx', 
-					pzpc: 'xx',
-					zt: 'xx',
-					clzw: 'xx',
-					gzeh: 'xx'
-				},{
-					id: '03',
-					index: '03',
-					sowcard: 'Y003', 
-					ycyy: 'xx', 
-					pzpc: 'xx',
-					zt: 'xx',
-					clzw: 'xx',
-					gzeh: 'xx'
-				},{
-					id: '04',
-					index: '04',
-					sowcard: 'Y004', 
-					ycyy: 'xx', 
-					pzpc: 'xx',
-					zt: 'xx',
-					clzw: 'xx',
-					gzeh: 'xx'
-				}],
-				columns: [{
-					title: "序号",
-					key: "index",
-					width: 70,
-				}, {
-					title: "母猪耳牌",
-					key: "sowcard",
-					width: 150,
-				}, {
-					title: "异常原因",
-					key: "ycyy",
-					width: 200,
-				}, {
-					title: "配种批次",
-					key: "pzpc",
-					width: 200,
-				}, {
-					title: "状态",
-					key: "zt",
-					width: 100,
-				}, {
-					title: "存栏位置",
-					key: "clzw",
-					width: 200,
-				},{
-					title: "公猪耳号",
-					key: "gzeh",
-					width: 200,
-				}]
-			}
-		},
-		computed: {
-			startDate() {
-				return this.getDate('start');
-			},
-			endDate() {
-				return this.getDate('end');
-			}
-		},
+				array1: [['B超', 'A超'],['b','a']],
+				}
+				},
 		components: {
 			ztable,
 			uniIcon,
 			drawCell,
-			uniPopup
+			uniPopup,
+			strAutocomplete
 		},
 		methods: {
+			selectOne1(opt) {  //输入提示框选择
+				this.title1 = opt
+			    console.log(opt)
+			},
+			 tools(){
+				var _this = this;
+				let headers = {};
+				let  params = {
+								cfpigfarmid: 'Va4AAAAYuCC4/eJt', // 猪场id
+								cffieldid: 'Va4AAAAYuCGdu1vk' // 分场
+							};
+
+				// 异常原因
+				let picker3 = []
+					 common.commRequest(`/PigAbnormalPregRecord/selectAbnormal`, {}, headers,'get',
+						function(data) {
+							let getData = data.data;
+							// console.log(JSON.stringify(getData))
+								for (let i = 0; i < getData.length; i++) {
+									picker3.push({
+										'value':getData[i].CFABORTID,
+										'name':getData[i].ABNORMAL
+									})
+								}
+								_this.items = picker3
+								// console.log(JSON.stringify(picker3))
+					})
+					
+					// 耳牌号 
+					let picker2 = [[],[]]
+						common.commRequest(`/PigAbnormalPregRecord/FilterselectPig/1/10000`, params, headers,'get',
+							function(data) {
+								console.log(data)
+								let getData = data.data;
+									for (let i = 0; i < getData.length; i++) {
+										picker2[0].push(getData[i].ERPAIHAO)
+										picker2[1].push(getData[i].ERPAIID)
+									}
+									_this.stringList1 = picker2
+									// console.log(_this.stringList1)
+						})
+					
+			},
+			formSubmit(e) {  //表单提交
+			var _this = this;
+			let headers = {};
+			headers['content-type'] = 'application/json';				
+			let  params = {
+							cfpigfarmid: 'Va4AAAAYuCC4/eJt', // 猪场id
+							cffieldid: 'Va4AAAAYuCGdu1vk' // 分场
+						};
+			let data = e.detail.value;
+			data['jctool'] = this.array1[1][_this.index2] 
+			data['cfsownonum'] = this.stringList1[1][this.stringList1[0].indexOf(this.title1)]
+			params = {...params,...data}
+			console.log(data['cfsownonum'])
+			 common.commRequest(`/PigAbnormalPregRecord/insertCtPigAbnormalPregRecord`, params, headers,'post',
+				function(data) {
+					console.log(JSON.stringify(data))
+					if(data.status=='00000'){
+						uni.navigateTo({
+							url: `/pages/dataCollection/pregnancyRecord/pregnancyQuery`,
+						});
+					}
+			})
+				
+			},
 			scancode1(){
 				this.scancode()
 				setTimeout(()=>{
@@ -299,33 +272,7 @@
 			},
 			bindPickerChange: function(e) {
 				console.log('picker发送选择改变，携带值为', e.target.value)
-				this.index = e.target.value
-			},
-			bindDateChange: function(e) {
-				this.date = e.target.value
-			},
-			getDate(type) {
-				const date = new Date();
-				let year = date.getFullYear();
-				let month = date.getMonth() + 1;
-				let day = date.getDate();
-
-				if (type === 'start') {
-					year = year - 60;
-				} else if (type === 'end') {
-					year = year + 2;
-				}
-				month = month > 9 ? month : '0' + month;;
-				day = day > 9 ? day : '0' + day;
-				return `${year}-${month}-${day}`;
-			},clickEdit() {
-				this.neddCheck = true;
-				this.editStatus=true;
-				this.submitStatus=false;
-			},clickCancel(){
-				this.neddCheck = false;
-				this.editStatus=false;
-				this.submitStatus=true;
+				this.index2 = e.target.value
 			}
 		}
 	}
@@ -344,7 +291,20 @@
 
 	.main {
 		.main-wrap {
-			padding: 160rpx 23rpx 23rpx 23rpx;
+			padding: 160rpx 23rpx 0 23rpx;
+			
+			.main-wrap-contetnt {
+				padding: 0 26rpx 44rpx 36rpx;
+				
+				.main-wrap-contetnt-item-title {
+					padding-top: 40rpx;
+					
+					.main-wrap-contetnt-item-title-text {
+						font-size: 14px;
+						color: #4785F3;
+					}
+				}
+			}
 		}
 	}
 

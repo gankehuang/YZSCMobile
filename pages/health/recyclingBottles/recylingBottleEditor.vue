@@ -1,24 +1,38 @@
 <template>
 	<view class="semen-editor">
-		<view class="card-form card">
-			<uni-cell title="分场" :value="form.name"></uni-cell>
-			<uni-cell title="免疫项目" :value="form.projectName"></uni-cell>
-			<uni-cell title="免疫计划" :value="form.projectName"></uni-cell>
-			<uni-cell title="疫苗名称" :value="form.projectName"></uni-cell>
-			<uni-cell title="领用日期" :value="form.projectName"></uni-cell>
-			<uni-cell title="领用数量"  required="true">
-				<view slot="value"  class="input-style">
-					<input type="number" v-model="getNumber"  placeholder="请输入数量" >
+		<!-- 这里是状态栏 -->
+		<view class="status">
+			<image class="status-bg" src="/static/assets/top_bg@2x.png" mode="widthFix"></image>
+			<view class="status-header">
+				<view class="back-icon flexc ali-c"  @tap="back">
+					<image class="icon" src="/static/assets/back.png"></image>
 				</view>
-			</uni-cell>
-			<uni-cell title="领用单位" :value="form.projectName"></uni-cell>
-			<uni-cell title="空瓶回收批号" :value="form.projectName"></uni-cell>
-			<uni-cell title="空瓶回收数量" :value="form.projectName"></uni-cell>
-			<uni-cell title="执行人" :value="form.projectName"></uni-cell>
-			<uni-cell title="执行状态" :value="form.projectName"></uni-cell>
+				<view class="status-title">
+					空瓶回收编辑
+				</view>
+			</view>
 		</view>
-		<view class="submits jus-b">
-			<button type="primary" class="flexc submit-btn" >提交</button>
+		<view class="main-container">
+			<view class="card-form card">
+				<uni-cell title="分场" :value="form.name"></uni-cell>
+				<uni-cell title="免疫项目" :value="form.projectName"></uni-cell>
+				<uni-cell title="免疫计划" :value="form.projectName"></uni-cell>
+				<uni-cell title="疫苗名称" :value="form.projectName"></uni-cell>
+				<uni-cell title="领用日期" :value="form.projectName"></uni-cell>
+				<uni-cell title="领用数量"  required="true">
+					<view slot="value"  class="input-style">
+						<input type="number" v-model="getNumber"  placeholder="请输入数量" >
+					</view>
+				</uni-cell>
+				<uni-cell title="领用单位" :value="form.projectName"></uni-cell>
+				<uni-cell title="空瓶回收批号" :value="form.projectName"></uni-cell>
+				<uni-cell title="空瓶回收数量" :value="form.projectName"></uni-cell>
+				<uni-cell title="执行人" :value="form.projectName"></uni-cell>
+				<uni-cell title="执行状态" class="card-cell-last" :value="form.projectName"></uni-cell>
+			</view>
+			<view class="submits jus-b">
+				<button type="primary" class="flexc submit-btn" >提交</button>
+			</view>
 		</view>
 	</view>
 </template>
@@ -44,17 +58,27 @@
 			uniCell
 		},
 		methods: {
-			
+			back () {
+				uni.navigateBack({
+				})
+			}
 			
 		},
 	}
 </script>
 
 <style lang="scss">
-	
+@import '@/common/dataCollection.scss';
 	.semen-editor {
 		background-color: #F5F5F5;
-		padding: 0 30rpx;
+		
+		.status-header {
+			padding-top: 26rpx;
+		}
+		.main-container {
+			padding: 130rpx 30rpx 120rpx;
+		}
+		
 		.card-form{
 			margin-top: 20rpx;
 			.input-style {

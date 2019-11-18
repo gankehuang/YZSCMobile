@@ -10,128 +10,99 @@
 				<view class="status-title">
 					断奶记录新增
 				</view>
-				<!-- @tap="togglePopup('middle')"   @click="jumpPage" -->
 				<view class="status-del"  @click="jumpPage" data-key="历史记录" data-jumpurl="/pages/dataCollection/weaningRecord/weaningQuery">
-					操作记录
+					历史记录
 				</view>
 			</view>
 		</view>
 		<!-- 内容 -->
+<form @submit="formSubmit">
 		<view class="main">
-			<view class="main-wrap">
+			<view class="main-wrap" style="padding-top: 130rpx;">
+			<!-- 标题 -->
+			<view class="editor-title flex ali-c">
+				<view class="img">
+					<image src="/static/assets/rect.png" mode=""></image>
+					<text>基本信息</text>
+				</view>
+			</view>
 				<view class="main-wrap-contetnt">
 					<view class="main-wrap-contetnt-item">
-						<!-- 配种日期 -->
-						<!-- <view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								检测日期<text class="text-red">*</text>
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text"  :value="date" />
-							</view>
-						</view> -->
 						
-						<view class="main-wrap-contetnt-item-field" style="padding-top: 0;">
+						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
 								跨分场断奶<text class="text-red">*</text>
 							</view>
 						<view class="main-wrap-contetnt-item-field-value">
-							<radio-group @change="radioChange">
-								<view style="display: block;">
 									<view style="display: flex;">
-										<label style="display: flex;padding: 0;" >
-											<radio style="transform: scale(0.7);"  :checked="falg" @click="checked"/>
+										<label style="display: flex; padding-right: 0;" >
+											<radio style="transform: scale(0.7);" :checked="falg" @click="checked"/> 
 										</label>
-										
 									</view>
-								</view>
-							</radio-group>
 						</view>
 						</view>
 						
-						<view class="main-wrap-contetnt-item-field">
+						<view class="main-wrap-contetnt-item-field" v-if="falg">
 							<view class="main-wrap-contetnt-item-field-name">
 								转入分场
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text"  placeholder="张三" />
+								<!-- <picker @change="bindPickerChange" :value="index" :range="array[0]" >
+									<view class="picker">
+										<view class="uni-input">{{array[0][index]}}</view>
+										<view class="dextrad-icon">
+											<uni-icon type="arrowright" color="#333333" size="18" />
+										</view>
+									</view>
+								</picker> -->
+								<str-autocomplete :stringList="stringList[0]" :importvalue="title" @select="selectOne" backgroundColor='#fff' highlightColor="#FF0000" v-model="title"></str-autocomplete>
 							</view>
 						</view>
 						
-						<view class="main-wrap-contetnt-item-field">
+						<view class="main-wrap-contetnt-item-field field-nobottom">
 							<view class="main-wrap-contetnt-item-field-name">
 								母猪转入位置<text class="text-red">*</text>
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text"  placeholder="配怀一栋" />
-							</view>
-						</view>
-						
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								分场
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text"  placeholder="请输入分场" />
-							</view>
-						</view>
-						
-						<!-- <view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								检测工具<text class="text-red">*</text>
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<picker @change="bindPickerChange" :value="index" :range="array2">
+								<picker @change="bindPickerChange1" :value="index1" :range="array1[0]">
 									<view class="picker">
-										<view class="uni-input">{{array2[index]}}</view>
+										<view class="uni-input">{{array1[0][index1]}}</view>
 										<view class="dextrad-icon">
 											<uni-icon type="arrowright" color="#333333" size="18" />
 										</view>
 									</view>
 								</picker>
 							</view>
-						</view> -->
+						</view>
 						
 					</view>
 				</view>
+			</view>
+		</view>
 
-			</view>
-		</view>
-		<view style="    padding: 0 11px 0 15px;    margin-bottom: 20px;">
-			<view class="editor-title jus-j form-seat" style="padding: 0;background: #fff;border-radius: 15px;    padding: 10px 13px 10px 18px;">
-				 <view class="main-wrap-contetnt-item-field-name">
-				 	耳牌号<text class="text-red">*</text>
-				 </view>
-				<view class="main-wrap-contetnt-item-field-name-icon"  style="flex:1;margin-left: 5px;display: flex;">
-					<image class="icon" src="/static/assets/scan-icon.png" @click="scancode" mode=""></image>
-					<input type="text" value="" style="flex: 1;text-align: right;" placeholder="请输入耳牌号" />
-				</view>
-				<!-- <view class="titleicon">
-					<image src="/static/assets/rect.png" mode=""></image>
-					<text>妊检记录明细</text>
-				</view> -->
-				<!-- <view class="confirm-btn" >
-					<button type="primary" v-if="submitStatus" @click="jumpPage" data-key="单个录入" data-jumpurl="/pages/dataCollection/pregnancyRecord/pregnancyInput"
-					 class="flexc">单个录入</button>
-					<button type="primary" v-if="submitStatus" @click="jumpPage" data-key="批量录入" data-jumpurl="/pages/dataCollection/pregnancyRecord/pregnancyInputMore"
-					 class="flexc">批量录入</button>
-					<button type="warn" v-if="editStatus" class="flexc">删除(3)</button>
-				</view> -->
-			</view>
-		</view>
-		<!-- 列表 -->
-	<!-- 	<view class="list list-table">
-			<view class="data__wrapper">
-				<ztable :tableData="tableData" :columns="columns" :neddCheck="neddCheck" emptyText="-" :showBottomSum="false"></ztable>
-			</view>
-		</view> -->
 		<!-- 内容 -->
 		<view class="main">
 			<view class="main-wrap" style="padding-top: 0;">
+				<!-- 标题 -->
+				<view class="editor-title flex ali-c">
+					<view class="img">
+						<image src="/static/assets/rect.png" mode=""></image>
+						<text>断奶明细</text>
+					</view>
+				</view>
 				<view class="main-wrap-contetnt">
 					<view class="main-wrap-contetnt-item">
-						<view class="main-wrap-contetnt-item-title">
-							<view class="main-wrap-contetnt-item-title-text" style="font-size: 14px;margin: 0;">添加断奶明细</view>
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								耳牌号<text class="text-red">*</text>
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<!-- <input type="text" value="" placeholder="DD0001" name='muzhuerpai' /> -->
+								<str-autocomplete :stringList="stringList1[0]" :importvalue="title1" @select="selectOne1"  backgroundColor='#fff' highlightColor="#FF0000" v-model="title1"></str-autocomplete>
+								<view class="main-wrap-contetnt-item-field-value-icon" @click="scancode">
+									<image class="icon" src="/static/assets/scan-icon.png" mode=""></image>
+								</view>
+							</view>
 						</view>
 						
 						<view class="main-wrap-contetnt-item-field">
@@ -139,16 +110,7 @@
 								断奶数 <text class="text-red">*</text>
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text"  placeholder="请输入断奶数" />
-							</view>
-						</view>
-						
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								断奶均重 <text class="text-red">*</text>
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text"  placeholder="请输入断奶均重" />
+								<input type="text"  placeholder="请输入断奶数" name='duannaishu' />
 							</view>
 						</view>
 						
@@ -157,16 +119,25 @@
 								断奶窝重 <text class="text-red">*</text>
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text"  placeholder="请输入断奶窝重" />
+								<input type="text"  placeholder="请输入断奶窝重" name='duannaiwozhong' />
 							</view>
 						</view>
 						
 						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
-								母猪转入位置 <text class="text-red">*</text>
+								断奶均重 <text class="text-red">*</text>
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text"  placeholder="请输入母猪转入位置" />
+								<input type="text"  placeholder="请输入断奶均重" name='duannaijunzhong' />
+							</view>
+						</view>
+						
+						<view class="main-wrap-contetnt-item-field field-nobottom">
+							<view class="main-wrap-contetnt-item-field-name">
+								哺乳天数
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<input type="text"  placeholder="请输入哺乳天数" name='cfoutday' />
 							</view>
 						</view>
 						
@@ -175,210 +146,138 @@
 			</view>
 		</view>
 		<view class="submits jus-b">
-			<button type="primary" v-if="submitStatus" class="flexc submit-btn">提交</button>
+			<button form-type="submit" type="primary"  class="flexc submit-btn">提交</button>
 		</view>
-		
-		<!-- // 弹窗 -->
-		<uni-popup :show="type === 'middle'" position="middle" mode="fixed" @hidePopup="togglePopup('')">
-			<view class="popview">
-				<view class="main-wrap-contetnt-item-field field-nobottom">
-					<view class="main-wrap-contetnt-item-field-name">
-						异常原因<text class="text-red">*</text>
-					</view>
-					<view class="main-wrap-contetnt-item-field-value" style="margin: 20px 0;">
-						<radio-group @change="radioChange">
-							<view style="display: block;">
-								<view style="display: flex;">
-									<label style="margin-right:15rpx;display: flex;" v-for="(item, index) in items" :key="item.value">
-										<radio style="transform: scale(0.7);" :value="item.value" :checked="index === current" />{{item.name}}
-									</label>
-								
-								</view>
-							</view>
-						</radio-group>
-					</view>
-				</view>
-				<view @click="togglePopup('')" class="out-btn1">取消</view>
-				<view @click="togglePopup('')" class="out-btn2">确定</view>
-			</view>
-		</uni-popup>
+	</form>	
 	</view>
 
 </template>
 
 <script>
-	// 弹窗 
-	import uniPopup from '@/components/uni-popup/uni-popup'
-	//引入抽屉单元格组件
-	import drawCell from '@/components/uni-cell/draw-cell.vue';
+	import strAutocomplete from '@/components/str-autocomplete/str-autocomplete.vue'  //输入框
 	//引入图标
 	import uniIcon from '@/components/uni-icon/uni-icon.vue'
-	import ztable from '@/components/z-table/z-table'
+	import common from '../../../utils/common.js';
 	export default {
-		data() {
-			const currentDate = this.getDate({
-				format: true
-			})
-			return {
-				falg:'',
-				type: '',
-				index: 0,
-				items: [{
-						value: 'kb',
-						name: '空杯',
-						checked: 'true'
-					},
-					{
-						value: 'fq',
-						name: '返情'
-					},
-					{
-						value: 'lc',
-						name: '流产'
-					}
-				],
-				current: 0,
-				array2: ['B超', 'A超'],
-				date: currentDate,
-				neddCheck:false,
-				submitStatus:true,
-				editStatus:false,
-				tableData: [{
-					id: '01',
-					index: '01',
-					sowcard: 'Y001', 
-					ycyy: 'xx', 
-					pzpc: 'xx',
-					zt: 'xx',
-					clzw: 'xx',
-					gzeh: 'xx'
-				},{
-					id: '02',
-					index: '02',
-					sowcard: 'Y002', 
-					ycyy: 'xx', 
-					pzpc: 'xx',
-					zt: 'xx',
-					clzw: 'xx',
-					gzeh: 'xx'
-				},{
-					id: '03',
-					index: '03',
-					sowcard: 'Y003', 
-					ycyy: 'xx', 
-					pzpc: 'xx',
-					zt: 'xx',
-					clzw: 'xx',
-					gzeh: 'xx'
-				},{
-					id: '04',
-					index: '04',
-					sowcard: 'Y004', 
-					ycyy: 'xx', 
-					pzpc: 'xx',
-					zt: 'xx',
-					clzw: 'xx',
-					gzeh: 'xx'
-				}],
-				columns: [{
-					title: "序号",
-					key: "index",
-					width: 70,
-				}, {
-					title: "母猪耳牌",
-					key: "sowcard",
-					width: 150,
-				}, {
-					title: "异常原因",
-					key: "ycyy",
-					width: 200,
-				}, {
-					title: "配种批次",
-					key: "pzpc",
-					width: 200,
-				}, {
-					title: "状态",
-					key: "zt",
-					width: 100,
-				}, {
-					title: "存栏位置",
-					key: "clzw",
-					width: 200,
-				},{
-					title: "公猪耳号",
-					key: "gzeh",
-					width: 200,
-				}]
-			}
+		onLoad: function(options) {
+			this.tools()
 		},
-		computed: {
-			startDate() {
-				return this.getDate('start');
-			},
-			endDate() {
-				return this.getDate('end');
+		data() {
+			return {
+				//死亡原因输入框提示
+				title: '', // 转入分场   
+				title1: '', // 耳牌 
+				stringList: ['apple','apple1'],  // 转入分场   
+				stringList1: ['apple2','apple22'], // 耳牌 
+				falg:true,
+				// index: 0,
+				index1: 0,
+				// array: [['B超', 'A超'],['b','a']], // 转入分场 
+				array1: [['B超', 'A超'],['b','a']], // 母猪转入位置
 			}
 		},
 		components: {
-			ztable,
 			uniIcon,
-			drawCell,
-			uniPopup
+			strAutocomplete
 		},
 		methods: {
+			selectOne(opt) {  //输入提示框选择
+				this.title = opt
+			    console.log(opt)
+			},
+			selectOne1(opt) {  //输入提示框选择
+				this.title1 = opt
+			    console.log(opt)
+			},
+			formSubmit(e) {  //表单提交
+			var _this = this;
+			let headers = {};
+			headers['content-type'] = 'application/json';				
+			let  params = {
+							cfpigfarmid: 'Va4AAAAYuCC4/eJt', // 猪场id
+							cffieldid: 'Va4AAAAYuCGdu1vk' // 分场
+						};
+						// console.log(e.detail.value)
+			let data = e.detail.value;
+			data['zhuanruweizhi'] = this.array1[1][_this.index1]  // 母猪转入位置  zhuanruweizhi 
+			data['cfiskfc'] = this.falg?1:0  // 是否跨分场  cfiskfc     muzhuerpai
+			data['muzhuerpai'] =this.stringList1[1][this.stringList1[0].indexOf(this.title1)]   // 耳牌        muzhuerpai
+			if(this.falg) data['cfzrfieldid'] = this.stringList[1][this.stringList[0].indexOf(this.title)]  // 转入分场 cfzrfieldid  
+			params = {...params,...data}
+			console.log(params) 
+			// 			
+			// console.log('form发生了submit事件，携带数据为：' + JSON.stringify(e.detail.value))
+			 common.commRequest(`/CtPigWeaningRecords/insertCtPigWeaningRecords`, params, headers,'post',
+				function(data) {
+					console.log(data)
+					if(data.status=='00000'){
+						uni.navigateTo({
+							url: `/pages/dataCollection/weaningRecord/weaningQuery`,
+						});
+					}
+			})
+				
+			},
+			tools(){
+				var _this = this;
+				let headers = {};
+				let  params = {
+									cfpigfarmid: 'Va4AAAAYuCC4/eJt', // 猪场id
+									cffieldid: 'Va4AAAAYuCGdu1vk' // 分场
+							};
+							
+					// 转入位置
+				let picker = [[],[]]
+				 common.commRequest(`/CtPigWeaningRecords/selectZhuanruweizhi/1/10`, params, headers,'get',
+						function(data) {
+							let getData = data.data; 
+							// console.log(JSON.stringify(getData))
+								for (let i = 0; i < getData.length; i++) {
+									picker[0].push(getData[i].ZHUANRUWEIZHI)
+									picker[1].push(getData[i].ZHUANRUWEIZHIID)
+								}
+								_this.array1 = picker 
+								// console.log(JSON.stringify(picker))
+						})
+						
+						// 转入分场
+						let picker1 = [[],[]]
+							common.commRequest(`/CtPigWeaningRecords/selectZhuanrufenchang/1/1000`, params, headers,'get',
+								function(data) {
+									// console.log(data)
+									let getData = data.data;
+										for (let i = 0; i < getData.length; i++) {
+											picker1[0].push(getData[i].FENCHANG)
+											picker1[1].push(getData[i].FENCHANGID)
+										}
+										_this.stringList = picker1
+										// console.log(_this.stringList)
+							})
+							
+						// 耳牌号
+						let picker2 = [[],[]]
+							common.commRequest(`/CtPigWeaningRecords/selectPig/1/10000`, {cfpigfarmid: 'Va4AAAAYuCC4/eJt'}, headers,'get',
+								function(data) {
+									// console.log(data)
+									let getData = data.data;
+										for (let i = 0; i < getData.length; i++) {
+											picker2[0].push(getData[i].ERPAIHAO)
+											picker2[1].push(getData[i].ERPAIID)
+										}
+										_this.stringList1 = picker2
+										// console.log(_this.stringList1)
+							})
+			},
 			checked(){
 				this.falg = !this.falg
-			},
-			scancode1(){
-				this.scancode()
-				setTimeout(()=>{
-					this.togglePopup('middle')
-				},500)
-			},
-			goback() {
-				this.handOnClickBack();
-				return false;
-			},
-			togglePopup(type) {
-				this.type = type;
-			},
-			radioChange(evt) {
-				for (let i = 0; i < this.items.length; i++) {
-					if (this.items[i].value === evt.target.value) {
-						this.current = i;
-						break;
-					}
-				}
 			},
 			bindPickerChange: function(e) {
 				console.log('picker发送选择改变，携带值为', e.target.value)
 				this.index = e.target.value
 			},
-			bindDateChange: function(e) {
-				this.date = e.target.value
-			},
-			getDate(type) {
-				const date = new Date();
-				let year = date.getFullYear();
-				let month = date.getMonth() + 1;
-				let day = date.getDate();
-
-				if (type === 'start') {
-					year = year - 60;
-				} else if (type === 'end') {
-					year = year + 2;
-				}
-				month = month > 9 ? month : '0' + month;;
-				day = day > 9 ? day : '0' + day;
-				return `${year}-${month}-${day}`;
-			},clickEdit() {
-				this.neddCheck = true;
-				this.editStatus=true;
-				this.submitStatus=false;
-			},clickCancel(){
-				this.neddCheck = false;
-				this.editStatus=false;
-				this.submitStatus=true;
+			bindPickerChange1: function(e) {
+				console.log('picker发送选择改变，携带值为', e.target.value)
+				this.index1 = e.target.value
 			}
 		}
 	}

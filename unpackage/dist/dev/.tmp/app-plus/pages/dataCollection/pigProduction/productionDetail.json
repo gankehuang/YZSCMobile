@@ -1,8 +1,11 @@
 {
   "navigationStyle": "custom",
-  "animationType": "fade-in",
   "animationDuration": 300,
   "usingComponents": {
-    "uni-icon": "/components/uni-icon/uni-icon"
+    "ztable": "/components/z-table-1/z-table",
+    "uni-icon": "/components/uni-icon/uni-icon",
+    "draw-cell": "/components/uni-cell/draw-cell",
+    "uni-popup": "/components/uni-popup/uni-popup",
+    "tki-tree": "/components/tki-tree/tki-tree"
   }
 }

@@ -1,7 +1,6 @@
 {
   "navigationStyle": "custom",
   "enablePullDownRefresh": true,
-  "animationType": "fade-in",
   "animationDuration": 300,
   "usingComponents": {
     "popup-layer": "/components/popup/popup-layer",

@@ -19,7 +19,7 @@
 						本猪
 					</view>
 					<text class="ball_text">
-						DDZBBK517004301
+						{{familyInfo.cfboarnumber || ''}}
 					</text>
 				</view>
 			</view>
@@ -30,7 +30,7 @@
 						父
 					</view>
 					<text class="ball_text">
-						DDZBBK517004301
+						{{familyInfo.cfparentnumber || ''}}
 					</text>
 				</view>
 				
@@ -39,7 +39,7 @@
 						母
 					</view>
 					<text class="ball_text">
-						DDZBBK517004301
+						{{familyInfo.cfmothernumber || ''}}
 					</text>
 				</view>
 			</view>
@@ -50,7 +50,7 @@
 						父父
 					</view>
 					<text class="ball_text">
-						DDZBBK517004301
+						{{familyInfo.cfppnumber || ''}}
 					</text>
 				</view>
 				
@@ -59,7 +59,7 @@
 						父母
 					</view>
 					<text class="ball_text">
-						DDZBBK517004301
+						{{familyInfo.cfpmnumber || ''}}
 					</text>
 				</view>
 				
@@ -68,7 +68,7 @@
 						母母
 					</view>
 					<text class="ball_text">
-						DDZBBK517004301
+						{{familyInfo.cfmmnumber || ''}}
 					</text>
 				</view>
 				
@@ -78,7 +78,7 @@
 						母父
 					</view>
 					<text class="ball_text">
-						DDZBBK517004301
+						{{familyInfo.cfmpnumber || ''}}
 					</text>
 				</view>
 				
@@ -90,7 +90,7 @@
 						父父父
 					</view>
 					<text class="ball_text">
-						DDZBBK517004301
+						{{familyInfo.cfpppnumber || ''}}
 					</text>
 				</view>
 				
@@ -99,7 +99,7 @@
 						父父母
 					</view>
 					<text class="ball_text">
-						DDZBBK517004301
+						{{familyInfo.cfppmnumber || ''}}
 					</text>
 				</view>
 				
@@ -108,7 +108,7 @@
 						父母父
 					</view>
 					<text class="ball_text">
-						DDZBBK517004301
+						{{familyInfo.cfpmpnumber || ''}}
 					</text>
 				</view>
 				
@@ -118,7 +118,7 @@
 						父母母
 					</view>
 					<text class="ball_text">
-						DDZBBK517004301
+						{{familyInfo.cfpmmnumber || ''}}
 					</text>
 				</view>
 				
@@ -127,7 +127,7 @@
 						母母母
 					</view>
 					<text class="ball_text">
-						DDZBBK517004301
+						{{familyInfo.cfmmmnumber || ''}}
 					</text>
 				</view>
 				
@@ -137,7 +137,7 @@
 						母母父
 					</view>
 					<text class="ball_text">
-						DDZBBK517004301
+						{{familyInfo.cfmmpnumber || ''}}
 					</text>
 				</view>
 				
@@ -146,7 +146,7 @@
 						母父母
 					</view>
 					<text class="ball_text">
-						DDZBBK517004301
+						{{familyInfo.cfmpmnumber || ''}}
 					</text>
 				</view>
 				
@@ -155,7 +155,7 @@
 						母父父
 					</view>
 					<text class="ball_text">
-						DDZBBK517004301
+						{{familyInfo.cfmppnumber || ''}}
 					</text>
 				</view>
 				
@@ -168,18 +168,32 @@
 </template>
 
 <script>
+	import common from '../../../../utils/common.js';
 	export default {
 		data() {
 			return {
-				id: ''
+				id: '',
+				familyInfo: ''
 			};
 		},
 		onLoad(option) {
 			if (option.id) {
-				this.id = option.id
+				this.id = decodeURIComponent(option.id);
 			}
 		},
 		methods: {
+			getData() {  //获取系谱图信息
+				var _this = this;
+				let params = {
+					boarinfoid: _this.id, // 
+				};
+				let headers = {};
+				common.commRequest(`/PigBoarInfo/selectXiputuByBoarInfoID`, params, headers, 'get',
+					function(data) {
+						//console.log(data);
+						_this.familyInfo = data.data;
+				})
+			},
 			back () {
 				uni.navigateBack({
 				})

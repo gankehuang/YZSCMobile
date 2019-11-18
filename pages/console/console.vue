@@ -2,24 +2,6 @@
 	<view class="content">
 		<uni-nav-bar id="nav_bar" title="控制台" color="#ffffff" :fixed="true" :statusBar="true" backgroundColor="#447EEF" />
 
-		<!-- <view class="class-item">
-			<view class="class-name">我的常用</view>
-			<view class="g-container">
-				<view class="g-box" @tap.stop="jumpTask" data-key="高价回收" v-for="(newsitem,index2) in myUsualUses" :key="newsitem.id">
-					<view class="g-box-content" style="position: relative;">
-						<image :src="newsitem.url" class="g-image" />
-						<image @click.stop="sub(index2)" v-show="falg" src="/static/sub.png"  style="height: 30rpx;width: 30rpx; position: absolute;top: 8rpx;right: 8rpx;" />
-						<view class="g-title">{{newsitem.title}}</view>
-					</view>
-				</view>
-				<view class="g-box" @tap.stop="changeMode" data-key="管理" v-if="!manageMode">
-					<view class="g-box-content" style="background-color: #fff;">
-					<image src="/static/logo.png" class="g-image" />
-					<view class="g-title">管理</view>
-					</view>
-				</view>
-			</view>
-		</view> -->
 		<!-- 导航栏 -->
 		<!-- 值应为某子元素id（id不能以数字开头）。设置哪个方向可滚动，则在哪个方向滚动到该元素 -->
 		<scroll-view id="tab-bar" class="scroll-h" :scroll-x="true" :show-scrollbar="false" :scroll-into-view="scrollInto">
@@ -47,14 +29,11 @@
 							</refresh>
 							<!-- #endif --> 
 							<view class="g-container">
-								<block v-for="(newsitem,index3) in tab.data[index1]" :key="newsitem.id">
-									
-									
-									
+								<block v-for="(newsitem, index3) in tab.data[index1]" :key="newsitem.id">
 									<view class="g-box"  @tap.stop="jumpTask" :data-key="newsitem.title" :data-jumpurl="newsitem.jumpurl">
 									<view class="g-box-content" style="position: relative;">
 										<image :src="newsitem.url" class="g-image"  />
-										<image @click.stop="change(newsitem.title)" v-show="falg" :src="changeurl(newsitem.title)"  style="height: 30rpx;width: 30rpx; position: absolute;top: 8rpx;right: 8rpx;" />
+										<image @tap.stop="change" :data-title="newsitem.title" v-show="falg" :src="changeurl(newsitem.title)"  style="height: 30rpx;width: 30rpx; position: absolute;top: 8rpx;right: 8rpx;" />
 										<view class="g-title" >{{newsitem.title}}</view>
 									</view></view> 
 								</block>
@@ -74,235 +53,7 @@
 	const MAX_CACHE_DATA = 50;
 	// 缓存页签数量
 	const MAX_CACHE_PAGE = 3;
-	const newsData = {
-		tabDatabaseDoc: [{
-				title: "种猪档案",
-				url: "/static/sub.png",
-				jumpurl: '/pages/archives/boarInfo/boarInfo'
-			},
-			{
-				title: "批次档案",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90",
-				jumpurl: '/pages/archives/pigBatch/pigBatch'
-			},
-			{
-				title: "配种批次",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90",
-				jumpurl: '/pages/archives/matingBatch/matingInfo'
-			},
-			/* {
-				title: "猪场档案",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90",
-				jumpurl: '/pages/pigfarm/pigfarm'
-			},
-			{
-				title: "分场档案",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90",
-				jumpurl: '/pages/pigfen/pigfen'
-			} */
-		],
-		tabDatadataColect: [{
-				title: "精液检测",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
-			},
-			{
-				title: "妊娠记录",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90",
-				jumpurl: '/pages/dataCollection/pregnancyRecord/pregnancyNew'
-			},
-			{
-				title: "配种记录",
-				url: "/static/assets/breedRecord.png",
-				jumpurl: '/pages/dataCollection/breedRecord/breedNew'
-			},
-			{
-				title: "分娩记录",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90",
-				jumpurl: '/pages/dataCollection/birthRecord/birthNew'
-			},
-			{
-				title: "发情记录",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
-			},
-			{
-				title: "生产猪转群",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
-			},
-			{
-				title: "死亡记录",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90",
-				jumpurl:'/pages/dataCollection/deathRecord/deathNew'
-			},
-			{
-				title: "断奶记录",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90",
-				jumpurl: '/pages/dataCollection/weaningRecord/weaningNew'
-			},
-			{
-				title: "批次猪转舍",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
-			}
-		],
-		tabDatabusApply: [{
-				title: "精液领用申请",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90",
-				jumpurl: '/pages/ywcj_jyly/add'
-			},
-			{
-				title: "药品领用申请",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
-			},
-			{
-				title: "低值申请",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90",
-				jumpurl: '/pages/ywcj_lowvalue/add'
-			},
-			{
-				title: "淘汰申请",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
-			},
-			{
-				title: "采购申请",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
-			}
-		],
-		tabDatamaterial_rec: [{
-				title: "精液领用",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90",
-				jumpurl: '/pages/receive/semen/semen'
-			},
-			{
-				title: "药品领用",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90",
-				jumpurl: '/pages/receive/drug/applyFor'
-			},
-			{
-				title: "饲料领用",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
-			},
-			{
-				title: "低值领用",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90",
-				jumpurl: '/pages/receive/lowValue/select'
-			}
-		],
-		tabDatabatchTask: [{
-				title: "后备",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
-			},
-			{
-				title: "公猪站",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
-			},
-			{
-				title: "配坏",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
-			},
-			{
-				title: "分娩",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
-			},
-			{
-				title: "保育",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
-			}
-		],
-		// tabDatamanagestandard: [{
-		// 		title: "固化任务",
-		// 		url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
-		// 	},
-		// 	{
-		// 		title: "异常处理",
-		// 		url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
-		// 	}
-		// ],
-		tabDatabio_safe: [{
-				title: "三级洗消",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
-			},
-			{
-				title: "场外巡检",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
-			},
-			{
-				title: "场内巡检",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
-			}
-		],
-		tabDatainventory: [{
-				title: "药品盘点",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
-			},
-			{
-				title: "猪只盘点",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
-			},
-			{
-				title: "饲料盘点",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
-			},
-			{
-				title: "低值品盘点",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
-			},
-			{
-				title: "食堂盘点",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
-			}
-		],
-		tabDatabusChange: [{
-				title: "个体信息调整",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
-			},
-			{
-				title: "猪群等级划分",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
-			},
-			{
-				title: "批次日龄调整",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
-			}
-		],
-		tabDatahealthManage: [{
-				title: "免疫计划",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90",
-				jumpurl: '/pages/health/immunizationPlan/immunizationPlanList'
-			},
-			{
-				title: "免疫记录",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90",
-				jumpurl: '/pages/health/immunizationPlan/immunizationRecord'
-			},
-			{
-				title: "空瓶回收",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90",
-				jumpurl: '/pages/health/recyclingBottles/recyclingBottlesHistory'
-			}
-		],
-		tabDatafeedManage: [{
-				title: "测膘调料记录",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
-			},
-			{
-				title: "饲喂程序",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90",
-				jumpurl: '/pages/freed/freedApp/freedList'
-			},
-			{
-				title: "称重管理",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
-			}
-		],
-		tabDatacarManage: [{
-				title: "车辆备案",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
-			},
-			{
-				title: "过磅",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
-			}
-		]
-	};
+	
 	export default {
 		components: {
 			uniNavBar,
@@ -322,59 +73,64 @@
 				falg:false,
 				newsList: [],
 				tabData: 'tabDatabaseDoc',
-				myUsualUses: [{ // 常用列表名 
+				myUsualUses: [
+					{
 						title: "种猪档案",
-						url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
+						url: "/static/consoleIcon/archives/boarInfo.png",
+						jumpurl: '/pages/archives/boarInfo/boarInfo'
 					},
 					{
 						title: "批次档案",
-						url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90"
+						url: "/static/consoleIcon/archives/pigBatch.png",
+						jumpurl: '/pages/archives/pigBatch/pigBatch'
 					},
 					{
 						title: "配种批次",
-						url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90",
+						url: "/static/consoleIcon/archives/matingInfo.png",
 						jumpurl: '/pages/archives/matingBatch/matingInfo'
-					}
+					},
 				],
-				tabBars: [{
-					name: '基本档案',
-					id: 'baseDoc',
-				}, {
-					name: '数据采集',
-					id: 'dataColect',
-				}, {
-					name: '业务申请',
-					id: 'busApply',
-				}, {
-					name: '物质领用',
-					id: 'material_rec',
-				}, {
-					name: '批次任务单',
-					id: 'batchTask',
-				}
-				// , {
-				// 	name: '管理标准化',
-				// 	id: 'managestandard',
-				// }
-				, {
-					name: '生物安全',
-					id: 'bio_safe',
-				}, {
-					name: '盘点',
-					id: 'inventory',
-				}, {
-					name: '业务调整',
-					id: 'busChange',
-				}, {
-					name: '健康管理',
-					id: 'healthManage',
-				}, {
-					name: '饲喂管理',
-					id: 'feedManage',
-				}, {
-					name: '车辆管理',
-					id: 'carManage',
-				}],
+				tabBars: [
+					{
+						name: '基本档案',
+						id: 'baseDoc',
+					}, {
+						name: '数据采集',
+						id: 'dataColect',
+					}, {
+						name: '业务申请',
+						id: 'busApply',
+					}, {
+						name: '物质领用',
+						id: 'material_rec',
+					}, {
+						name: '批次任务单',
+						id: 'batchTask',
+					}
+					// , {
+					// 	name: '管理标准化',
+					// 	id: 'managestandard',
+					// }
+					, {
+						name: '生物安全',
+						id: 'bio_safe',
+					}, {
+						name: '盘点',
+						id: 'inventory',
+					}, {
+						name: '业务调整',
+						id: 'busChange',
+					}, {
+						name: '健康管理',
+						id: 'healthManage',
+					}, {
+						name: '饲喂管理',
+						id: 'feedManage',
+					}, {
+						name: '车辆管理',
+						id: 'carManage',
+					},
+				],
 			}
 
 
@@ -384,287 +140,307 @@
 				this.newsList.push({
 					data: [ [{
 				title: "种猪档案",
-				url: "/static/slices/Rectangle@2x(1).png",
+				url: "/static/consoleIcon/archives/boarInfo.png",
 				jumpurl: '/pages/archives/boarInfo/boarInfo'
 			},
 			{
 				title: "批次档案",
-				url: "/static/slices/Rectangle@2x(14).png",
+				url: "/static/consoleIcon/archives/pigBatch.png",
 				jumpurl: '/pages/archives/pigBatch/pigBatch'
 			},
 			{
 				title: "配种批次",
-				url: "/static/slices/Rectangle@2x(24).png",
+				url: "/static/consoleIcon/archives/matingInfo.png",
 				jumpurl: '/pages/archives/matingBatch/matingInfo'
 			},
-			/* {
-				title: "猪场档案",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90",
-				jumpurl: '/pages/pigfarm/pigfarm'
-			},
-			{
-				title: "分场档案",
-				url: "https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/shuijiao.jpg?imageView2/3/w/200/h/100/q/90",
-				jumpurl: '/pages/pigfen/pigfen'
-			} */
 		],
 		[{
 				title: "精液检测",
-				url: "/static/slices/Rectangle@2x(8).png",
+				url: "/static/consoleIcon/dataCollection/semenTest.png",
 				jumpurl: '/pages/dataCollection/semenTest/semenNew'
 			},
 			{
 				title: "妊娠记录",
-				url: "/static/slices/Rectangle@2x(19).png",
+				url: "/static/consoleIcon/dataCollection/pregnancyRecord.png",
 				jumpurl: '/pages/dataCollection/pregnancyRecord/pregnancyNew'
 			},
 			{
 				title: "配种记录",
-				url: "/static/slices/Rectangle@2x(29).png",
+				url: "/static/consoleIcon/dataCollection/breedRecord.png",
 				jumpurl: '/pages/dataCollection/breedRecord/breedNew'
 			},
 			{
 				title: "分娩记录",
-				url: "/static/slices/Rectangle@2x(35).png",
+				url: "/static/consoleIcon/dataCollection/birthRecord.png",
 				jumpurl: '/pages/dataCollection/birthRecord/birthNew'
 			},
 			{
 				title: "发情记录",
-				url: "/static/slices/Rectangle@2x(12).png",  
+				url: "/static/consoleIcon/dataCollection/ruttingRecord.png",  
 				jumpurl: '/pages/dataCollection/ruttingRecord/ruttingNew'
 			},
 			{
 				title: "生产猪转群",
-				url: "/static/slices/Rectangle@2x(23).png",
+				url: "/static/consoleIcon/dataCollection/pigProduction.png",
 				jumpurl: '/pages/dataCollection/pigProduction/productionNew'
 			},
 			{
 				title: "死亡记录",
-				url: "/static/slices/Rectangle@2x(32).png",
+				url: "/static/consoleIcon/dataCollection/deathRecord.png",
 				jumpurl: '/pages/dataCollection/deathRecord/deathNew'
 			},
 			{
 				title: "断奶记录",
-				url: "/static/slices/Rectangle@2x(38).png",
+				url: "/static/consoleIcon/dataCollection/weaningRecord.png",
 				jumpurl: '/pages/dataCollection/weaningRecord/weaningNew'
 			},
 			{
 				title: "批次猪转舍",
-				url: "/static/slices/Rectangle@2x(13).png",
+				url: "/static/consoleIcon/dataCollection/batchPig.png",
 				jumpurl: '/pages/dataCollection/batchPig/batchPigNew'
 			},
 			{
 				title: "异常猪管理",
-				url: "/static/slices/yczgl@2x.png",
+				url: "/static/consoleIcon/dataCollection/abnormalPig.png",
 				jumpurl: '/pages/dataCollection/abnormalPig/abnormalPigNew'
 			},
 			{
 				title: "后备猪健康",
-				url: "/static/slices/hbzgl@2x.png",
+				url: "/static/consoleIcon/dataCollection/reservePig.png",
 				jumpurl: '/pages/dataCollection/reservePig/reservePigNew'
 			},
 			{
 				title: "不发情备猪",
-				url: "/static/slices/bfqgl.png",
+				url: "/static/consoleIcon/dataCollection/anestrus.png",
 				jumpurl: '/pages/dataCollection/anestrus/anestrusNew'
 			},
 			{
 				title: "淘汰申请",
-				url: "/static/slices/ttsq2@2x.png",
+				url: "/static/consoleIcon/dataCollection/eliminate.png",
 				jumpurl: '/pages/dataCollection/eliminate/eliminateNew'
 			}
 		],
 		[
 			{
-				title: "药品领用",
-				url: "/static/slices/Rectangle@2x(18).png",
-				jumpurl: '/pages/collection/semenRecipients/semenRecipientsAudit'
+				title: "药品申请",
+				url: "/static/consoleIcon/bizApplication/drug.png",
+				jumpurl: '/pages/bizApplication/drug/drugApplication'
 			},
 			{
-				title: "采购申请",
-				url: "/static/slices/Rectangle@2x(7).png"
+				title: "采购申请",// 蓝湖采购入库
+				url: "/static/consoleIcon/bizApplication/purchase.png",
+				jumpurl: '/pages/bizApplication/purchase/warehouseNew'
 			}
 		],
 		[{
 				title: "精液领用",
-				url: "/static/slices/Rectangle@2x(9).png",
+				url: "/static/consoleIcon/receive/semen.png",
 				jumpurl: '/pages/receive/semen/semenReceiveAudit'
 			},
 			{
 				title: "药品领用",
-				url: "/static/slices/Rectangle@2x(20).png",
-				jumpurl: '/pages/receive/drug/applyFor'
+				url: "/static/consoleIcon/receive/drug.png",
+				// jumpurl: '/pages/receive/drug/applyFor'
 			},
 			{
 				title: "饲料领用",
-				url: "/static/slices/Rectangle@2x(30).png"
+				url: "/static/consoleIcon/receive/feed.png"
 			},
 			{
 				title: "低值领用",
-				url: "/static/slices/Rectangle@2x(36).png",
-				jumpurl: '/pages/receive/lowValue/select'
+				url: "/static/consoleIcon/receive/lowValue.png",
+				// jumpurl: '/pages/receive/lowValue/select'
 			}
 		],
 		[{
 				title: "后备",
-				url: "/static/slices/Rectangle@2x(10).png",
+				url: "/static/consoleIcon/batchTask/reserve.png",
 				jumpurl: "/pages/batchTask/reserve/matchPregnant"
 			},
 			{
 				title: "公猪站",
-				url: "/static/slices/Rectangle@2x(21).png",  
+				url: "/static/consoleIcon/batchTask/boarsStation.png",  
 				jumpurl: "/pages/batchTask/boarsStation/matchPregnant"
 			},
 			{
 				title: "配怀",
-				url: "/static/slices/Rectangle@2x(31).png",
+				url: "/static/consoleIcon/batchTask/matchPregnant.png",
 				jumpurl: '/pages/batchTask/matchPregnant/matchPregnant'
 			},
 			{
 				title: "分娩",
-				url: "/static/slices/Rectangle@2x(37).png",
+				url: "/static/consoleIcon/batchTask/childbirth.png",
 				jumpurl: '/pages/batchTask/childbirth/matchPregnant'
 			},
 			{
 				title: "保育",
-				url: "/static/slices/Rectangle@2x(11).png",  
+				url: "/static/consoleIcon/batchTask/childCare.png",  
 				jumpurl: '/pages/batchTask/childCare/matchPregnant'
 			},
 			{
 				title: "育肥",
-				url: "/static/slices/Rectangle@2x(22).png",
+				url: "/static/consoleIcon/batchTask/fatten.png",
 				jumpurl: '/pages/batchTask/fatten/matchPregnant'
 			}
 		],
-		//  [{
-		// 		title: "固化任务",
-		// 		url: "/static/slices/Rectangle@2x(3).png"
-		// 	},
-		// 	{
-		// 		title: "异常处理",
-		// 		url: "/static/slices/Rectangle@2x(15).png"
-		// 	}
-		// ],
-		[{
-				title: "三级洗消",
-				url: "/static/slices/Rectangle@2x(4).png",
-				jumpurl: '/pages/biosafety/disinfection/disinfectionNew'
+		[
+			{
+				title: "人",
+				url: "/static/consoleIcon/biosafety/people.png",
+				jumpurl: '/pages/biosafety/people/people'
+			},{
+				title: "物",
+				url: "/static/consoleIcon/biosafety/matter.png",
+				jumpurl: '/pages/biosafety/matter/matter'
+			},{
+				title: "车",
+				url: "/static/consoleIcon/biosafety/car.png",
+				jumpurl: '/pages/biosafety/car/car'
 			},
 			{
 				title: "场外巡检",
-				url: "/static/slices/Rectangle@2x(16).png"
+				url: "/static/consoleIcon/biosafety/outsideInspect.png"
 			},
 			{
 				title: "场内巡检",
-				url: "/static/slices/Rectangle@2x(25).png"
+				url: "/static/consoleIcon/biosafety/insideInspect.png",
+				jumpurl: '/pages/biosafety/insideInspect/insideInspectGroup'
 			}
 		],
 		 [{
 				title: "药品盘点",
-				url: "/static/slices/Rectangle@2x(5).png",
-				jumpurl: "/pages/stock/material"
+				url: "/static/consoleIcon/stock/material.png",
+				// jumpurl: "/pages/stock/material/material"
 			},
 			{
 				title: "猪只盘点",
-				url: "/static/slices/Rectangle@2x(17).png",
-				jumpurl: "/pages/stock/pig"
+				url: "/static/consoleIcon/stock/pig.png",
+				jumpurl: "/pages/stock/pig/pig"
 			},
 			{
 				title: "饲料盘点",
-				url: "/static/slices/Rectangle@2x(26).png",
-				jumpurl:"/pages/stock/feed"
+				url: "/static/consoleIcon/stock/feed.png",
+				// jumpurl:"/pages/stock/feed"
 			},
 			{
 				title: "低值品盘点",
-				url: "/static/slices/Rectangle@2x(27).png",
-				jumpurl:"/pages/stock/lowValue"
+				url: "/static/consoleIcon/stock/lowValue.png",
+				// jumpurl:"/pages/stock/lowValue"
 			},
 			{
 				title: "食堂盘点",
-				url: "/static/slices/Rectangle Copy 16@2x.png",
-				jumpurl: "/pages/stock/diningHall"
+				url: "/static/consoleIcon/stock/diningHall.png",
+				// jumpurl: "/pages/stock/diningHall"
 			}
 		],
 		 [{
 				title: "个体信息",
-				url: "/static/slices/Rectangle Copy 5@2x.png",
+				url: "/static/consoleIcon/businessAdjustment/personalData.png",
 				jumpurl: '/pages/businessAdjustment/personalData/personalDataNew'
 			},
 			{
 				title: "猪群等级",
-				url: "/static/slices/Rectangle Copy 6@2x.png",
+				url: "/static/consoleIcon/businessAdjustment/gradePig.png",
 				jumpurl: '/pages/businessAdjustment/gradePig/gradePigNew'
 			}
 		],
 		 [{
 				title: "免疫计划",
-				url: "/static/slices/Rectangle Copy 8@2x.png",
+				url: "/static/consoleIcon/health/immunizationPlan.png",
 				jumpurl: '/pages/health/immunizationPlan/immunizationPlanList'
 			},
 			{
 				title: "免疫记录",
-				url: "/static/slices/Rectangle Copy 9@2x.png",
-				jumpurl: '/pages/health/immunizationPlan/immunizationRecord'
+				url: "/static/consoleIcon/health/immunizationRecord.png",
+				jumpurl: '/pages/health/immunizationRecord/immunizationRecord'
 			},
-			{
-				title: "免疫调整",
-				url: "/static/slices/Rectangle Copy 9@2x.png",
-				jumpurl: '/pages/health/immunizationPlan/immunizationAdjust'
-			},
+			// {
+			// 	title: "免疫调整",
+			// 	url: "/static/consoleIcon/health/immunizationAdjust.png",
+			// 	jumpurl: '/pages/health/immunizationPlan/immunizationAdjust'
+			// },
 			{
 				title: "空瓶回收",
-				url: "/static/slices/Rectangle Copy 10@2x.png",
+				url: "/static/consoleIcon/health/recyclingBottle.png",
 				jumpurl: '/pages/health/recyclingBottles/recyclingBottlesHistory'
 			}
 		],
 		 [{
 				title: "测膘调料",
-				url: "/static/slices/Rectangle Copy 11@2x.png",
+				url: "/static/consoleIcon/freed/fatMeasurement.png",
 				jumpurl: '/pages/freed/fatMeasurement/measurementRecord'
 			},
 			
 			{
-				title: "饲喂程序",
-				url: "/static/slices/Rectangle Copy 13@2x.png",
-				jumpurl: '/pages/freed/freedApp/freedList'
+				title: "称重管理",
+				url: "/static/consoleIcon/freed/weighing.png"
 			}
 		],
 		[{
 				title: "车辆备案",
-				url: "/static/slices/Rectangle Copy 14@2x.png"
+				url: "/static/consoleIcon/vehicle/vehicleManagement.png"
 			},
 			{
 				title: "过磅",
-				url: "/static/slices/Rectangle Copy 15@2x.png"
-			}
-		]],                              																		
-					refreshText: "",
-					loadingText: '加载更多...'
+				url: "/static/consoleIcon/vehicle/vehicleWeighing.png"
+			}]
+		]            																		
 				});
 			});
-			this.getList(0);
+			
+			
 		},
+		onShow() {  //页面打开
+			const _this = this;
+			uni.getStorage({
+				key: 'falg',
+				success: function (res) {
+					//console.log(res.data);
+					_this.falg = res.data;
+				}
+			});
+		},
+		onHide() {  //页面关闭
+			const myUsualUses = this.myUsualUses;
+			uni.setStorage({
+				key: 'myUsualUses',
+				data: myUsualUses
+			});
+		},
+		
 		methods: { 
-			change(title){
+			change(title1){
+				let title = title1.currentTarget.dataset.title
+				//console.log(title)
 				let src = this.myUsualUses.find(item=>{
 					return item.title == title
 				})
 				let index;
 				if(src){ // sub
-					 index = this.myUsualUses.findIndex(item=>{
-					return item.title == title
-				})
-				this.myUsualUses.splice(index,1)
+					index = this.myUsualUses.findIndex(item=>{
+						return item.title == title
+					})
+					this.myUsualUses.splice(index,1)
 				}else{ // add 
 					let often;
 					for(let i=0;i<this.newsList[0].data.length;i++){
-						often = this.newsList[0].data[i].find(item=>{
-							return item.title == title
-						})
-						if(often) break 
+						let a = this.newsList[0].data[i]
+						for(let j =0; j<a.length; j++) {
+							//console.log(title)
+							if(a[j].title == title){
+								this.myUsualUses.push(a[j])
+								break;
+							}
+						}
+						
+						// often = this.newsList[0].data[i].find(item=>{
+						// 	return item.title == title
+						// })
+						// 
+						// if(often) break 
 					}
-					console.log(often)
-					this.myUsualUses.push(often)
+					//console.log(often)
+					
 				}
 			},
 			sub(index){
@@ -674,6 +450,7 @@
 				let src = this.myUsualUses.find(item=>{
 					return item.title == title
 				})
+				
 				if(src) return '/static/sub.png'
 				else return '/static/add.png'
 			},
@@ -703,20 +480,22 @@
 				activeTab.data = activeTab.data.concat(list);
 			},
 			loadMore(e) {
-				setTimeout(() => {
+				//setTimeout(() => {
 					this.getList(this.tabIndex);
-				}, 500)
-			},
-			ontabtap(e) {
+				//}, 500)
+			}, 
+			async ontabtap(e) {
 				let index = e.target.dataset.current || e.currentTarget.dataset.current;
 				this.tabData = "tabData" + e.currentTarget.dataset.id;
 				this.switchTab(index);
 			},
-			ontabchange(e) {
+			async ontabchange(e) {
 				let index = e.target.current || e.detail.current;
 				this.switchTab(index);
+			
+				
 			},
-			switchTab(index) {
+			async switchTab(index) {
 				if (this.newsList[index].data.length === 0) {
 					this.getList(index);
 				}
@@ -731,7 +510,6 @@
 						//console.log("cache index:: " + this.tabIndex);
 					}
 				}
-
 				this.tabIndex = index;
 				this.scrollInto = this.tabBars[index].id;
 
@@ -836,7 +614,7 @@
 
 	.content {
 		width: 100%;
-		height: 100%;
+		height: 80%;
 		background: $pageBg;
 		padding-bottom: 100px;
 	}
@@ -933,20 +711,23 @@
 
 	.g-box-content {
 		margin: 10rpx;
+		margin-bottom: 20rpx;
 		// background: #F5F5F5;
 	}
 
 	.g-image {
-		width: 120upx;
-		height: 120upx;
+		width: 100rpx;
+		height: 100rpx;
 		margin-top: 10rpx;
 	}
 
 	.g-title {
 		color: #4D4D4D;
-		font-size:14px;
+		font-size: 13px;
 		font-family: PingFang SC Regular;
 		font-weight: Regular;
+		
+		line-height: 1.6;
 	}
 
 	.swiper-item {

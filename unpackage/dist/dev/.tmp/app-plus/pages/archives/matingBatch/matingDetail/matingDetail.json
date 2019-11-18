@@ -2,6 +2,9 @@
   "navigationStyle": "custom",
   "usingComponents": {
     "scroll-tab": "/components/scroll-tab/scroll-tab",
-    "ztable": "/components/z-table/z-table"
+    "ztable": "/components/z-table/z-table",
+    "uni-collapse": "/components/uni-collapse/uni-collapse-breedBatch",
+    "uni-collapse-item": "/components/uni-collapse-item/uni-collapse-item-breedBatch",
+    "uni-load-more": "/components/uni-load-more"
   }
 }

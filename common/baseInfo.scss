@@ -3,7 +3,9 @@
 	overflow: visible;
 }
 .header-wrap {
-	background-color: white;
+	background-color: #FFFFFF;
+	//border-bottom-left-radius: 32rpx;
+	//border-bottom-right-radius: 32rpx;
 	.header-container {
 		border-bottom-left-radius: 32rpx;
 		border-bottom-right-radius: 32rpx;
@@ -40,7 +42,7 @@
 	top: 0;
 	left: 0;
 	width: 100%;
-	z-index: 1000;
+	z-index: 100;
 	.status__title {
 		flex: 1;
 		font-weight: 600;
@@ -73,7 +75,7 @@
 		display: flex;
 		flex-flow: column nowrap;
 		height: fit-content;
-		margin: 16rpx;
+		margin: 30rpx;
 		padding: 0 24rpx;
 		border-radius: 24rpx;
 		font-size:26rpx;
@@ -88,6 +90,16 @@
 			.card_label{
 				color:#4D4D4D;
 				font-weight: 600;
+				
+				.warn-label {// 调整预警点大小及位置 2019/10/18 -Guoaojie
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					
+					.left_icon {
+						margin-right: 20rpx;
+					}
+				}
 			}
 			.card_value{
 				color:#757575;
@@ -104,3 +116,10 @@ page {
 	position: relative;
 	font-size: 16px;
 }
+.left_icon{
+    width: 24rpx;
+    height: 24rpx;
+	background: #FF6354;
+	color: #fff;
+	border-radius: 50%;
+		}

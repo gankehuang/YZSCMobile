@@ -7,11 +7,11 @@
   "id": "__UNI__A9C0DEA",
   "name": "YZSCMobile",
   "version": {
-    "name": "1.0.0",
+    "name": "1.3.0",
     "code": "100"
   },
   "description": "",
-  "launch_path": "__uniapptabbar.html",
+  "launch_path": "__uniappview.html",
   "developer": {
     "name": "",
     "email": "",
@@ -24,7 +24,7 @@
   },
   "plus": {
     "useragent": {
-      "value": "uni-app appservice",
+      "value": "uni-app",
       "concatenate": true
     },
     "splashscreen": {
@@ -35,7 +35,9 @@
     },
     "popGesture": "close",
     "launchwebview": {
-      "render": "always"
+      "id": "1",
+      "kernel": "WKWebview",
+      "uni-app": "auto"
     },
     "statusbar": {
       "immersed": "supportedDevice",
@@ -88,17 +90,47 @@
       }
     },
     "uni-app": {
-      "compilerVersion": "2.1.3",
+      "compilerVersion": "2.3.6",
       "control": "v8",
-      "nvueCompiler": "weex"
+      "nvueCompiler": "weex",
+      "renderer": "auto"
     },
-    "secondwebview": {
-      "id": "1",
-      "launch_path": "__uniappview.html",
-      "kernel": "WKWebview",
-      "mode": "child",
-      "top": 0,
-      "bottom": 56
+    "tabBar": {
+      "color": "#7A7E83",
+      "selectedColor": "#5089f9",
+      "borderStyle": "rgba(0,0,0,0.4)",
+      "backgroundColor": "#ffffff",
+      "list": [
+        {
+          "pagePath": "pages/homePage/homePage",
+          "iconPath": "static/assets/home_normal.png",
+          "selectedIconPath": "static/assets/home_select.png",
+          "text": "首页"
+        },
+        {
+          "pagePath": "pages/console/console",
+          "iconPath": "static/assets/report_normal.png",
+          "selectedIconPath": "static/assets/report_select.png",
+          "text": "工作台"
+        },
+        {
+          "pagePath": "pages/report/report",
+          "iconPath": "static/assets/report_normal.png",
+          "selectedIconPath": "static/assets/report_select.png",
+          "text": "报表"
+        },
+        {
+          "pagePath": "pages/personalCenter/personalCenter",
+          "iconPath": "static/assets/my_normal.png",
+          "selectedIconPath": "static/assets/my_select.png",
+          "text": "我的"
+        }
+      ],
+      "height": "50px",
+      "child": [
+        "lauchwebview"
+      ],
+      "selected": 0
     }
   }
 }

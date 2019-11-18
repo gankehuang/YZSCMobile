@@ -44,7 +44,7 @@
 				flag: false,
 				tableData: [
 					{
-						id:'222',
+						id:'1',
 						index: 1,
 						date: '2019-10-22',
 						useType: '11',
@@ -55,7 +55,7 @@
 						checked:false
 					},
 					{
-						id:'222',
+						id:'2',
 						index: 2,
 						date: '2019-10-22',
 						useType: '11',
@@ -66,7 +66,7 @@
 						checked:false
 					},
 					{
-						id:'222',
+						id:'3',
 						index: 3,
 						date: '2019-10-22',
 						useType: '11',
@@ -77,7 +77,7 @@
 						checked:false
 					},
 					{
-						id:'222',
+						id:'4',
 						index: 4,
 						date: '2019-10-22',
 						useType: '11',
@@ -88,7 +88,7 @@
 						checked:false
 					},
 					{
-						id:'222',
+						id:'5',
 						index: 5,
 						date: '2019-10-22',
 						useType: '11',
@@ -99,7 +99,7 @@
 						checked:false
 					},
 					{
-						id:'222',
+						id:'6',
 						index: 6,
 						date: '2019-10-22',
 						useType: '11',
@@ -155,11 +155,17 @@
 		},
 		methods: {
 			rowTapHandler (row) {
-				console.log(`row click from boarinfo ${JSON.stringify(row)}`)
+				//console.log(`row click from boarinfo ${JSON.stringify(row)}`)
 			},
 			checkbox(e) {
 				console.log(e.detail.value)//id
-				this.flag = true;
+				let value = e.detail.value;
+				if(value.length == 0){
+					this.flag = false;
+				} else {
+					this.flag = true;
+				}
+				
 			},
 			//选页
 			selectPage() {
@@ -172,12 +178,18 @@
 				uni.navigateTo({
 					url:'/pages/receive/lowValue/newAdd'
 				})
+			},
+			clickEdit() {
+				uni.navigateTo({
+					url: "/pages/dataCollection/eliminate/eliminateNew",
+				})
 			}
 		},
 		computed: {
 			pageNum () {
 				return Math.ceil(this.pageInfo.total / this.pageInfo.pageSize)
-			}
+			},
+			
 		}
 	}
 </script>

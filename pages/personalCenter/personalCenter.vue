@@ -7,13 +7,13 @@
 						<image class="avater-wrap-avater" src="../../static/assets/user_icon.png" mode=""></image>
 					</view>
 					<view class="content-wrap">
-						<view class="name">一西啊</view>
+						<view class="name">{{username}}</view>
 						<view class="tel">137****78</view>
 					</view>
-					<view class="info__arrow">
+					<!-- <view class="info__arrow">
 						<uni-icon type="forward" color="#fffff" size="24" />
 						<view>修改</view>
-					</view>
+					</view> -->
 				</view>
 
 			</view>
@@ -72,6 +72,22 @@
 				
 				<view class="mainlist-item">
 					<view class="item-name">
+						<image class="icon settingicon" src="../../static/assets/offlineManage.png" mode=""></image>
+						<view class="item-name-text">
+							离线管理
+						</view>
+					</view>
+					<view class="item-entry">
+						<uni-icon type="forward" color="#fffff" size="24" />
+					</view>
+				</view>
+				
+				
+				<view class="mainlist-line" />
+				
+				
+				<view class="mainlist-item">
+					<view class="item-name">
 						<image class="icon" src="../../static/assets/about.png" mode=""></image>
 						<view class="item-name-text">
 							关于
@@ -85,7 +101,7 @@
 				<view class="mainlist-line" />
 				
 				
-				<view class="mainlist-item">
+			<!-- 	<view class="mainlist-item">
 					<view class="item-name">
 						<image class="icon" src="../../static/assets/about.png" mode=""></image>
 						<view class="item-name-text">
@@ -96,7 +112,7 @@
 						<text>v.3.1.4</text>
 						<uni-icon type="forward" color="#fffff" size="24" />
 					</view>
-				</view>
+				</view> -->
 			</view>
 
 
@@ -120,10 +136,13 @@ import uniBadge from "@/components/uni-badge/uni-badge.vue"
 		data() {
 			return {
 				type: '',
-				top: 0
+				top: 0,
+				username:'一西啊'
 			};
 		},
-		onReady() {},
+		onReady() {
+			this.username = uni.getStorageSync('user').name;
+		},
 		methods: {
 			handOnClickMyMsg() {
 				uni.navigateTo({

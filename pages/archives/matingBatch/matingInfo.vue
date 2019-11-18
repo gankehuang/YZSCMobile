@@ -25,61 +25,19 @@
 		<popup-layer ref="popupRef1" :direction="'left'" :class='{active:active}'>
 		   <scroll-view class="draw" scroll-y="true" style="padding-top: 65px;">
 			  <draw-cell title="批次号" >
-				<view slot="value" class="bg-gray jus-j" @click="selectPeople">
+				<view slot="value" class="bg-gray jus-j" @click="selectBatch">
 					<image @click.stop="qr" style="margin: 0;" src="../../../static/search/qr.png" mode="" class="icon"></image>
-					<input type="text" disabled="true" placeholder="请填写" v-model="searchForm.immunePlan" />
+					<input type="text" disabled="true" placeholder="请选择批次号" v-model="searchForm.batchNum.name"/>
 					<uni-icon type="arrowright" color="#333333" size="18" />
 				</view>
 			  </draw-cell>
 			  <draw-cell title="栋舍"  >
-				<view slot="value" class="bg-gray jus-j" @click="selectPeople">
+				<view slot="value" class="bg-gray jus-j" @click="''">
 					<text></text>
-					<input type="text" disabled="true" placeholder="请填写" v-model="searchForm.immuneProject" />
+					<input type="text" disabled="true" placeholder="请填写栋舍"/>
 					<uni-icon type="arrowright" color="#333333" size="18" />
 				</view>
 			  </draw-cell>
-			 <!-- <draw-cell title="配种批次" required="true">
-			  				<view slot="value" class="bg-gray jus-j" @click="selectPeople">
-			  					<text>{{searchForm.vaccineName}}</text>
-			  					<uni-icon type="arrowdown" color="#333333" size="18" />
-			  				</view>
-			  </draw-cell> -->
-			  <!-- <draw-cell title="执行人" required="true">
-			  				<view slot="value" class="bg-gray jus-j" @click="selectPeople">
-			  					<text>{{searchForm.vaccineName}}</text>
-			  					<uni-icon type="arrowdown" color="#333333" size="18" />
-			  				</view>
-			  </draw-cell> -->
-			  <!-- <draw-cell title="批次号" required="true">
-				<view slot="value" class="bg-gray jus-j" @click="selectPeople">
-					<text>{{searchForm.vaccineName}}</text>
-					<uni-icon type="arrowdown" color="#333333" size="18" />
-				</view>
-			  </draw-cell> -->
-			<!-- <draw-cell title="猪场" required="true">
-				<view slot="value" class="bg-gray jus-j" @click="selectPeople">
-					<text>{{searchForm.vaccineName}}</text>
-					<uni-icon type="arrowdown" color="#333333" size="18" />
-				</view>
-			</draw-cell> -->
-			<!-- <draw-cell title="分场" required="true">
-				<view slot="value" class="bg-gray jus-j" @click="selectPeople">
-					<text>{{searchForm.vaccineName}}</text>
-					<uni-icon type="arrowdown" color="#333333" size="18" />
-				</view>
-			</draw-cell> -->
-			<!-- <draw-cell title="疫苗名称" required="true">
-				<view slot="value" class="bg-gray jus-j" @click="selectPeople">
-					<text>{{searchForm.vaccineName}}</text>
-					<uni-icon type="arrowdown" color="#333333" size="18" />
-				</view>
-			</draw-cell> -->
-			  <!-- <draw-cell title="状态"  >
-					<view slot="value" class="bg-gray jus-j" @click="selectPeople">
-						<text>{{searchForm.performMan}}</text>
-						<uni-icon type="arrowdown" color="#333333" size="18" />
-					</view>
-			  </draw-cell> -->
 		   </scroll-view>
 		   <view class="submits jus-b">
 			   <view class="flexc reset-btn" @click="reset">重置</view>
@@ -87,15 +45,17 @@
 		   </view>
 		</popup-layer>
 		<!-- 下拉菜单  -->
-		<mpvue-picker :themeColor="themeColor" ref="pigPicker" 
+		<mpvue-picker :themeColor="themeColor" ref="batchPicker" 
 		:deepLength="deepLength" :pickerValueDefault="pickerValueDefault"
-		 @onConfirm="onConfirmPig" :pickerValueArray="pickerValueArray"></mpvue-picker>
+		 @onConfirm="onConfirmBatch" :pickerValueArray="batchNumArr"></mpvue-picker>
 	<!-- 	<pageSider :pageNum="pageNum" :currentPage="pageInfo.page" ></pageSider> -->
 	</view>
 </template>
 
 <script>
-	//  加载更多 
+	//引入时间转换
+	import { timeFormat } from '@/utils/dateUtils.js';
+	//加载更多 
 	import uniLoadMore from '@/components/uni-load-more.vue';
 	//引入图标
 	import uniIcon from '@/components/uni-icon/uni-icon.vue'
@@ -105,8 +65,11 @@
 	import drawCell from '@/components/uni-cell/draw-cell.vue';
 	//引入下拉框
 	import mpvuePicker from '@/components/mpvue-picker/mpvuePicker.vue';
-	import ztable from '@/components/z-table/z-table'
-	import pageSider from '@/components/pageSider.vue'
+	//引入列表组件
+	import ztable from '@/components/z-table/z-table';
+	import pageSider from '@/components/pageSider.vue';
+	//引入通用请求接口
+	import common from '../../../utils/common.js';
 	export default {
 		components: {
 			popupLayer,
@@ -118,47 +81,32 @@
 			uniLoadMore
 		},
 		onLoad: function(options) {
-			this.active = !this.active
+			this.active = !this.active;
+			this.getindex(1, 10, false);
+			this.searchTab();
 		},
 		// 下拉刷新
 		onPullDownRefresh() {
 			let _this = this;
 			let tableData = _this.tableData;
 			console.log('下拉刷新');
+			this.getindex(1, 10, false);
 			setTimeout(function() {
-				
-					tableData.splice(5,tableData.length-6)
+				tableData.splice(5);
 				uni.stopPullDownRefresh();
 			}, 1000);
 		},
    // 上拉加载
 		onReachBottom() {
 			this.loadMore()
-			// let _self = this
-			// this.status = 'loading'
-			// uni.showNavigationBarLoading()
-			// _self.loadingType = 1;
-			// console.log('reach');
-			// setTimeout(function() {
-			// 	let li = {
-			// 		id: '123123123',
-			// 		index: 1,
-			// 		earno: 'YY002',
-			// 		sex: '公',
-			// 		verty: '大白',
-			// 		newBusiness: '调入记录'
-			// 	};
-			// 	for (var i = 0; i < 10; i++) {
-			// 		_self.tableData.push(li)
-			// 	}
-			// 	_self.status = 'more'
-			// 	_this.loadingType = 0;
-			// 	uni.hideNavigationBarLoading()
-			// }, 0);
 		},
 		data() {
 			return {
-				active:true, 
+				pageNum: 1,
+				pageSize: 10,
+				
+				idNum: 0,
+				active: true, 
 				status: 'more',
 				statusTypes: [{
 					value: 'more',
@@ -177,91 +125,120 @@
 					contentrefresh: '正在加载...',
 					contentnomore: '没有更多数据了'
 				},
-				// 弹窗信息 
-				pickerValueArray:[
-					{'value':'1111','label':'三泉A区'},
-					{'value':'1111','label':'三泉B区'},
-					{'value':'1111','label':'三泉C区'},
-					{'value':'1111','label':'三泉D区'},
-					{'value':'1111','label':'三泉E区'}
-				],
+				
+				// 查询框数据
+				//批次号选择
+				batchNumArr:[],
+				
 				// 选项框默认值 
 				searchForm:{
-					immunePlan:'',
-					immuneProject:'',
+					batchNum: {
+						name: '',
+						id: ''
+					}
 				},
-				tableData: [{
-					id: '123123123',
-					index: 1,
-					earno: 'B-01',
-					sex: '120',
-					verty: '210',
-					newBusiness: '28'
-				},{
-					id: '123123123',
-					index: 1,
-					earno: 'B-01',
-					sex: '120',
-					verty: '210',
-					newBusiness: '28'
-				},{
-					id: '123123123',
-					index: 1,
-					earno: 'B-01',
-					sex: '120',
-					verty: '210',
-					newBusiness: '28'
-				},{
-					id: '123123123',
-					index: 1,
-					earno: 'B-01',
-					sex: '120',
-					verty: '210',
-					newBusiness: '28'
-				},{
-					id: '123123123',
-					index: 1,
-					earno: 'B-01',
-					sex: '120',
-					verty: '210',
-					newBusiness: '28'
-				},{
-					id: '123123123',
-					index: '合计',
-					earno: '-',
-					sex: '-',
-					verty: '210',
-					newBusiness: '-'
-				}],
+				tableData: [],
 				columns: [{
 					title: "序号",
 					key: "index",
 					width: 70,
 				},{
 					title: "配种批次号",
-					key: "earno",
+					key: "batchNum",
 					width: 200,
 				},{
 					title: "当前存栏",
-					key: "sex",
+					key: "currentNum",
 					width: 150,
 				},{
 					title: "累计死淘",
-					key: "verty",
+					key: "totalElimination",
 					width: 150,
 				},{
 					title: "平均配种时间",
-					key: "newBusiness",
+					key: "avgBreedTime",
 					width: 200,
-				}],
-				pageInfo: {
-					page: 1,
-					pageSize: 50,
-					total: 2000,
-				}
+				}]
 			}
 		},
 		methods: {
+			//获取列表数据
+			getindex(pageNum, pageSize, isLoad, data) {
+				var _this = this;
+				let headers = {};
+				//headers['content-type'] = 'application/json';
+				let params = {
+					cfpigfarmid: 'Va4AAAAYuCC4/eJt', // 猪场id
+					cffieldid: 'Va4AAAAYuCGdu1vk' // 分场
+				};
+				if (data) {
+					params = { ...params, ...data };
+				}
+				//console.log('开始获取列表数据');
+				common.commRequest(`/PigBreedingBatch/selectPigBreedingBatch/${pageNum}/${pageSize}`, params, headers, 'get', function(data) {
+					let getData = data.data.list;
+					//console.log(JSON.stringify(getData));
+					if (isLoad) {
+						let oldData = _this.tableData;
+						let loadData = [];
+						if (getData.length == 0) {
+							_this.loadingType = 2;
+							return;
+						}
+						for (var i = 0; i < getData.length; i++) {
+							loadData.push({
+								id: getData[i].fid, // fid
+								index: ++_this.idNum, // 序号
+								batchNum: getData[i].fnumber ? getData[i].fnumber : '-', // 配种批次号
+								currentNum: getData[i].cfcurrqty != null ? getData[i].cfcurrqty : '-', //当前存栏
+								totalElimination: getData[i].swttcount != null ? getData[i].swttcount : '-', //累计死淘数
+								avgBreedTime: getData[i].cfavgbreeddate != null ? timeFormat(getData[i].cfavgbreeddate, 'yyyy-MM-dd') : '-'//平均配种时间
+							});
+						}
+						_this.tableData = loadData;
+						console.log(loadData);
+						uni.stopPullDownRefresh();
+					} else {
+						for (var i = 0; i < getData.length; i++) {
+							_this.tableData.push({
+								id: getData[i].fid, // fid
+								index: ++_this.idNum, // 序号
+								batchNum: getData[i].fnumber ? getData[i].fnumber : '-', // 配种批次号
+								currentNum: getData[i].cfcurrqty != null ? getData[i].cfcurrqty : '-', //当前存栏
+								totalElimination: getData[i].swttcount != null ? getData[i].swttcount : '-', //累计死淘数
+								avgBreedTime: getData[i].cfavgbreeddate != null ? timeFormat(getData[i].cfavgbreeddate, 'yyyy-MM-dd') : '-'//平均配种时间
+							});
+						}
+					}
+					_this.loadingType = 0;
+				});
+			},
+			
+			// 查询栏
+			searchTab() {
+				var _this = this;
+				let headers = {};
+				headers['content-type'] = 'application/json';
+				let params = {
+					cfpigfarmid: 'Va4AAAAYuCC4/eJt', // 猪场id
+					cffieldid: 'Va4AAAAYuCGdu1vk' // 分场
+				};
+				// 配种批次
+				let batchNumPicker = [];
+				common.commRequest(`/PigBreedingBatch/selectPcList/10000/1`, params, headers, 'get', function(data) {
+					let getData = data.data.list;
+					console.log(JSON.stringify(getData));
+					for (let i = 0; i < getData.length; i++) {
+						batchNumPicker.push({
+							value: getData[i].fid,
+							label: getData[i].fnumber
+						});
+					}
+					_this.batchNumArr = batchNumPicker;
+					// console.log(JSON.stringify(_this.batchNumArr));
+				});
+			},
+			
 			qr(){
 				this.scancode()
 			},
@@ -270,8 +247,8 @@
 			},
 			// 重置 
 			reset(){
-				this.searchForm.immunePlan=''
-				this.searchForm.immuneProject=''
+				this.searchForm.batchNum.name = '';
+				this.searchForm.batchNum. id = '';
 			},
 			// 查询 
 			find(){
@@ -280,58 +257,27 @@
 			// 滑动底部加载
 			loadMore() {
 				let _this = this;
-				let tableData = _this.tableData;
 				_this.loadingType = 1;
-				setTimeout(() => {
-					let li = [{
-					id: '123123123',
-					index: 1,
-					earno: 'B-01',
-					sex: '120',
-					verty: '210',
-					newBusiness: '28'
-				},{
-					id: '123123123',
-					index: 1,
-					earno: 'B-01',
-					sex: '120',
-					verty: '210',
-					newBusiness: '28'
-				},{
-					id: '123123123',
-					index: 1,
-					earno: 'B-01',
-					sex: '120',
-					verty: '210',
-					newBusiness: '28'
-				},{
-					id: '123123123',
-					index: 1,
-					earno: 'B-01',
-					sex: '120',
-					verty: '210',
-					newBusiness: '28'
-				},{
-					id: '123123123',
-					index: 1,
-					earno: 'B-01',
-					sex: '120',
-					verty: '210',
-					newBusiness: '28'
-				}];
-					tableData.splice(this.tableData.length-1,0,...li);
-				}, 300);
-				setTimeout(() => {
-					_this.loadingType = 0;
-				}, 500);
+				this.getindex(++this.pageNum, this.pageSize, false);
 			},
-			onConfirmPig(){},
-			selectPeople(){ // 下拉菜单 
-				this.$refs.pigPicker.show()
-			},
+			
+			//
 			showFilter(){
 				this.$refs.popupRef1.show();
 			},
+			//选择批次号
+			selectBatch(){
+				this.$refs.batchPicker.show()
+			},
+			onConfirmBatch(e){
+				// 批次号
+				//console.log(e);
+				const _this = this;
+				_this.searchForm.batchNum.name = e.label;
+				_this.searchForm.batchNum.id = e.value[0];
+			},
+			
+			
 			rowTapHandler (row) {
 				uni.navigateTo({
 					url: `/pages/archives/matingBatch/matingDetail/matingDetail?id=${row.id}`,
@@ -343,11 +289,6 @@
 			back () {
 				uni.navigateBack({
 				})
-			}
-		},
-		computed: {
-			pageNum () {
-				return Math.ceil(this.pageInfo.total / this.pageInfo.pageSize)
 			}
 		}
 	}

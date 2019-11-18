@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<!-- 1这里是状态栏 -->
+		<!-- 这里是状态栏 -->
 		<view class="status">
 			<image class="status-bg" src="/static/assets/top_bg@2x.png" mode="widthFix"></image>
 			<view class="status-header">
@@ -20,8 +20,15 @@
 			<view class="main-wrap">
 				<view class="main-wrap-contetnt">
 					<view class="main-wrap-contetnt-item">
-						
-						<view class="main-wrap-contetnt-item-field" style="padding-top: 0;">
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								采精日期<text class="text-red">*</text>
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<input type="text" value="" placeholder="请输入" />
+							</view>
+						</view>
+						<view class="main-wrap-contetnt-item-field" style="padding-top: 20;">
 							<view class="main-wrap-contetnt-item-field-name">
 								采精员<text class="text-red">*</text>
 							</view>
@@ -38,137 +45,8 @@
 							</view>
 						</view>
 						
-						
-						
 					</view>
 				</view>
-				
-			
-			
-			<!-- <view class="main-wrap" style="padding-top: 0;">
-				<view class="main-wrap-contetnt">
-					<view class="main-wrap-contetnt-item">
-						
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								耳牌号<text class="text-red">*</text>
-								<view class="main-wrap-contetnt-item-field-name-icon" @click="scancode">
-									<image class="icon" src="/static/assets/scan-icon.png" mode=""></image>
-								</view>
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="DD0001" />
-							</view>
-						</view>
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								合格公<text class="text-red">*</text>
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="5" />
-							</view>
-						</view>
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								合格母<text class="text-red">*</text>
-								<view class="main-wrap-contetnt-item-field-name-icon" @click="scancode">
-									<image class="icon" src="/static/assets/scan-icon.png" mode=""></image>
-								</view>
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="5" />
-							</view>
-						</view>
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								弱仔数
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="5" />
-							</view>
-						</view>
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								畸形数
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入畸形数" />
-							</view>
-						</view>
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								木乃伊
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入木乃伊" />
-							</view>
-						</view>
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								死胎数
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入死胎数" />
-							</view>
-						</view>
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								窝号
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入窝号" />
-							</view>
-						</view>
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								窝重<text class="text-red">*</text>
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入窝重" />
-							</view>
-						</view>
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								窝均重<text class="text-red">*</text>
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入窝均重" />
-							</view>
-						</view>
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								活仔数<text class="text-red">*</text>
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="请输入活仔数" />
-							</view>
-						</view>
-						<view class="main-wrap-contetnt-item-field">
-							<view class="main-wrap-contetnt-item-field-name">
-								总仔数
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" value="" placeholder="自动求和" />
-							</view>
-						</view>
-						<view class="main-wrap-contetnt-item-field no-bottom">
-							<view class="main-wrap-contetnt-item-field-name">
-								接产人<text class="text-red">*</text>
-							</view>
-							<view class="main-wrap-contetnt-item-field-value">
-								<picker @change="bindPickerChange" :value="index" :range="array1">
-									<view class="picker">
-										<view class="uni-input">{{array1[index]}}</view>
-										<view class="dextrad-icon">
-											<image class="icon-small" src="/static/assets/dextrad.png" mode=""></image>
-										</view>
-									</view>
-								</picker>
-							</view>
-						</view>
-					</view>
-				</view>
-			</view> -->
 		</view>
 		
 		<view class="main">
@@ -215,9 +93,9 @@
 								气味<text class="text-red">*</text>
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<picker @change="bindPickerChange" :value="index" :range="array2">
+								<picker @change="bindPickerChange1" :value="index1" :range="array2">
 									<view class="picker">
-										<view class="uni-input">{{array2[index]}}</view>
+										<view class="uni-input">{{array2[index1]}}</view>
 										<view class="dextrad-icon">
 											<uni-icon type="arrowright" color="#B2B2B2" size="16"  />
 										</view>
@@ -273,9 +151,9 @@
 								精液评级<text class="text-red">*</text>
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<picker @change="bindPickerChange" :value="index" :range="array3">
+								<picker @change="bindPickerChange2" :value="index2" :range="array3">
 									<view class="picker">
-										<view class="uni-input">{{array3[index]}}</view>
+										<view class="uni-input">{{array3[index2]}}</view>
 										<view class="dextrad-icon">
 											<uni-icon type="arrowright" color="#B2B2B2" size="16"  />
 										</view>
@@ -353,6 +231,8 @@
 				array2: ['正常', '不正常'],
 				array3: ['优', '良', '中', '差'],
 				index: 0,
+				index1: 0,
+				index2: 0,
 				date: currentDate,
 				neddCheck:false,
 				submitStatus:true,
@@ -416,140 +296,142 @@
 					},
 				],
 				columns: [{
-					title: "序号",
-					key: "index",
-					width: 70,
-				}, {
-					title: "公猪耳号",
-					key: "sowcard",
-					width: 150,
-				}, {
-					title: "颜色",
-					key: "hgg",
-					width: 100,
-				}, {
-					title: "气味",
-					key: "hgm",
-					width: 100,
-				}, {
-					title: "原精量",
-					key: "rzs",
-					width: 100,
-				}, {
-					title: "密度",
-					key: "qxs",
-					width: 100,
-				},{
-					title: "畸形率",
-					key: "mny",
-					width: 100,
-				}, {
-					title: "死胎数",
-					key: "sts",
-					width: 100,
-				},{
-					title: "精液评级",
-					key: "hts",
-					width: 100,
-				},],
+						title: "序号",
+						key: "index",
+						width: 70,
+					}, {
+						title: "公猪耳号",
+						key: "sowcard",
+						width: 150,
+					}, {
+						title: "颜色",
+						key: "hgg",
+						width: 100,
+					}, {
+						title: "气味",
+						key: "hgm",
+						width: 100,
+					}, {
+						title: "原精量",
+						key: "rzs",
+						width: 100,
+					}, {
+						title: "密度",
+						key: "qxs",
+						width: 100,
+					},{
+						title: "畸形率",
+						key: "mny",
+						width: 100,
+					}, {
+						title: "死胎数",
+						key: "sts",
+						width: 100,
+					},{
+						title: "精液评级",
+						key: "hts",
+						width: 100,
+					},
+				],
 				tableData1: [{
-					id: '01',
-					index: '01',
-					sowcard: 'DDZBBK31200', //仔猪国标号
-					grade: '杜洛克', //品种
-					boarcard: '公猪', //性别
-					breeder: '1.2', //出生重
-					date: '7' //左乳头
-				}, {
-					id: '02',
-					index: '02',
-					sowcard: 'DDZBBK31200', //仔猪国标号
-					grade: '杜洛克', //品种
-					boarcard: '公猪', //性别
-					breeder: '1.2', //出生重
-					date: '7' //左乳头
-				}, {
-					id: '03',
-					index: '03',
-					sowcard: 'DDZBBK31200', //仔猪国标号
-					grade: '杜洛克', //品种
-					boarcard: '公猪', //性别
-					breeder: '1.2', //出生重
-					date: '7' //左乳头
-				}, {
-					id: '04',
-					index: '04',
-					sowcard: 'DDZBBK31200', //仔猪国标号
-					grade: '杜洛克', //品种
-					boarcard: '公猪', //性别
-					breeder: '1.2', //出生重
-					date: '7' //左乳头
-				},{
-					id: '01',
-					index: '01',
-					sowcard: 'DDZBBK31200', //仔猪国标号
-					grade: '杜洛克', //品种
-					boarcard: '公猪', //性别
-					breeder: '1.2', //出生重
-					date: '7' //左乳头
-				}, {
-					id: '02',
-					index: '02',
-					sowcard: 'DDZBBK31200', //仔猪国标号
-					grade: '杜洛克', //品种
-					boarcard: '公猪', //性别
-					breeder: '1.2', //出生重
-					date: '7' //左乳头
-				}, {
-					id: '03',
-					index: '03',
-					sowcard: 'DDZBBK31200', //仔猪国标号
-					grade: '杜洛克', //品种
-					boarcard: '公猪', //性别
-					breeder: '1.2', //出生重
-					date: '7' //左乳头
-				}, {
-					id: '04',
-					index: '04',
-					sowcard: 'DDZBBK31200', //仔猪国标号
-					grade: '杜洛克', //品种
-					boarcard: '公猪', //性别
-					breeder: '1.2', //出生重
-					date: '7' //左乳头
-				},{
-					id: '01',
-					index: '01',
-					sowcard: 'DDZBBK31200', //仔猪国标号
-					grade: '杜洛克', //品种
-					boarcard: '公猪', //性别
-					breeder: '1.2', //出生重
-					date: '7' //左乳头
+						id: '01',
+						index: '01',
+						sowcard: 'DDZBBK31200', //仔猪国标号
+						grade: '杜洛克', //品种
+						boarcard: '公猪', //性别
+						breeder: '1.2', //出生重
+						date: '7' //左乳头
+					}, {
+						id: '02',
+						index: '02',
+						sowcard: 'DDZBBK31200', //仔猪国标号
+						grade: '杜洛克', //品种
+						boarcard: '公猪', //性别
+						breeder: '1.2', //出生重
+						date: '7' //左乳头
+					}, {
+						id: '03',
+						index: '03',
+						sowcard: 'DDZBBK31200', //仔猪国标号
+						grade: '杜洛克', //品种
+						boarcard: '公猪', //性别
+						breeder: '1.2', //出生重
+						date: '7' //左乳头
+					}, {
+						id: '04',
+						index: '04',
+						sowcard: 'DDZBBK31200', //仔猪国标号
+						grade: '杜洛克', //品种
+						boarcard: '公猪', //性别
+						breeder: '1.2', //出生重
+						date: '7' //左乳头
+					},{
+						id: '01',
+						index: '01',
+						sowcard: 'DDZBBK31200', //仔猪国标号
+						grade: '杜洛克', //品种
+						boarcard: '公猪', //性别
+						breeder: '1.2', //出生重
+						date: '7' //左乳头
+					}, {
+						id: '02',
+						index: '02',
+						sowcard: 'DDZBBK31200', //仔猪国标号
+						grade: '杜洛克', //品种
+						boarcard: '公猪', //性别
+						breeder: '1.2', //出生重
+						date: '7' //左乳头
+					}, {
+						id: '03',
+						index: '03',
+						sowcard: 'DDZBBK31200', //仔猪国标号
+						grade: '杜洛克', //品种
+						boarcard: '公猪', //性别
+						breeder: '1.2', //出生重
+						date: '7' //左乳头
+					}, {
+						id: '04',
+						index: '04',
+						sowcard: 'DDZBBK31200', //仔猪国标号
+						grade: '杜洛克', //品种
+						boarcard: '公猪', //性别
+						breeder: '1.2', //出生重
+						date: '7' //左乳头
+					},{
+						id: '01',
+						index: '01',
+						sowcard: 'DDZBBK31200', //仔猪国标号
+						grade: '杜洛克', //品种
+						boarcard: '公猪', //性别
+						breeder: '1.2', //出生重
+						date: '7' //左乳头
 				}],
 				columns1: [{
-					title: "序号",
-					key: "index",
-					width: 70,
-				}, {
-					title: "仔猪国标号",
-					key: "sowcard",
-					width: 180,
-				}, {
-					title: "品种",
-					key: "grade",
-					width: 150,
-				}, {
-					title: "性别",
-					key: "boarcard",
-					width: 150,
-				}, {
-					title: "出生重",
-					key: "breeder",
-					width: 150,
-				}, {
-					title: "左乳头",
-					key: "date",
-					width: 200,
-				}]
+						title: "序号",
+						key: "index",
+						width: 70,
+					}, {
+						title: "仔猪国标号",
+						key: "sowcard",
+						width: 180,
+					}, {
+						title: "品种",
+						key: "grade",
+						width: 150,
+					}, {
+						title: "性别",
+						key: "boarcard",
+						width: 150,
+					}, {
+						title: "出生重",
+						key: "breeder",
+						width: 150,
+					}, {
+						title: "左乳头",
+						key: "date",
+						width: 200,
+					},
+				]
 			}
 		},
 		computed: {
@@ -566,8 +448,16 @@
 		},
 		methods: {
 			bindPickerChange: function(e) {
-				console.log('picker发送选择改变，携带值为', e.target.value)
+				///console.log('picker发送选择改变，携带值为', e.target.value)
 				this.index = e.target.value
+			},
+			bindPickerChange1: function(e) {
+				//console.log('picker发送选择改变，携带值为', e.target.value)
+				this.index1 = e.target.value
+			},
+			bindPickerChange2: function(e) {
+				//console.log('picker发送选择改变，携带值为', e.target.value)
+				this.index2 = e.target.value
 			},
 			bindDateChange: function(e) {
 				this.date = e.target.value
@@ -586,11 +476,13 @@
 				month = month > 9 ? month : '0' + month;;
 				day = day > 9 ? day : '0' + day;
 				return `${year}-${month}-${day}`;
-			},clickEdit() {
+			},
+			clickEdit() {
 				this.neddCheck = true;
 				this.editStatus=true;
 				this.submitStatus=false;
-			},clickCancel(){
+			},
+			clickCancel(){
 				this.neddCheck = false;
 				this.editStatus=false;
 				this.submitStatus=true;
@@ -612,7 +504,11 @@
 
 	.main {
 		.main-wrap {
-			padding: 160rpx 23rpx 23rpx 23rpx;
+			padding: 160rpx 23rpx 0 23rpx;
+			
+			.main-wrap-contetnt {
+				padding: 0 26rpx 44rpx 36rpx;
+			}
 		}
 	}
 

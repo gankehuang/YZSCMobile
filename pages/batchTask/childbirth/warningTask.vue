@@ -8,7 +8,7 @@
 				预警任务
 			</view>
 			<view class="right__icon">
-				<image src="../../../static/search/ico-01.png" mode="" class="icon"></image>
+				<image src="/static/assets/search.png" mode="" class="icon"></image>
 			</view> 
 		</view>
 		
@@ -18,8 +18,19 @@
 		<view v-show="currentNavIndex == 0">
 			<view class="radius_card_wrap" v-for="(item, index) in taskItem" :key="index">
 				<view class="card_row">
-					<view v-if="index<1" class="card_label" style="color: red;">•&nbsp;红色预警</view>
-					<view v-if="index>=1" class="card_label" style="color: #FFB750;">•&nbsp;黄色预警</view>
+					<!-- 预警label -->
+					<view v-if="index < 1" class="card_label" style="color: red;">
+						<view class="warn-label">
+							<view class="left_icon" style="background: #F56767;"></view>
+							红色预警
+						</view>
+					</view>
+					<view v-if="index >= 1" class="card_label" style="color: #FFB750;">
+						<view class="warn-label">
+							<view class="left_icon" style="background: #FFB750"></view>
+							黄色预警
+						</view>
+					</view>
 				</view>
 				<view class="card_row">
 					<view class="card_label">配种/批次</view>
@@ -52,8 +63,19 @@
 		<view v-show="currentNavIndex == 1">
 			<view class="radius_card_wrap" v-for="(item, index) in taskItem" :key="index">
 				<view class="card_row">
-					<view v-if="index>=1" class="card_label" style="color: red;">•&nbsp;红色预警</view>
-					<view v-if="index<1" class="card_label" style="color: #FFB750;">•&nbsp;黄色预警</view>
+					<!-- 预警label -->
+					<view v-if="index < 1" class="card_label" style="color: red;">
+						<view class="warn-label">
+							<view class="left_icon" style="background: #F56767;"></view>
+							红色预警
+						</view>
+					</view>
+					<view v-if="index >= 1" class="card_label" style="color: #FFB750;">
+						<view class="warn-label">
+							<view class="left_icon" style="background: #FFB750"></view>
+							黄色预警
+						</view>
+					</view>
 				</view>
 				<view class="card_row">
 					<view class="card_label">配种/批次</view>

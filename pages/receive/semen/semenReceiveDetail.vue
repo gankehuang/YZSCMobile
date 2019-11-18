@@ -8,22 +8,25 @@
 					<image class="icon" src="/static/assets/back.png"></image>
 				</view>
 				<view class="status-title">
-					精液领用编辑
+					精液领用详情
 				</view>
 				<view class="status-del" data-key="操作记录" @tap="edit">
-					编辑
+					删除
 				</view>
 			</view>
 		</view>
 		<!-- 内容 -->
 		<view class="main">
 			<view class="main-wrap">
+				<!-- 标题 -->
+				<view class="editor-title flex ali-c">
+					<view class="img">
+						<image src="/static/assets/rect.png" mode=""></image>
+						<text>基本明细</text>
+					</view>
+				</view>
 				<view class="main-wrap-contetnt">
 					<view class="main-wrap-contetnt-item">
-						<!-- 标题 -->
-						<view class="main-wrap-contetnt-item-title">
-							<view class="main-wrap-contetnt-item-title-text">基本明细</view>
-						</view>
 						<view class="main-wrap-contetnt-item-field" style="padding-top: 20rpx;">
 							<view class="main-wrap-contetnt-item-field-name">
 								领用日期
@@ -67,11 +70,15 @@
 		
 		<view class="main">
 			<view class="main-wrap" style="padding-top: 0;">
+				<!-- 标题 -->
+				<view class="editor-title flex ali-c">
+					<view class="img">
+						<image src="/static/assets/rect.png" mode=""></image>
+						<text>领用明细</text>
+					</view>
+				</view>
 				<view class="main-wrap-contetnt">
 					<view class="main-wrap-contetnt-item">
-						<view class="main-wrap-contetnt-item-title">
-							<view class="main-wrap-contetnt-item-title-text">领用明细</view>
-						</view>
 						<view class="main-wrap-contetnt-item-field" style="padding-top: 20rpx;">
 							<view class="main-wrap-contetnt-item-field-name">
 								领用份数<text class="text-red">*</text>
@@ -111,8 +118,8 @@
 		</view>
 		
 		<view class="submits jus-b">
-			<button type="primary" v-if="flag" class="flexc submit-btn">反审核</button>
-			<button type="primary" v-if="!flag" class="flexc" @tap="clickEdit">提交</button>
+			<!-- <button type="primary" v-if="flag" class="flexc submit-btn">反审核</button> -->
+			<button type="primary" class="flexc" @tap="clickEdit">提交</button>
 		</view>
 		
 		<mpvue-picker :themeColor="themeColor" ref="mpvuePicker" mode="dateSelector" @onConfirm="onConfirmDate" @onCancelDate="onCancel"
@@ -221,7 +228,27 @@
 
 	.main {
 		.main-wrap {
-			padding: 160rpx 23rpx 23rpx 23rpx;
+			padding: 126rpx 23rpx 0 23rpx;
+			.main-wrap-contetnt {
+				padding-top: 4rpx;
+				border-radius: 16rpx;
+			}
+		}
+		.editor-title {// 标题
+			height: 90rpx;
+			.img {
+				line-height: 44rpx;
+				image {
+					width: 12rpx;
+					height: 12rpx;
+					vertical-align:middle;
+				}
+			}
+			text {
+				margin-left: 14rpx;
+				line-height: 44rpx;
+				font-size: 32rpx;
+			}
 		}
 	}
 

@@ -8,10 +8,10 @@
 					<image class="icon" src="/static/assets/back.png"></image>
 				</view>
 				<view class="status-title">
-					精液申请编辑
+					精液申请详情
 				</view>
 				<view class="status-del" data-key="操作记录" @tap="edit">
-					编辑
+					删除
 				</view>
 			</view>
 		</view>
@@ -152,8 +152,8 @@
 		</view>
 		
 		<view class="submits jus-b">
-			<button type="primary" v-if="flag" class="flexc submit-btn">反审核</button>
-			<button type="primary" v-if="!flag" class="flexc" @tap="clickEdit">提交</button>
+			<!-- <button type="primary" v-if="flag" class="flexc submit-btn">反审核</button> -->
+			<button type="primary" class="flexc" @tap="clickEdit">提交</button>
 		</view>
 		
 		<mpvue-picker :themeColor="themeColor" ref="mpvuePicker" mode="dateSelector" @onConfirm="onConfirmDate" @onCancelDate="onCancel"

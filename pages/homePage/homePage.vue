@@ -43,6 +43,9 @@
 					<view style="margin-left: 10rpx;" @tap.stop="production" >
 						生产提醒
 					</view>
+					<view class="more" @tap="toMore">
+						更多<uni-icon type="arrowright" color="#B2B2B2" size="16"  />
+					</view>
 				</view>
 				<view class="indicators-warning-content tip" style="padding-top: 0px;">
 					<view class="tip-item" v-for="(item, index) in tipArray" :key="index" @tap.stop="productionItem">
@@ -60,15 +63,15 @@
 					<view style="margin-left: 10rpx;">我的任务</view>
 				</view>
 				<view class="indicators-warning-content" style="padding-top: 0; padding-left: 20rpx;">
-					<view class="box_1" style="border: none;" @tap.stop="myTask()">
+					<view class="box_1" style="border: none;" @tap.stop="myTask(0)">
 						<view class="warning task blue">{{todo}}</view>
 						<view class="warning-title" style="color: #4380FF;">我的待办</view>
 					</view>
-					<view class="box_1" style="border: none;" @tap.stop="myTask()">
+					<view class="box_1" style="border: none;" @tap.stop="myTask(1)">
 						<view class="warning task green">{{initiate}}</view>
 						<view class="warning-title" style="color: #70D56D;">我发起的</view>
 					</view>
-					<view class="box_1" style="border: none;" @tap.stop="myTask()">
+					<view class="box_1" style="border: none;" @tap.stop="myTask(2)">
 						<view class="warning task orgin">{{read}}</view>
 						<view class="warning-title" style="color: #FF9A00;">我的待阅</view>
 					</view>
@@ -91,7 +94,7 @@
 					</view>
 					<view class="g-box" @tap.stop="changeMode" data-key="管理" v-if="!manageMode">
 						<view class="g-box-content" style="background-color: #fff;">
-						<image src="/static/slices/Rectangle@2x(40).png" class="g-image" />
+						<image src="/static/slices/itemManage.png" class="g-image" />
 						<view class="g-title">管理</view>
 						</view>
 					</view>
@@ -99,10 +102,11 @@
 			</view>
 			<view style="height: 20rpx;"></view>
 			
-			<mpvue-picker :themeColor="themeColor" ref="mpvuePicker" :mode="mode" :deepLength="deepLength" :pickerValueDefault="pickerValueDefault"
-			@onConfirm="onConfirm" @onCancel="onCancel" :pickerValueArray="pickerValueArray"></mpvue-picker>
-			
 		</mescroll-uni>	
+		<!-- 树形选择器 -->
+		<tki-tree ref="tkitree" confirmColor="#5089f9" @watchSearch="watchSearch" :selectParent="selectParent" :multiple="multiple" :range="list" rangeKey="name" @confirm="treeConfirm" @cancel="treeCancel"></tki-tree>
+		<mpvue-picker :themeColor="themeColor" ref="mpvuePicker" :mode="mode" :deepLength="deepLength" :pickerValueDefault="pickerValueDefault"
+		@onConfirm="onConfirm" @onCancel="onCancel" :pickerValueArray="pickerValueArray"></mpvue-picker>
 	</view>
 </template>
 
@@ -116,6 +120,166 @@
 	import uniBadge from "@/components/uni-badge/uni-badge.vue";
 	
 	import MescrollUni from "@/components/mescroll-uni/mescroll-uni.vue";  //引入上啦下拉刷新组件
+	import tkiTree from '@/components/tki-tree/tki-tree.vue';  //树形选择器
+	import common from '../../utils/common.js';
+	let testList = [{
+			id: 1,
+			name: '正邦集团',
+			children: [{
+				id: 11,
+				name: '市辖区',
+				children: [{
+						id: 111,
+						name: '西城区',
+						children: [{
+							id: 1111,
+							name: '南河沿大街',
+							children: [{
+								id: 11111,
+								name: '紫金宫饭店',
+							}, ]
+						}, ]
+					},
+					{
+						id: 112,
+						name: '东城区',
+					},
+					{
+						id: 113,
+						name: '朝阳区',
+					},
+					{
+						id: 113,
+						name: '丰台区',
+					}
+				]
+			}, ]
+		},
+		{
+			id: 2,
+			name: '正邦科技',
+			children: [{
+					id: 21,
+					name: '石家庄市',
+				},
+				{
+					id: 22,
+					name: '唐山市',
+				},
+				{
+					id: 23,
+					name: '秦皇岛市',
+				},
+			]
+		},
+		{
+			id: 3,
+			name: '养殖中心',
+			children: [{
+					id: 31,
+					name: '济南市',
+					children: [{
+							id: 311,
+							name: '历下区',
+							children: [{
+								id: 3131,
+								name: '解放路街道办事处',
+							}, ]
+						},
+						{
+							id: 312,
+							name: '槐荫区',
+						},
+						{
+							id: 313,
+							name: '天桥区',
+						},
+						{
+							id: 314,
+							name: '历城区',
+						},
+						{
+							id: 315,
+							name: '长清区',
+						}
+					]
+				},
+				{
+					id: 32,
+					name: '青岛市',
+				},
+				{
+					id: 33,
+					name: '临沂市',
+					children: [{
+							id: 331,
+							name: '兰山区',
+							children: [{
+								id: 3331,
+								name: '金雀山街道',
+							}, ]
+						},
+						{
+							id: 332,
+							name: '河东区',
+						},
+						{
+							id: 333,
+							name: '罗庄区',
+							children: [{
+								id: 3331,
+								name: '盛庄街道',
+							}, ]
+						}
+					]
+				},
+				{
+					id: 34,
+					name: '日照市',
+				},
+				{
+					id: 35,
+					name: '淄博市',
+				},
+				{
+					id: 36,
+					name: '枣庄市',
+				},
+				{
+					id: 37,
+					name: '东营市',
+				},
+				{
+					id: 38,
+					name: '潍坊市',
+				},
+				{
+					id: 39,
+					name: '烟台市',
+				},
+				{
+					id: 40,
+					name: '济宁市',
+				},
+				{
+					id: 41,
+					name: '泰安市',
+				},
+				{
+					id: 42,
+					name: '威海市',
+				},
+				{
+					id: 43,
+					name: '滨州市',
+				},
+				{
+					id: 44,
+					name: '菏泽市',
+				},
+			]
+		}
+	]
 	export default {
 		components: {
 			uniNavBar,
@@ -124,8 +288,37 @@
 			uniLoadMore,
 			uniTag,
 			uniBadge,
+			tkiTree,   //树形选择
 			
 			MescrollUni  //上拉，下拉刷新组件
+		},
+		onLoad() {
+			uni.setStorage({
+				key: 'falg',
+				data: false
+			});
+			
+			//设置树形选择器数据选项
+			setTimeout(()=>{
+				this.list = testList;
+			}, 300)
+		},
+		onShow() {  //y页面显示监听
+			const _this = this;
+			uni.getStorage({
+				key: 'myUsualUses',
+				success: function (res) {
+					//console.log(res.data);
+					_this.myUsualUses = res.data;
+				}
+			});
+		},
+		onHide() {  //页面关闭
+			const myUsualUses = this.myUsualUses;
+			uni.setStorage({
+				key: 'myUsualUses',
+				data: myUsualUses
+			});
 		},
 		data() {
 			return {
@@ -145,7 +338,8 @@
 				showtag:false, //是否显示标签
 				
 				manageMode: false,  //管理状态
-				falg:false,
+				
+				falg:false,  //我的常用管理状态
 				
 				navHeigh: 10, //标题栏高度
 				top: 0, // 顶部监听事件使用
@@ -171,37 +365,21 @@
 					{title: '您有15头空怀超49天存栏，请尽快采取措施！'},
 					{title: '您有10头超110天未上产房存栏，请及时处理！'}
 				],
-				myUsualUses: [{ // 常用列表名 
-						title: "精液检测",
-						url: "/static/slices/Rectangle@2x(8).png",
-						jumpurl: '/pages/dataCollection/semenTest/semenNew'
+				myUsualUses: [
+					{
+						title: "种猪档案",
+						url: "/static/consoleIcon/archives/boarInfo.png",
+						jumpurl: '/pages/archives/boarInfo/boarInfo'
+					},
+					{
+						title: "批次档案",
+						url: "/static/consoleIcon/archives/pigBatch.png",
+						jumpurl: '/pages/archives/pigBatch/pigBatch'
 					},
 					{
 						title: "配种批次",
-						url: "/static/slices/Rectangle@2x(24).png",
-						jumpurl: '/pages/matingBatch/matingInfo'
-					},
-					{
-						title: "死亡记录",
-						url: "/static/slices/Rectangle@2x(33).png",
-						jumpurl: '/pages/dataCollection/deathRecord/deathNew'
-					},
-					{
-						title: "低值申请",
-						url: "/static/slices/Rectangle@2x(28).png"
-					},
-					{
-						title: "淘汰申请",
-						url: "/static/slices/Rectangle@2x(34).png"
-					},
-					{
-						title: "药品领用申请",
-						url: "/static/slices/Rectangle@2x(18).png",
-						jumpurl: '/pages/collection/semenRecipients/semenRecipientsAudit'
-					},
-					{
-						title: "药品领用申请",
-						url: "/static/slices/Rectangle Copy 13@2x.png"
+						url: "/static/consoleIcon/archives/matingInfo.png",
+						jumpurl: '/pages/archives/matingBatch/matingInfo'
 					},
 				],
 			
@@ -212,11 +390,32 @@
 					textNoMore:'我是有底线的 >_<' ,
 					 use: false
 				},
+				//树形选择器
+				list: [],
+				multiple:false,
+				selectParent:true,
 			};
 		},
 		onReady() {
 			let _this = this;
 			let view = uni.createSelectorQuery().select("#nav_bar");
+			if(plus.runtime.arguments != ""){
+					try{
+						var portaldata = JSON.parse(plus.runtime.arguments);
+						if(portaldata.access_token!= undefined){
+							let Authentication = portaldata.zbData.Authentication;
+							uni.setStorageSync('user', portaldata.zbData.user);
+							uni.setStorageSync('access_token', portaldata.access_token);
+							uni.setStorageSync('Authentication', Authentication);
+						}else{
+							this.gelogin();  //模拟登录
+						}
+						// 处理JSON对象portaldata
+					}catch(e){
+						//console.log("若传入的参数不是JSON格式字符，需处理异常情况");
+						// 若传入的参数不是JSON格式字符，需处理异常情况
+					}
+				}
 			view.boundingClientRect(data => {
 				_this.navHeigh = data.top + data.height;
 				//console.log("data: " + JSON.stringify(data));
@@ -259,14 +458,19 @@
 					url: "/pages/message/productionRemind"
 				});
 			},
+			toMore() {   //跳转生产提醒更多
+				uni.navigateTo({
+					url: "/pages/message/productionMoreList"
+				});
+			},
 			productionItem() {  //生产提醒条目
 				uni.navigateTo({
 					url: "/pages/message/productionRemind"
 				});
 			},
-			myTask() {  //我的任务跳转
+			myTask(e) {  //我的任务跳转
 				uni.navigateTo({
-					url: "/pages/message/message"
+					url: "/pages/message/message?type=" + e
 				});
 			},
 			isSee(item, index) {
@@ -283,6 +487,11 @@
 			},
 			changeMode() {
 				this.falg = !this.falg;
+				let state = this.falg;
+				uni.setStorage({
+					key: 'falg',
+					data: state
+				});
 			},
 			jumpTask(e) {  //点击我的常用选项
 				if(this.falg) return  
@@ -333,16 +542,69 @@
 			},
 			/* 左上角选择器 */
 			showCity() {
-				this.pickerValueArray = cityData;
+				this.$refs.tkitree._show();
+				
+				//新页选择
+				
+				//弹窗选择
+				/* this.pickerValueArray = cityData;
 				this.mode = 'selector'
 				this.deepLength = 1
 				this.pickerValueDefault = [0]
-				this.$refs.mpvuePicker.show()
+				this.$refs.mpvuePicker.show() */
 			},
+			// 确定回调事件
+			treeConfirm(e){
+				console.log(e[0].name);
+				this.righttext = e[0].name;
+			},
+			// 取消回调事件
+			treeCancel(e){
+				console.log(e)
+			},
+			//树形选择器搜索框内容改变触发
+			watchSearch(e) {
+				const _this = this;
+				//console.log(e);
+				let timer;
+				clearTimeout(timer)
+				timer = setTimeout(e => {
+					if(e == 1){
+						let nList = [{
+							id: 111,
+							name: '西城区',
+							children: [{
+								id: 1111,
+								name: '南河沿大街',
+								children: [{
+									id: 11111,
+									name: '紫金宫饭店',
+								}, ]
+							}]
+						}]
+						_this.list = nList;
+					}else {
+						_this.list = testList;
+					}
+				}, 1000)
+			},
+			
 			back() {
-				uni.navigateBack({
-					delta: 1
-				})
+				if(plus.runtime.appid=='HBuilder'){
+					uni.navigateBack({
+						delta: 1
+					});
+				}
+				else if (uni.getSystemInfoSync().platform == 'android') {
+					// #ifdef APP-PLUS
+					var nd = plus.android.invoke('com.zb.portal.zbmobile.NativeDispatch', 'getInstance');
+					plus.android.invoke(nd, 'uniExit');
+					// #endif
+				} else {
+					// #ifdef APP-PLUS
+					plus.ios.invoke('NativeDispatch', 'uniExit');
+					// #endif
+				}
 			},
 			onCancel(e) {
 				console.log(e)
@@ -365,7 +627,24 @@
 			sub(index){  //删除我的常用
 				this.myUsualUses.splice(index,1)
 			},
-		}
+			gelogin() {
+				var that = this;
+				let headers = {};
+				let params = {
+					userName: 'zhoujunfeng', // 用户名 修改为不一样的用户名，避免token 冲突
+					password: '1' // 密码
+				};
+				common.commRequest('/login', params, headers,'POST',
+					function(data) {
+						//let access_token = data.data.access_token;
+						let Authentication = data.data.Authentication;
+						uni.setStorageSync('user', data.data.user);
+						//uni.setStorageSync('access_token', access_token);
+						uni.setStorageSync('Authentication', Authentication);
+					})
+			}
+		},
+		
 	}
 </script>
 
@@ -507,6 +786,12 @@
 	.title{
 		display: flex;
 		justify-content: flex-start;
+	}
+	.more{
+		width: 77%;
+		text-align: right; 
+		font-size: 25rpx;
+		color: lightgray;
 	}
 	
 	.indicators-warning{

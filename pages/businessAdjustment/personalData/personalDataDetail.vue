@@ -22,7 +22,7 @@
 				<view class="main-wrap-contetnt">
 					<view class="main-wrap-contetnt-item">
 						
-						<view class="main-wrap-contetnt-item-field" style="padding-top: 0;flex-direction: column;">
+						<view class="main-wrap-contetnt-item-field" style="flex-direction: column;">
 							<view class="abreast">
 								<view class="main-wrap-contetnt-item-field-name">
 									耳牌号<text class="text-red">*</text>
@@ -30,8 +30,10 @@
 										<image class="icon" src="/static/assets/scan-icon.png" mode=""></image>
 									</view>
 								</view>
-								<view class="main-wrap-contetnt-item-field-value">
-									<input type="text" value="" placeholder="请输入耳牌号" />
+								<view class="main-wrap-contetnt-item-field-value" @tap="selectRP(1)">
+									<!-- <input type="text" v-model="personalDataItem.cfnewearno" value="" placeholder="请输入耳牌号" /> -->
+									<text>{{personalDataItem.cfnewearno || '请输入'}}</text>
+									<uni-icon type="arrowright" color="#B2B2B2" size="16" />
 								</view>
 							</view>
 							
@@ -40,7 +42,8 @@
 									原耳牌
 								</view>
 								<view class="main-wrap-contetnt-item-field-value ">
-									<input type="text" value="" placeholder="自动带出" class="abreast_font" />
+									<!-- <input type="text" v-model="personalDataItem.cfoldearno" value="" placeholder="自动带出" class="abreast_font" /> -->
+									<text class="abreast_font">{{personalDataItem.cfoldearno}}</text>
 								</view>
 							</view>
 						</view>
@@ -51,7 +54,7 @@
 									品种
 								</view>
 								<view class="main-wrap-contetnt-item-field-value">
-									<input type="text" value="" placeholder="请输入品种" />
+									<input type="text" v-model="personalDataItem.fnewpigvarieties" value="" placeholder="请输入品种" />
 								</view>
 							</view>
 							
@@ -60,7 +63,8 @@
 									原品种
 								</view>
 								<view class="main-wrap-contetnt-item-field-value ">
-									<input type="text" value="" placeholder="自动带出" class="abreast_font" />
+									<!-- <input type="text" v-model="personalDataItem.foldoigvarieties" value="" placeholder="自动带出" class="abreast_font" /> -->
+									<text class="abreast_font">{{personalDataItem.foldoigvarieties}}</text>
 								</view>
 							</view>
 						</view>
@@ -71,7 +75,7 @@
 									品系
 								</view>
 								<view class="main-wrap-contetnt-item-field-value">
-									<input type="text" value="" placeholder="请输入品系" />
+									<input type="text" v-model="personalDataItem.fnewpigpx" value="" placeholder="请输入品系" />
 								</view>
 							</view>
 							
@@ -80,7 +84,9 @@
 									原品系
 								</view>
 								<view class="main-wrap-contetnt-item-field-value ">
-									<input type="text" value="" placeholder="自动带出" class="abreast_font" />
+									<!-- <input type="text" v-model="personalDataItem.foldpigpx" value="" placeholder="自动带出" class="abreast_font" /> -->
+									<!-- <text class="abreast_font">{{personalDataItem.foldpigpx}}</text> -->
+									<text class="abreast_font">{{personalDataItem.foldpigpx}}</text>
 								</view>
 							</view>
 						</view>
@@ -91,7 +97,7 @@
 									胎次
 								</view>
 								<view class="main-wrap-contetnt-item-field-value">
-									<input type="text" value="" placeholder="请输入胎次" />
+									<input type="text" v-model="personalDataItem.fnewparity" value="" placeholder="请输入胎次" />
 								</view>
 							</view>
 							
@@ -100,7 +106,8 @@
 									原胎次
 								</view>
 								<view class="main-wrap-contetnt-item-field-value ">
-									<input type="text" value="" placeholder="自动带出" class="abreast_font" />
+									<!-- <input type="text" v-model="personalDataItem.foldparity" value="" placeholder="自动带出" class="abreast_font" /> -->
+									<text class="abreast_font">{{personalDataItem.foldparity}}</text>
 								</view>
 							</view>
 						</view>
@@ -111,7 +118,7 @@
 									出生日期
 								</view>
 								<view class="main-wrap-contetnt-item-field-value">
-									<input type="text" value="" placeholder="请输入出生日期" />
+									<input type="text" v-model="personalDataItem.fnewbirth" value="" placeholder="请输入出生日期" />
 								</view>
 							</view>
 							
@@ -120,7 +127,8 @@
 									原出生日期
 								</view>
 								<view class="main-wrap-contetnt-item-field-value ">
-									<input type="text" value="" placeholder="自动带出" class="abreast_font" />
+									<!-- <input type="text" v-model="personalDataItem.foldbirth" value="" placeholder="自动带出" class="abreast_font" /> -->
+									<text class="abreast_font">{{personalDataItem.foldbirth}}</text>
 								</view>
 							</view>
 						</view>
@@ -131,7 +139,7 @@
 									国标号
 								</view>
 								<view class="main-wrap-contetnt-item-field-value">
-									<input type="text" value="" placeholder="请输入国标号" />
+									<input type="text" v-model="personalDataItem.fnewindno" value="" placeholder="请输入国标号" />
 								</view>
 							</view>
 							
@@ -140,17 +148,18 @@
 									原国标号
 								</view>
 								<view class="main-wrap-contetnt-item-field-value ">
-									<input type="text" value="" placeholder="自动带出" class="abreast_font" />
+									<!-- <input type="text" v-model="personalDataItem.foldindno" value="" placeholder="自动带出" class="abreast_font" /> -->
+									<text class="abreast_font">{{personalDataItem.foldindno}}</text>  
 								</view>
 							</view>
 						</view>
 						
-						<view class="main-wrap-contetnt-item-field">
+						<view class="main-wrap-contetnt-item-field field-nobottom">
 							<view style="display: flex;align-items: center;" class="main-wrap-contetnt-item-field-name">
 								调整原因<text class="text-red">*</text>
 							</view>
 							<view class="main-wrap-contetnt-item-field-value">
-								<input type="text" placeholder="请输入调整原因" />
+								<input type="text" v-model="personalDataItem.fadjustreason" placeholder="请输入调整原因" />
 							</view>
 						</view>
 						
@@ -159,8 +168,16 @@
 			</view>
 		</view>
 		<view class="submits jus-b">
-			<button type="primary" class="flexc submit-btn">保存</button>
+			<button type="primary" @tap="submit" class="flexc submit-btn">保存</button>
 		</view>
+		
+		<!-- 搜索转出选择器 -->
+		<tki-tree ref="tkitree"
+		@watchSearch="watchSearch"
+		:range="list"
+		rangeKey="name"
+		confirmColor="#5089f9"
+		@confirm="treeConfirm"></tki-tree>
 	</view>
 
 </template>
@@ -168,7 +185,19 @@
 <script>
 	//引入图标
 	import uniIcon from '@/components/uni-icon/uni-icon.vue'
+	import tkiTree from '@/components/tki-tree/tki-tree.vue';  //搜索选择器
+	import common from '../../../utils/common.js';
 	export default {
+		onLoad(options) {
+			const _this = this
+			uni.getStorage({  //接受列表页传过来的详情数据
+				key: 'personalDataItem',
+				success: function (res) {
+					res.data.fadjustreason = ''
+					_this.personalDataItem = res.data;
+				}
+			});
+		},
 		data() {
 			const currentDate = this.getDate({
 				format: true
@@ -180,7 +209,12 @@
 				array2: ['请选择转入位置', '分娩舍1栋1单元', '分娩舍1栋2单元', '分娩舍1栋3单元', '分娩舍1栋4单元'],
 				array3: ['请选择配种批次', 'PC-201365', 'PC-201565', 'PC-201355', 'PC-201360'],
 				index: 0,
+				
+				list: [],  //搜索选择器数据
+				selectType: '',   //选择的字段
+				
 				date: currentDate,
+				personalDataItem: '',   //列表页传递过来的详情数据
 			}
 		},
 		computed: {
@@ -192,9 +226,97 @@
 			}
 		},
 		components:{
-			uniIcon
+			uniIcon,
+			tkiTree
 		},
 		methods: {
+			/* *******************************搜索选择器转出批次相关方法************************************* */
+			//选择确定
+			treeConfirm(e) {
+				//console.log(e);
+				if(e[0]){
+					if(this.selectType == 1){  //分场
+						this.personalDataItem.cfnewearno = e[0].name
+						this.getEPInfo(e[0].name)
+					}
+				}
+			},
+			//显示搜索选择器
+			selectRP(e) {
+				this.list = []
+				if(e == 1){  //分场
+					this.selectType = 1
+				}
+				this.$refs.tkitree._show();
+			},
+			//选择器搜索框触发事件
+			watchSearch(e) {
+				const _this = this
+				console.log(e, this.selectType)
+				let timer
+				clearTimeout(timer)
+				timer = setTimeout(function(){
+					if(_this.selectType == 1){
+						_this.getEPH(e)  //获取耳牌号
+					}
+				}, 500)
+			},
+			//获取耳牌号
+			getEPH(e){
+				var _this = this;
+				let url = '/CtPigBatchAdjustEarnoBill/selectErpaiFilter/1/50';
+				//console.log(e);
+				let params = {
+					//cffieldid: 'Va4AAAAYuCKdu1vk',    // 分场
+					erpaihao: e,
+				};
+				let headers = {};
+				
+				common.commRequest(url, params, headers, 'get',
+					function(data) {
+						//console.log(data);
+						let EPList = data.data;
+						let listArr = []
+						EPList.forEach(ele => {
+							let obj = {}
+							obj.id = ele.PIGD
+							obj.name = ele.ERPAIHAO
+							listArr.push(obj)
+						})
+						_this.list = listArr;
+						
+					}
+				)
+			},
+			//选择耳牌号自动带出后面信息方法
+			getEPInfo(e){
+				uni.showLoading({
+					title: '加载中'
+				});
+				var _this = this;
+				let url = '/CtPigBatchAdjustEarnoBill/selectPigInfoFilter/1/10';
+				//console.log(e);
+				let params = {
+					//cffieldid: 'Va4AAAAYuCKdu1vk',    // 分场
+					erpaihao: e,
+				};
+				let headers = {};
+				common.commRequest(url, params, headers, 'get',
+					function(data) {
+						console.log(data);
+						let EPInfo = data.data[0];
+						_this.personalDataItem.fnewpigvarieties = EPInfo.PINZHONG
+						_this.personalDataItem.fnewpigpx = EPInfo.PINXI
+						_this.personalDataItem.fnewparity = EPInfo.TAICI
+						_this.personalDataItem.fnewbirth = _this.formatDate(EPInfo.BIRTHDAY)
+						_this.personalDataItem.fnewindno = EPInfo.GUOBIAOHAO
+						
+						uni.hideLoading();
+						
+					}
+				)
+			},
+			/* ********************************************************* */
 			checked3(){
 				this.falg3 = !this.falg3
 			},
@@ -219,7 +341,44 @@
 				month = month > 9 ? month : '0' + month;;
 				day = day > 9 ? day : '0' + day;
 				return `${year}-${month}-${day}`;
-			}
+			},
+			/* ***************************数据提交********************************* */
+			submit(){
+				var _this = this;
+				let url = '/CtPigBatchAdjustEarnoBill/updateCtPigBatchAdjustEarnoBill';
+				let headers = {};
+				let params = _this.personalDataItem
+				//console.log('发送的数据',params)
+				common.commRequest(url, params, headers, 'post',
+					function(data) {
+						console.log('返回的数据', data);
+						if(data.status == 200){
+							uni.showToast({
+								title: '新增成功',
+								icon: 'success',
+								duration: 1000
+							});
+						}else {
+							uni.showToast({
+								title: '新增失败',
+								icon: 'loading',
+								duration: 1000
+							});
+						}
+						
+					}
+				)
+			},
+			formatDate(value) {  //时间格式转换
+				let time = Number(value)
+				let date = new Date(time);
+				let y = date.getFullYear();
+				let MM = date.getMonth() + 1;
+				MM = MM < 10 ? ('0' + MM) : MM;
+				let d = date.getDate();
+				d = d < 10 ? ('0' + d) : d;
+				return y + '-' + MM + '-' + d;
+			},
 		}
 	}
 </script>
@@ -238,15 +397,11 @@ input{
 		}
 	}
 
-	.main {
-		.main-wrap {
-			padding: 160rpx 23rpx 23rpx 23rpx;
-		}
-	}
 	.abreast{
 		display: flex;
 		justify-content: space-between;
 		font-weight: 700;
+		width: 100%;
 		
 	}
 	.abreast_font{

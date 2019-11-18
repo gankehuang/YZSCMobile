@@ -90,7 +90,7 @@
 		bottom: 0;
 		overflow: hidden;
 		visibility: hidden;
-		z-index: 10001;
+		z-index: 100010;
 		height: 100%
 	}
 

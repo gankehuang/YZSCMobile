@@ -1,6 +1,5 @@
 {
   "navigationStyle": "custom",
-  "animationType": "fade-in",
   "animationDuration": 300,
   "usingComponents": {
     "ztable": "/components/z-table/z-table"

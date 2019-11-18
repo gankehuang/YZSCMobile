@@ -12,11 +12,12 @@
 	}
 </script>
 
-<style>
+<style lang="scss">
 	/* #ifndef APP-PLUS-NVUE */
 	/* uni.css - 通用组件、模板样式库，可以当作一套ui库应用 */
 	@import './common/uni.css';
 	@import "common/uniGlobal.css";
+	@import "common/icon.css";
 	/* 以下样式用于 hello uni-app 演示所需 */
 	page {
 		background-color: #F4F5F6;
@@ -49,7 +50,30 @@
 		font-size: 38upx;
 		color: #808080;
 	}
+	
+	.scroll{
+		padding: 0 !important;
+		.nav__list{
+		width: auto !important;
+		}
+		.nav__item{
+			flex: 1;
+			span{
+				color: #4D4D4D;
+			}
+		}
+		.active1{
+			span{
+				color: rgb(58, 117, 231) !important;
+			}
+		}
+	}
+	
+
 	/* #endif*/
 	/*每个页面公共css */
 	@import "common/uniGlobal.css";
+	@import "common/icon.css";
+	@import "common/main.css";
+
 </style>

@@ -1,29 +1,37 @@
 <template>
-	<view>
-		<view class="status">
-			<image class="status-bg" src="/static/assets/rectangle11@2x.png" mode="widthFix"></image>
+	<view class="page-wrapper">
+		<view class="status__bar">
 			<view class="status-header">
-				<view class="back-icon" @click="handOnClickBack"><image class="icon" src="/static/assets/back.png"></image></view>
-				<view class="status-title">批次日龄调整记录</view>
-				<view class="more-icon flexc ali-c" @click="showFilter"><image class="icon" src="/static/assets/more@2x.png"></image></view>
-			</view>
-			<!-- 搜索框 -->
-			<view class="status-search">
-				<view class="search-wrap">
-					<view class="search-wrap-search"><image class="icon" src="/static/assets/search@2x.png" mode=""></image></view>
-					<view class="search-wrap-input"><input type="text" value="" placeholder="请输入搜索条件" /></view>
-					<!-- <view class="search-wrap-qr" @click="scancode"><image class="icon" src="/static/assets/scan-icon.png" mode=""></image></view> -->
+				<view class="back__icon" @click="handOnClickBack">
+					<image class="icon" src="/static/assets/back.png" mode=""></image>
+				</view>
+				<view class="status__title" style="padding-right: 40rpx;">
+					批次日龄调整记录
+				</view>
+				<view class="right__icon" @tap="filterData">
+					<image class="icon" src="/static/assets/more@2x.png"></image>
 				</view>
 			</view>
 		</view>
-
+		<view class="header-wrap">
+			<view class="status-search">
+				<view class="search-wrap">
+					<view class="search-wrap-search">
+						<uni-icon type="search" color="#CACFD9"></uni-icon>
+					</view>
+					<view class="search-wrap-input">
+						<input type="text" value="" placeholder="请输入筛选条件" />
+					</view>
+				</view>
+			</view>
+		</view>
 		<!-- 选页信息 -->
 		<view class="page-info">
-			<text>共{{ pageInfo.total }}条,{{ pageNum }}页</text>
-			<text>
-				每页50条
+			<text>共2000条,50页</text>
+			<view>
+				<text style="font-size: 24rpx;">每页50条</text>
 				<image src="../../../static/assets/arrow-b.png" class="icon-big" style="margin-left: 4px;"></image>
-			</text>
+			</view>
 		</view>
 		<!-- 数据列表 -->
 		<view class="list">
@@ -31,23 +39,20 @@
 				<ztable :tableData="tableData" stickSide stickSide1 :columns="columns" :neddCheck="false" emptyText="-" :showBottomSum="false" @rowTap="rowTapHandler"></ztable>
 			</view>
 		</view>
-		<!-- 选页 -->
-		<pageSider :pageNum="pageNum" :currentPage="pageInfo.page"></pageSider>
 	</view>
 </template>
 
 <script>
+import uniIcon from '@/components/uni-icon/uni-icon.vue'
 import uniCell from '@/components/uni-cell/uni-cell.vue';
 // 引入 表格
 import ztable from '@/components/z-table/z-table.vue';
-// 引入 选页
-import pageSider from '@/components/pageSider.vue';
 
 export default {
 	components: {
 		uniCell,
 		ztable,
-		pageSider
+		uniIcon
 	},
 	data() {
 		return {
@@ -109,12 +114,7 @@ export default {
 					key: 'computerStart',
 					width: '200'
 				}
-			],
-			pageInfo: {
-				page: 1,
-				pageSize: 50,
-				total: 2000
-			}
+			]
 		};
 	},
 	methods: {
@@ -129,36 +129,63 @@ export default {
 		pageNum() {
 			return Math.ceil(this.pageInfo.total / this.pageInfo.pageSize);
 		}
+	},
+	onReady() {
+	    this.pageSiderPosition();
 	}
 };
 </script>
 
 <style lang="scss">
-@import '../../../common/dataCollection.scss';
+@import "@/common/baseInfo.scss";
+//@import '../../../common/dataCollection.scss';
 
-.status {
-	z-index: 99999;
-	.status-title {
-		padding-left: 8%;
-	}
-}
-.status-search {
-	border-radius: 3px;
-	.search-wrap {
-		padding: 10rpx 25rpx;
-	}
-	.search-wrap-qr,
-	.search-wrap-search {
-		width: 10%;
+.status__bar{
 		display: flex;
+		flex-direction: column;
 		align-items: center;
-		margin: 0 15rpx;
+		.status-header{
+			position: absolute;
+			top: 42%;
+			left: 0;
+			right: 0;
+			padding-left: 40rpx;
+			width: 95%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			
+			.right__icon .icon {
+			    width: 7rpx;
+			    height: 36rpx;
+			}
+		}
 	}
-	.search-wrap-input {
-		width: 80%;
-		text-align: left;
+	.status-search{
+		background:#3A75E7 ;
+		color: #B2B2B2;
+		padding:20rpx 4%;
+		.search-wrap {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			background: #ffffff;
+			height: 60rpx;
+			padding: 0 18rpx;
+			border-radius: 12rpx;
+			.uni-icon-search {
+				line-height: 25px;
+			}
+			.search-wrap-input {
+				width: 90%;
+				margin-left: 20rpx;
+				text-align: left;
+				.uni-input-placeholder {
+					font-size: 28rpx;
+				}
+			}
+		}
 	}
-}
 
 .page-info {
 	display: flex;
@@ -167,7 +194,7 @@ export default {
 	font-size: 24rpx;
 	justify-content: space-between;
 	color: #7a7a7a;
-	padding: 260rpx 20rpx 0;
+	padding: 0 20rpx;
 	image {
 		height: 16rpx;
 		width: 16rpx;
@@ -175,7 +202,7 @@ export default {
 }
 .list {
 	padding-top: 0;
-	
+
 	.data__wrapper {
 		padding: 0 20rpx;
 	}

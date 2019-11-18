@@ -21,7 +21,7 @@
 			<view class="main-wrap">
 				<view class="main-wrap-contetnt">
 					<view class="main-wrap-contetnt-item">
-						<view class="main-wrap-contetnt-item-field" style="padding-top: 0;">
+						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
 								分场
 							</view>
@@ -110,7 +110,7 @@
 							</view>
 						</view>
 						
-						<view class="main-wrap-contetnt-item-field">
+						<view class="main-wrap-contetnt-item-field field-nobottom">
 							<view style="display: flex;align-items: center;" class="main-wrap-contetnt-item-field-name">
 								备注
 							</view>
@@ -202,9 +202,4 @@ input{
 		}
 	}
 
-	.main {
-		.main-wrap {
-			padding: 160rpx 23rpx 23rpx 23rpx;
-		}
-	}
 </style>

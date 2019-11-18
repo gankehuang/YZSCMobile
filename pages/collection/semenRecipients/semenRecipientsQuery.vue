@@ -42,8 +42,8 @@
 			<uni-load-more :status="status" :loadingType="loadingType" :contentText="loadingText"></uni-load-more>
 		</view>
 
-		<!-- 弹窗 -->
-		<popup-layer ref="popupRef1" :direction="'left'" :class='{active:active}'>
+		<!-- 抽屉 -->
+		<uni-drawer :visible="boolShow" :mode="'right'" @close="boolShow=false">
 			<scroll-view class="draw" scroll-y="true" style="padding-top: 65px;">
 				<!-- 单据编号 -->
 				<draw-cell title="单据编号" required="true">
@@ -98,7 +98,8 @@
 				<view class="flexc reset-btn" @click="reset">重置</view>
 				<view class="flexc submit-btn" @click="find">确定</view>
 			</view>
-		</popup-layer>
+		</uni-drawer>
+		
 		<mpvue-picker :themeColor="themeColor" ref="mpvuePicker" mode="dateSelector" @onConfirm="onConfirmDate" @onCancelDate="onCancel"></mpvue-picker>
 		<mpvue-picker :themeColor="themeColor" ref="pigPicker" :deepLength="deepLength" :pickerValueDefault="pickerValueDefault"
 		 @onConfirm="onConfirmPig" :pickerValueArray="pickerValueArray"></mpvue-picker>
@@ -117,7 +118,8 @@
 		timeFormat
 	} from '@/utils/dateUtils.js'
 	// 引入弹框组件
-	import popupLayer from '@/components/popup/popup-layer.vue';
+	import uniDrawer from "@/components/uni-drawer/uni-drawer.vue"
+	
 	//引入抽屉单元格组件
 	import drawCell from '@/components/uni-cell/draw-cell.vue';
 	//引入下拉框
@@ -146,6 +148,8 @@
 		data() {
 			return {
 				active: true,
+				boolShow: false,  //抽屉显示状态
+				
 				status: 'more',
 				statusTypes: [{
 					value: 'more',
@@ -252,18 +256,18 @@
 					}, {
 						title: "精液使用时间",
 						key: "jysysj",
-						width: 150,
+						width: 200,
 					}
 				],
 			}
 		},
 		components: {
 			ztable,
-			popupLayer,
 			drawCell,
 			mpvuePicker,
 			uniIcon,
-			uniLoadMore
+			uniLoadMore,
+			uniDrawer
 		},
 
 		methods: {
@@ -335,13 +339,13 @@
 			},
 			// 查询 
 			find() {
-				this.$refs.popupRef1.close() // 关闭弹窗  
+				this.boolShow = false;
 			},
 			selectPeople() { // 下拉菜单 
 				this.$refs.pigPicker.show()
 			},
 			showFilter() {
-				this.$refs.popupRef1.show();
+				this.boolShow = true;
 			},
 			rowTapHandler(row) {
 				uni.navigateTo({

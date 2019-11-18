@@ -22,14 +22,12 @@
 				<text>共2492条,50页</text>
 				<text>
 					每页50条
-					<image src="../../static/assets/arrow-b.png" class="icon-big" style="margin-left: 4px;"></image>
+					<image src="../../../static/assets/arrow-b.png" class="icon-big" style="margin-left: 4px;"></image>
 				</text>
 			</view>
 			<view class="data__wrapper">
 				<ztable :tableData="tableData" :columns="columns" :neddCheck="true" emptyText="-" @rowTap="rowTapHandler" @checkbox="checkbox"></ztable>
 			</view>
-			<!-- 选页 -->
-			<pageSider :pageNum="pageNum" :currentPage="pageInfo.page"></pageSider>
 			
 			<popup-layer ref="popupRef1" :direction="'left'" >
 			   <scroll-view class="draw" scroll-y="true">
@@ -127,8 +125,6 @@
 	import mpvuePicker from '@/components/mpvue-picker/mpvuePicker.vue';
 	//引入图标
 	import uniIcon from '@/components/uni-icon/uni-icon.vue'
-	// 引入 选页
-	import pageSider from '@/components/pageSider.vue';
 	//引入时间转换
 	import {timeFormat} from '@/utils/dateUtils.js'
 	export default {
@@ -208,8 +204,7 @@
 			popupLayer,
 			drawCell,
 			mpvuePicker,
-			uniIcon,
-			pageSider
+			uniIcon
 		},
 		methods: {
 			rowTapHandler (row) {
@@ -287,16 +282,15 @@
 		align-items: center;
 		font-size: 24rpx;
 		justify-content: space-between;
-		margin: 10rpx 0 0;
 		color: #7A7A7A;
 		padding: 0 20rpx;
 	}
 	.icon-big {
-		width: 24rpx;
-		height: 24rpx;
+		width: 16rpx;
+		height: 16rpx;
 	}
 	.main-container{
-		padding-top: 146rpx;
+		padding-top: 130rpx;
 		// padding-left: 20rpx;
 	}
 	.data__wrapper {

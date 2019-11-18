@@ -224,7 +224,7 @@
 					rowKey = '-';
 				}
 				if (rowKey || rowKey === 0) {
-					tempHTML = isNaN(rowKey - 0) ? rowKey : this.numTransform(rowKey - 0);
+					tempHTML = isNaN(rowKey - 0) ? rowKey : rowKey-0; //this.numTransform(rowKey - 0);
 					// tempHTML = tempHTML == 0 ? "-" : tempHTML
 				} else if (!!col.format) {
 					let tempFormat = col.format.template;

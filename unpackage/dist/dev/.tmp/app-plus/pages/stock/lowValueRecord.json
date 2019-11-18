@@ -2,10 +2,10 @@
   "navigationStyle": "custom",
   "usingComponents": {
     "ztable": "/components/z-table/z-table",
-    "page-sider": "/components/pageSider",
     "uni-icon": "/components/uni-icon/uni-icon",
     "popup-layer": "/components/popup/popup-layer",
     "mpvue-picker": "/components/mpvue-picker/mpvuePicker",
-    "draw-cell": "/components/uni-cell/draw-cell"
+    "draw-cell": "/components/uni-cell/draw-cell",
+    "uni-load-more": "/components/uni-load-more"
   }
 }

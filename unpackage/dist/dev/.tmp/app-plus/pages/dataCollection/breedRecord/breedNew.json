@@ -1,9 +1,11 @@
 {
   "navigationStyle": "custom",
-  "animationType": "fade-in",
   "animationDuration": 300,
   "usingComponents": {
     "ztable": "/components/z-table/z-table",
-    "uni-icon": "/components/uni-icon/uni-icon"
+    "uni-icon": "/components/uni-icon/uni-icon",
+    "uni-rate": "/components/uni-rate/uni-rate",
+    "popup-layer": "/components/popup/popup-layer",
+    "str-autocomplete": "/components/str-autocomplete/str-autocomplete"
   }
 }

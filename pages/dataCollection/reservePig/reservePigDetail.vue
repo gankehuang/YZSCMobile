@@ -11,7 +11,7 @@
 					后备猪健康详情
 				</view>
 				<view class="status-del">
-					<!-- 删除 -->
+					删除
 				</view>
 			</view>
 
@@ -22,8 +22,90 @@
 				<view class="main-wrap-contetnt">
 					<view class="main-wrap-contetnt-item">
 						
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								分场
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<picker @change="bindPickerChange" :value="index" :range="array2">
+									<view class="picker">
+										<view class="uni-input">{{array2[index]}}</view>
+										<view class="dextrad-icon">
+											<uni-icon type="arrowright" color="#333333" size="18" />
+										</view>
+									</view>
+								</picker>
+							</view>
+						</view>
+						
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								批次号
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<picker @change="bindPickerChange" :value="index" :range="array2">
+									<view class="picker">
+										<view class="uni-input">{{array2[index]}}</view>
+										<view class="dextrad-icon">
+											<uni-icon type="arrowright" color="#333333" size="18" />
+										</view>
+									</view>
+								</picker>
+							</view>
+						</view>
+						
+						<view class="main-wrap-contetnt-item-field">
+							<view style="display: flex;align-items: center;" class="main-wrap-contetnt-item-field-name">
+								阶段
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<input type="text"  placeholder="请输入阶段" />
+							</view>
+						</view>
+						
+						<view class="main-wrap-contetnt-item-field">
+							<view class="main-wrap-contetnt-item-field-name">
+								存栏头数
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<picker @change="bindPickerChange" :value="index" :range="array2">
+									<view class="picker">
+										<view class="uni-input">{{array2[index]}}</view>
+										<view class="dextrad-icon">
+											<uni-icon type="arrowright" color="#333333" size="18" />
+										</view>
+									</view>
+								</picker>
+							</view>
+						</view>
+						
+						<view class="main-wrap-contetnt-item-field field-nobottom">
+							<view class="main-wrap-contetnt-item-field-name">
+								饲养员
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<picker @change="bindPickerChange" :value="index" :range="array2">
+									<view class="picker">
+										<view class="uni-input">{{array2[index]}}</view>
+										<view class="dextrad-icon">
+											<uni-icon type="arrowright" color="#333333" size="18" />
+										</view>
+									</view>
+								</picker>
+							</view>
+						</view>
+					</view>
+				</view>
+		
+			</view>
+		</view>
+		<view class="main">
+			<view class="main-wrap" style="padding-top: 10rpx;">
+				<view class="main-wrap-contetnt">
+					<view class="main-wrap-contetnt-item">
+						
 						<!-- 泪斑 * -->
-						<view class="main-wrap-contetnt-item-field" style="padding-top: 0;">
+						<view class="main-wrap-contetnt-item-field">
 							<view style="display: flex;align-items: center;" class="main-wrap-contetnt-item-field-name">
 							 	泪斑
 							</view>
@@ -93,7 +175,7 @@
 						</view>
 						
 						<!-- 批次血检抗体（190/210/入群） * -->
-						<view class="main-wrap-contetnt-item-field">
+						<view class="main-wrap-contetnt-item-field field-nobottom">
 							<view style="display: flex;align-items: center;" class="main-wrap-contetnt-item-field-name">
 							 	批次血检抗体（190/210/入群）
 							</view>
@@ -181,13 +263,8 @@ input{
 		padding-top: 26rpx;
 
 		.status-title {
-			padding-left: 35%;
+			padding-left: 32%;
 		}
 	}
 
-	.main {
-		.main-wrap {
-			padding: 160rpx 23rpx 23rpx 23rpx;
-		}
-	}
 </style>

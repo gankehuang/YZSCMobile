@@ -68,7 +68,7 @@
 	import cityData from '@/common/zb.data.js';
 	import uniTag from '@/components/uni-tag/uni-tag.vue'
 	import uniLoadMore from '@/components/uni-load-more.vue';
-	import uniBadge from "@/components/uni-badge/uni-badge.vue"
+	import uniBadge from "@/components/uni-badge/uni-badge.vue"  
 	export default {
 		components: {
 			uniNavBar,
@@ -77,6 +77,11 @@
 			uniLoadMore,
 			uniTag,
 			uniBadge
+		},
+		onLoad: function(options) {
+			const typeId = options.type;  //接受type定位tab标签
+			this.tabIndex = typeId
+			//console.log(options.type)
 		},
 		data() {
 			return {

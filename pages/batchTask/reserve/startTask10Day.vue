@@ -8,7 +8,7 @@
 				{{itemInfo.taskName}}
 			</view>
 			<view class="right__icon">
-				<image src="../../../static/search/ico-01.png" mode="" class="icon"></image>
+				<image src="/static/assets/search.png" mode="" class="icon"></image>
 			</view> 
 		</view>
 		
@@ -138,7 +138,7 @@
 					<view class="card_label title">照片信息</view>
 				</view>
 				<view class="imgBox">
-					<image v-for="(item, index) in imgArr" :src="item" :key="index" mode="" class="img" @tap="lookImg"></image>
+					<image @longpress="delPic(index)" v-for="(item, index) in imgArr" :src="item" :key="index" mode="" class="img" @tap="lookImg"></image>
 					<image src="../../../static/assets/plus.png" mode="" class="img" @tap="uploadImg"></image>
 				</view>
 			</view>
@@ -148,6 +148,15 @@
 			</view>
 		</view>
 		
+		<!-- 删除提示框 -->
+		<uni-popup :show="type === 'middle'" position="middle" mode="fixed" @hidePopup="togglePopup('')">
+			<view class="popview">
+				<view class="out-text">确定要删除吗？</view>
+				<view @click="togglePopup('')" class="out-btn1">取消</view>
+				<view @click="del" class="out-btn2">确定</view>
+			</view>
+		</uni-popup>
+		
 	</view>
 </template>
 
@@ -155,11 +164,13 @@
 import scrollTab from  '@/components/scroll-tab/scroll-tab'
 import ztable from '@/components/z-table/z-table'
 import uniIcon from '@/components/uni-icon/uni-icon.vue'
+import uniPopup from '@/components/uni-popup/uni-popup'
 export default {
 	components: {
 		scrollTab,
 		ztable,
-		uniIcon
+		uniIcon,
+		uniPopup
 	},
 	data() {
 		return {
@@ -174,6 +185,8 @@ export default {
 			array1: ['请选择', '江伟'],
 			index: 0,
 			imgArr: [],   //上传返回的照片路径数组
+			type: '',  //删除框状态
+			imgID: '',  //当前选择图片索引
 		};
 	},
 	onLoad(option) {
@@ -187,6 +200,7 @@ export default {
 				url: '/pages/matingBatch/matingSetting/matingSetting'
 			})
 		},
+		//返回
 		back () {
 			uni.navigateBack({
 			})
@@ -212,6 +226,22 @@ export default {
 					_this.imgArr = res.tempFilePaths;
 				}
 			});
+		},
+		//长按图片触发
+		delPic(index) {
+			this.imgID = index;
+			this.togglePopup('middle');
+		},
+		//控制确定弹窗显示隐藏
+		togglePopup(type) {
+			this.type = type;
+		},
+		//确定删除图片
+		del() {
+			let imgs = this.imgArr;
+			imgs.splice(this.imgID, 1);
+			this.imgArr = imgs;
+			this.togglePopup('');
 		}
 		
 	}
@@ -296,4 +326,43 @@ export default {
 	    }
 	}
 	
+	/*提示框样式*/
+	.popview {
+		height: 150upx;
+		padding-top: 33upx;
+		display: block;
+		float: clear;
+		width: 530upx;
+	}
+	
+	.out-text {
+		font-size: 28upx;
+		margin-bottom: 55upx;
+		display: block;
+		float: clear;
+		text-align: center;
+	
+	}
+	
+	.out-btn1 {
+		width: 50%;
+		display: inline-block;
+		color: rgb(179, 179, 179);
+		text-align: center;
+		// margin-left: 120upx;
+		// margin-right: 184upx;
+	
+	}
+	
+	.out-btn2:active,
+	.out-btn1:active {
+		background: #EEEEEE;
+	}
+	
+	.out-btn2 {
+		display: inline-block;
+		text-align: center;
+		color: #FF4343;
+		width: 50%;
+	}
 </style>

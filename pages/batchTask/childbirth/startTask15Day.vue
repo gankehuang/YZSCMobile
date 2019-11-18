@@ -8,7 +8,7 @@
 				{{itemInfo.taskName}}
 			</view>
 			<view class="right__icon">
-				<image src="../../../static/search/ico-01.png" mode="" class="icon"></image>
+				<image src="/static/assets/search.png" mode="" class="icon"></image>
 			</view> 
 		</view>
 		
@@ -109,7 +109,7 @@
 						内调
 					</view>
 					<view>
-						<text>服务部 <image src="../../../static/search/ico-01.png" mode="" class="icon"></image></text>
+						<text>服务部 <image src="/static/assets/search.png" mode="" class="icon"></image></text>
 					</view>		
 				</view>
 				<view class="card_row">
@@ -120,7 +120,7 @@
 						外调
 					</view>
 					<view>
-						<text>服务部 <image src="../../../static/search/ico-01.png" mode="" class="icon"></image></text>
+						<text>服务部 <image src="/static/assets/search.png" mode="" class="icon"></image></text>
 					</view>		
 				</view>
 			</view>

@@ -11,7 +11,7 @@
 					精液记录详情
 				</view>
 				<view class="status-del">
-					编辑
+					删除
 				</view>
 			</view>
 
@@ -44,6 +44,24 @@
 								</picker>
 							</view>
 						</view>
+						<view class="main-wrap-contetnt-item-field field-nobottom">
+							<view class="main-wrap-contetnt-item-field-name">
+								稀释员<text class="text-red">*</text>
+							</view>
+							<view class="main-wrap-contetnt-item-field-value">
+								<input type="text" value="" placeholder="请输入稀释员" />
+							</view>
+						</view>
+					</view>
+				</view>	
+			</view>	
+		</view>
+		
+		<view class="main">
+			<view class="main-wrap" style="padding-top: 10rpx;">
+				<view class="main-wrap-contetnt">
+					<view class="main-wrap-contetnt-item">
+						
 						<view class="main-wrap-contetnt-item-field">
 							<view class="main-wrap-contetnt-item-field-name">
 								公猪耳牌<text class="text-red">*</text>
@@ -144,7 +162,7 @@
 		</view>
 		
 		<view class="submits jus-b">
-			<button type="primary" class="flexc add-btn">反审核</button>
+			<!-- <button type="primary" class="flexc add-btn">反审核</button> -->
 			<button type="primary" class="flexc submit-btn">提交</button>
 		</view>
 	</view>
@@ -301,7 +319,11 @@
 
 	.main {
 		.main-wrap {
-			padding: 160rpx 23rpx 23rpx 23rpx;
+			padding: 160rpx 23rpx 0 23rpx;
+			
+			.main-wrap-contetnt {
+				padding: 0 26rpx 44rpx 36rpx;
+			}
 		}
 	}
 

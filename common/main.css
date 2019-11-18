@@ -1,0 +1,463 @@
+
+
+/* -- 实线 -- */
+
+
+.solids {
+	position: relative;
+}
+
+.solids::after{
+	content: " ";
+	width: 200%;
+	height: 200%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: inherit;
+	transform: scale(0.5);
+	transform-origin: 0 0;
+	pointer-events: none;
+	box-sizing: border-box;
+}
+
+
+.solids::after {
+	border: 8upx solid #eee;
+}
+
+
+
+
+
+
+/* ==================
+          徽章
+ ==================== */
+
+.cu-tag {
+	font-size: 24upx;
+	vertical-align: middle;
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	padding: 0upx 16upx;
+	height: 48upx;
+	font-family: Helvetica Neue, Helvetica, sans-serif;
+	white-space: nowrap;
+}
+
+.cu-tag:not([class*="bg"]):not([class*="line"]) {
+	background-color: #f1f1f1;
+}
+
+.cu-tag[class*="line-"]::after {
+	content: " ";
+	width: 200%;
+	height: 200%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border: 1upx solid currentColor;
+	transform: scale(0.5);
+	transform-origin: 0 0;
+	box-sizing: border-box;
+	border-radius: inherit;
+	z-index: 1;
+	pointer-events: none;
+}
+
+.cu-tag.radius[class*="line"]::after {
+	border-radius: 12upx;
+}
+
+.cu-tag.round[class*="line"]::after {
+	border-radius: 1000upx;
+}
+
+.cu-tag[class*="line-"]::after {
+	border-radius: 0;
+}
+
+.cu-tag+.cu-tag {
+	margin-left: 10upx;
+}
+
+.cu-tag.sm {
+	font-size: 20upx;
+	padding: 0upx 12upx;
+	height: 32upx;
+}
+
+
+.cu-tag.badge {
+	border-radius: 200upx;
+	position: absolute;
+	top: -10upx;
+	right: -10upx;
+	font-size: 20upx;
+	padding: 0upx 10upx;
+	height: 28upx;
+	color: #ffffff;
+}
+
+.cu-tag.badge:not([class*="bg-"]) {
+	background-color: #dd514c;
+}
+
+.cu-tag:empty:not([class*="cuIcon-"]) {
+	padding: 0upx;
+	width: 16upx;
+	height: 16upx;
+	top: -4upx;
+	right: -4upx;
+}
+
+.cu-tag[class*="cuIcon-"] {
+	width: 32upx;
+	height: 32upx;
+	top: -4upx;
+	right: -4upx;
+}
+
+
+
+/* ==================
+         表单
+ ==================== */
+
+.cu-form-group {
+	background-color: #ffffff;
+	padding: 1upx 30upx;
+	display: flex;
+	align-items: center;
+	min-height: 100upx;
+	justify-content: space-between;
+}
+
+.cu-form-group+.cu-form-group {
+	border-top: 1upx solid #eee;
+}
+
+.cu-form-group .title {
+	text-align: justify;
+	padding-right: 30upx;
+	font-size: 30upx;
+	position: relative;
+	height: 60upx;
+	line-height: 60upx;
+}
+
+.cu-form-group input {
+	flex: 1;
+	font-size: 30upx;
+	color: #555;
+	padding-right: 20upx;
+}
+
+.cu-form-group>text[class*="cuIcon-"] {
+	font-size: 36upx;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.cu-form-group textarea {
+	margin: 32upx 0 30upx;
+	height: 4.6em;
+	width: 100%;
+	line-height: 1.2em;
+	flex: 1;
+	font-size: 28upx;
+	padding: 0;
+}
+
+.cu-form-group.align-start .title {
+	height: 1em;
+	margin-top: 32upx;
+	line-height: 1em;
+}
+
+.cu-form-group picker {
+	flex: 1;
+	padding-right: 40upx;
+	overflow: hidden;
+	position: relative;
+}
+
+.cu-form-group picker .picker {
+	line-height: 100upx;
+	font-size: 28upx;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	width: 100%;
+	text-align: right;
+}
+
+.cu-form-group picker::after {
+	font-family: cuIcon;
+	display: block;
+	content: "\e6a3";
+	position: absolute;
+	font-size: 34upx;
+	color: #8799a3;
+	line-height: 100upx;
+	width: 60upx;
+	text-align: center;
+	top: 0;
+	bottom: 0;
+	right: -20upx;
+	margin: auto;
+}
+
+.cu-form-group textarea[disabled],
+.cu-form-group textarea[disabled] .placeholder {
+	color: transparent;
+}
+
+/* ==================
+         模态窗口
+ ==================== */
+
+.cu-modal {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1110;
+	opacity: 0;
+	outline: 0;
+	text-align: center;
+	-ms-transform: scale(1.185);
+	transform: scale(1.185);
+	backface-visibility: hidden;
+	perspective: 2000upx;
+	background: rgba(0, 0, 0, 0.6);
+	transition: all 0.3s ease-in-out 0s;
+	pointer-events: none;
+}
+
+.cu-modal::before {
+	content: "\200B";
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+
+.cu-modal.show {
+	opacity: 1;
+	transition-duration: 0.3s;
+	-ms-transform: scale(1);
+	transform: scale(1);
+	overflow-x: hidden;
+	overflow-y: auto;
+	pointer-events: auto;
+}
+
+.cu-dialog {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: auto;
+	margin-right: auto;
+	width: 680upx;
+	max-width: 100%;
+	background-color: #f8f8f8;
+	border-radius: 10upx;
+	overflow: hidden;
+}
+
+.cu-modal.bottom-modal::before {
+	vertical-align: bottom;
+}
+
+.cu-modal.bottom-modal .cu-dialog {
+	width: 100%;
+	border-radius: 0;
+}
+
+.cu-modal.bottom-modal {
+	margin-bottom: -1000upx;
+}
+
+.cu-modal.bottom-modal.show {
+	margin-bottom: 0;
+}
+
+.cu-modal.drawer-modal {
+	transform: scale(1);
+	display: flex;
+}
+
+.cu-modal.drawer-modal .cu-dialog {
+	height: 100%;
+	min-width: 200upx;
+	border-radius: 0;
+	margin: initial;
+	transition-duration: 0.3s;
+}
+
+.cu-modal.drawer-modal.justify-start .cu-dialog {
+	transform: translateX(-100%);
+}
+
+.cu-modal.drawer-modal.justify-end .cu-dialog {
+	transform: translateX(100%);
+}
+
+.cu-modal.drawer-modal.show .cu-dialog {
+	transform: translateX(0%);
+}
+.cu-modal .cu-dialog>.cu-bar:first-child .action{
+  min-width: 100rpx;
+  margin-right: 0;
+  min-height: 100rpx;
+}
+
+/* ==================
+          布局
+ ==================== */
+
+/*  -- flex弹性布局 -- */
+
+
+.flex-sub {
+	flex: 1;
+}
+
+
+
+/* grid布局 */
+
+.grid {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.grid.grid-square {
+	overflow: hidden;
+}
+
+.grid.grid-square .cu-tag {
+	position: absolute;
+	right: 0;
+	top: 0;
+	border-bottom-left-radius: 6upx;
+	padding: 6upx 12upx;
+	height: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.grid.grid-square>view>text[class*="cuIcon-"] {
+	font-size: 52upx;
+	position: absolute;
+	color: #8799a3;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.grid.grid-square>view {
+	margin-right: 20upx;
+	margin-bottom: 20upx;
+	border-radius: 6upx;
+	position: relative;
+	overflow: hidden;
+}
+.grid.grid-square>view.bg-img image {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+.grid.col-1.grid-square>view {
+	padding-bottom: 100%;
+	height: 0;
+	margin-right: 0;
+}
+
+.grid.col-2.grid-square>view {
+	padding-bottom: calc((100% - 20upx)/2);
+	height: 0;
+	width: calc((100% - 20upx)/2);
+}
+
+.grid.col-3.grid-square>view {
+	padding-bottom: calc((100% - 40upx)/3);
+	height: 0;
+	width: calc((100% - 40upx)/3);
+}
+
+.grid.col-4.grid-square>view {
+	padding-bottom: calc((100% - 60upx)/4);
+	height: 0;
+	width: calc((100% - 60upx)/4);
+}
+
+.grid.col-5.grid-square>view {
+	padding-bottom: calc((100% - 80upx)/5);
+	height: 0;
+	width: calc((100% - 80upx)/5);
+}
+
+.grid.col-2.grid-square>view:nth-child(2n),
+.grid.col-3.grid-square>view:nth-child(3n),
+.grid.col-4.grid-square>view:nth-child(4n),
+.grid.col-5.grid-square>view:nth-child(5n) {
+	margin-right: 0;
+}
+
+.grid.col-1>view {
+	width: 100%;
+}
+
+.grid.col-2>view {
+	width: 50%;
+}
+
+.grid.col-3>view {
+	width: 33.33%;
+}
+
+.grid.col-4>view {
+	width: 25%;
+}
+
+.grid.col-5>view {
+	width: 20%;
+}
+
+
+
+/* ==================
+          背景
+ ==================== */
+
+.bg-red {
+	background-color: #e54d42;
+	color: #ffffff;
+}
+
+
+
+.bg-red.light {
+	color: #e54d42;
+	background-color: #fadbd9;
+}
+
+
+.bg-img {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+

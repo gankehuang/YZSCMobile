@@ -33,13 +33,13 @@
 			  <draw-cell title="耳牌" >
 				<view slot="value" class="bg-gray jus-j">
 					<image @click="qr" style="margin: 0;" src="../../../static/search/qr.png" mode="" class="icon"></image>
-					<input type="text" placeholder="请填写" v-model="searchForm.immunePlan" />
+					<input type="text" placeholder="请填写" v-model="searchForm.erpai" />
 				</view>
 			  </draw-cell>
-			  <draw-cell title="国际码"  >
+			  <draw-cell title="国际码">
 				<view slot="value" class="bg-gray jus-j">
 					<text></text>
-					<input type="text" placeholder="请填写" v-model="searchForm.immuneProject" />
+					<input type="text" placeholder="请填写" v-model="searchForm.internalnumber" />
 				</view>
 			  </draw-cell>
 			 <!-- <draw-cell title="配种批次" required="true">
@@ -91,9 +91,9 @@
 		   </view>
 		</popup-layer>
 		<!-- 下拉菜单  -->
-		<mpvue-picker :themeColor="themeColor" ref="pigPicker" 
+		<!-- <mpvue-picker :themeColor="themeColor" ref="pigPicker" 
 		:deepLength="deepLength" :pickerValueDefault="pickerValueDefault"
-		 @onConfirm="onConfirmPig" :pickerValueArray="pickerValueArray"></mpvue-picker>
+		 @onConfirm="onConfirmPig" :pickerValueArray="pickerValueArray"></mpvue-picker> -->
 	<!-- 	<pageSider :pageNum="pageNum" :currentPage="pageInfo.page" ></pageSider> -->
 	</view>
 </template>
@@ -111,6 +111,7 @@
 	import mpvuePicker from '@/components/mpvue-picker/mpvuePicker.vue';
 	import ztable from '@/components/z-table/z-table'
 	import pageSider from '@/components/pageSider.vue'
+	import common from '../../../utils/common.js';
 	export default {
 		components: {
 			popupLayer,
@@ -122,25 +123,23 @@
 			uniLoadMore
 		},
 		onLoad: function(options) {
-			this.active = !this.active
+			this.active = !this.active;
+			this.getindex(10, 1, false);
 		},
 		// 下拉刷新
 		onPullDownRefresh() {
-			let _this = this;
-			let tableData = _this.tableData;
-			console.log('下拉刷新');
-			setTimeout(function() {
-				
-					tableData.splice(5)
-				uni.stopPullDownRefresh();
-			}, 1000);
+			this.getindex(10, 1, false);
+			uni.stopPullDownRefresh();
+			this.page == 2;
 		},
-   // 上拉加载
+		// 上拉加载
 		onReachBottom() {
-			this.loadMore()
+			this.loadMore();
+			this.page ++;
 		},
 		data() {
 			return {
+				page: 2,
 				active:true,
 				status: 'more',
 				statusTypes: [{
@@ -161,110 +160,55 @@
 					contentnomore: '没有更多数据了'
 				},
 				// 弹窗信息 
-				pickerValueArray:[
-					{'value':'1111','label':'三泉A区'},
-					{'value':'1111','label':'三泉B区'},
-					{'value':'1111','label':'三泉C区'},
-					{'value':'1111','label':'三泉D区'},
-					{'value':'1111','label':'三泉E区'}
+				pickerValueArray: [{
+						'value': '1111',
+						'label': '三泉A区'
+					},
+					{
+						'value': '1111',
+						'label': '三泉B区'
+					},
+					{
+						'value': '1111',
+						'label': '三泉C区'
+					},
+					{
+						'value': '1111',
+						'label': '三泉D区'
+					},
+					{
+						'value': '1111',
+						'label': '三泉E区'
+					}
 				],
 				// 选项框默认值 
 				searchForm:{
-					immunePlan:'',
-					immuneProject:'',
+					erpai:'',    //耳牌好
+					internalnumber:'',  //国际号
 				},
-				tableData: [{
-					id: '123123123',
-					index: 1,
-					earno: 'YY002',
-					sex: '公',
-					verty: '大白',
-					newBusiness: '调入记录'
-				},{
-					id: 'asjkld2',
-					index: 2,
-					earno: 'YY003',
-					sex: '母',
-					verty: '大白',
-					newBusiness: '配种记录'
-				},{
-					id: 'zxckmhn21',
-					index: 3,
-					earno: 'YY004',
-					sex: '公',
-					verty: '大白',
-					newBusiness: '死亡记录'
-				},{
-					id: 'asjkh2',
-					index: 4,
-					earno: 'YY005',
-					sex: '母',
-					verty: '大白',
-					newBusiness: '调出记录'
-				},{
-					id: 'asdokuj12op5',
-					index: 5,
-					earno: 'YY006',
-					sex: '公',
-					verty: '大白',
-					newBusiness: '分娩记录'
-				},{
-					id: '123123123',
-					index: 1,
-					earno: 'YY002',
-					sex: '公',
-					verty: '大白',
-					newBusiness: '调入记录'
-				},{
-					id: 'asjkld2',
-					index: 2,
-					earno: 'YY003',
-					sex: '母',
-					verty: '大白',
-					newBusiness: '配种记录'
-				},{
-					id: 'zxckmhn21',
-					index: 3,
-					earno: 'YY004',
-					sex: '公',
-					verty: '大白',
-					newBusiness: '死亡记录'
-				},{
-					id: 'asjkh2',
-					index: 4,
-					earno: 'YY005',
-					sex: '母',
-					verty: '大白',
-					newBusiness: '调出记录'
-				},{
-					id: 'asdokuj12op5',
-					index: 5,
-					earno: 'YY006',
-					sex: '公',
-					verty: '大白',
-					newBusiness: '分娩记录'
-				}],
+				tableData: [],
 				columns: [{
-					title: "序号",
-					key: "index",
-					width: 70,
-				},{
-					title: "耳牌/国际码",
-					key: "earno",
-					width: 200,
-				},{
-					title: "性别",
-					key: "sex",
-					width: 100,
-				},{
-					title: "品种",
-					key: "verty",
-					width: 200,
-				},{
-					title: "最新业务",
-					key: "newBusiness",
-					width: 200,
-				}],
+						title: "序号",
+						key: "index",
+						width: 70,
+					},{
+						title: "耳牌/国际码",
+						key: "fnumber",
+						width: 200,
+					},{
+						title: "性别",
+						key: "xingbie",
+						width: 100,
+					},{
+						title: "品种",
+						key: "pigvarietiesname",
+						width: 200,
+					},{
+						title: "最新业务",
+						key: "newbusiness",
+						width: 200,
+					},
+				],
 				pageInfo: {
 					page: 1,
 					pageSize: 50,
@@ -281,36 +225,21 @@
 			},
 			// 重置 
 			reset(){
-				this.searchForm.immunePlan=''
-				this.searchForm.immuneProject=''
+				this.searchForm.erpai=''
+				this.searchForm.internalnumber=''
 			},
 			// 查询 
 			find(){
+				let _this = this;
+				_this.page = 1;
+				_this.getindex(10, _this.page, false);
 				this.$refs.popupRef1.close() // 关闭弹窗  
 			},
 			// 滑动底部加载
 			loadMore() {
 				let _this = this;
-				let tableData = _this.tableData;
-				_this.loadingType = 1;
-				setTimeout(() => {
-					let li = {
-					id: '123123123',
-					index: 1,
-					earno: 'YY002',
-					sex: '公',
-					verty: '大白',
-					newBusiness: '调入记录'
-				};
-					tableData.push(li);
-					tableData.push(li);
-					tableData.push(li);
-					tableData.push(li);
-					tableData.push(li);
-				}, 300);
-				setTimeout(() => {
-					_this.loadingType = 0;
-				}, 500);
+				_this.getindex(10, _this.page, true);
+			
 			},
 			onConfirmPig(){},
 			selectPeople(){ // 下拉菜单 
@@ -321,14 +250,53 @@
 			},
 			rowTapHandler (row) {
 				uni.navigateTo({
-					url: `/pages/archives/boarInfo/boarDetail/boarDetail?id=${row.id}`,
+					url: `/pages/archives/boarInfo/boarDetail/boarDetail?id=${encodeURIComponent(row.fid)}`,
 					success: res => {},
 					fail: () => {},
 					complete: () => {}
 				});
 			},
 			back () {
-				uni.navigateBack({
+				uni.navigateBack({})
+			},
+			getindex(pageNum, pageSize, isLoad) {
+				var _this = this;
+				_this.loadingType = 1;
+				let params = {
+					cfpigfarmid: 'Va4AAAAYuCC4/eJt', // 猪场id
+					cffieldid: 'Va4AAAAZFeOdu1vk',    // 分场
+					erpai: _this.searchForm.erpai,
+					internalnumber: _this.searchForm.internalnumber
+				};
+				let headers = {};
+				//console.log(params)
+				common.commRequest(`/PigBoarInfo/selectAll/${pageNum}/${pageSize}`, params, headers, 'get',
+					function(data) {
+						let getData = data.data.list;
+						//console.log(getData)
+						if(getData.length == 0){
+							_this.loadingType = 2;
+							return;
+						}
+						if(isLoad) {
+							let oldData = _this.tableData;
+							let loadData = [...oldData, ...getData];
+							loadData.forEach((obj, index) => {
+								obj['index'] = index + 1
+							})
+							_this.tableData = loadData;
+						}else {
+							//console.log(data.data.list);
+							getData.forEach((obj, index) => {
+								obj['index'] = index + 1
+							})
+							_this.tableData = getData;
+						}
+						if(getData.length < 10){
+							_this.loadingType = 2;
+						}else{
+							_this.loadingType = 0;
+						}
 				})
 			}
 		},

@@ -8,7 +8,7 @@
 				后备
 			</view>
 			<view class="right__icon">
-				<image src="../../../static/search/ico-01.png" mode="" class="icon"></image>
+				<image src="/static/assets/search.png" mode="" class="icon"></image>
 			</view> 
 		</view>
 		<view class="header-wrap">
@@ -81,8 +81,8 @@
 					<view v-if="item.taskState=='执行中'" class="card_value" style="color: #45B9B0;">执行中</view>
 				</view>
 				<view class="card_row">
-					<button v-if="item.taskState=='未执行'" type="primary" size="mini" style="padding: 0 80rpx;" @tap.stop="toStartTask(item)">开始任务</button>
-					<button v-if="item.taskState=='执行中'" type="primary" size="mini" style="padding: 0 80rpx;background: #45B9B0;" @tap.stop="toStartTask(item)">结束任务</button>
+					<button v-if="item.taskState=='未执行'" type="primary" size="mini" style="padding: 0 80rpx; border-radius: 100rpx;" @tap.stop="toStartTask(item)">开始任务</button>
+					<button v-if="item.taskState=='执行中'" type="primary" size="mini" style="padding: 0 80rpx;background: #45B9B0; border-radius: 100rpx;" @tap.stop="toStartTask(item)">结束任务</button>
 				</view>
 			</view>
 		</view>

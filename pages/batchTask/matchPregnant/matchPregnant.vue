@@ -8,7 +8,7 @@
 				配怀
 			</view>
 			<view class="right__icon">
-				<image src="../../../static/search/ico-01.png" mode="" class="icon"></image>
+				<image src="/static/assets/search.png" mode="" class="icon"></image>
 			</view> 
 		</view>
 		<view class="header-wrap">

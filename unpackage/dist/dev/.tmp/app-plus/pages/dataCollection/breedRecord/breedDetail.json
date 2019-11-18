@@ -1,9 +1,9 @@
 {
   "navigationStyle": "custom",
-  "animationType": "fade-in",
   "animationDuration": 300,
   "usingComponents": {
     "uni-icon": "/components/uni-icon/uni-icon",
-    "uni-popup": "/components/uni-popup/uni-popup"
+    "uni-popup": "/components/uni-popup/uni-popup",
+    "uni-rate": "/components/uni-rate/uni-rate"
   }
 }

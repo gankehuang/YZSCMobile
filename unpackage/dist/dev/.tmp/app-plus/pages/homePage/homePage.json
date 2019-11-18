@@ -9,6 +9,7 @@
     "uni-load-more": "/components/uni-load-more",
     "uni-tag": "/components/uni-tag/uni-tag",
     "uni-badge": "/components/uni-badge/uni-badge",
+    "tki-tree": "/components/tki-tree/tki-tree",
     "mescroll-uni": "/components/mescroll-uni/mescroll-uni"
   }
 }

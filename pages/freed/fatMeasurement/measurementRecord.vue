@@ -1,46 +1,63 @@
 <template>
 	<view>
-		<!-- 标题 -->
-		<view class="content-container">
-			<view class="editor-title flex ali-c">
-				<view class="img">
-					<image src="/static/assets/rect.png" mode=""></image>
-					<text>基本信息</text>
+		<!-- 这里是状态栏 -->
+		<view class="status">
+			<image class="status-bg" src="/static/assets/top_bg@2x.png" mode="widthFix"></image>
+			<view class="status-header">
+				<view class="back-icon" @click="handOnClickBack">
+					<image class="icon" src="/static/assets/back.png"></image>
+				</view>
+				<view class="status-title">
+					测膘调料记录
+				</view>
+				<view class="status-del"  @click="jumpPage" data-key="查询" data-jumpurl="/pages/freed/fatMeasurement/measurementHistory">
+					历史记录
 				</view>
 			</view>
-
-			<!-- 表单 -->
-			<view class="card-form card">
-				<uni-cell title="配种批次" :value="form.projectName"></uni-cell>
-				<uni-cell title="任务名称" :value="form.projectName"></uni-cell>
-				<uni-cell title="任务日期" :value="form.projectName"></uni-cell>
-				<uni-cell title="检测头数" :value="form.projectName"></uni-cell>
-				<uni-cell title="执行人" :value="form.projectName"></uni-cell>
-				<uni-cell title="猪场" :value="form.projectName"></uni-cell>
-				<uni-cell title="分厂" :value="form.projectName"></uni-cell>
-			</view>
-
+		</view>
+		<!-- 这里是内容 -->
+		<view class="main">
 			<!-- 标题 -->
-			<view class="editor-title flex ali-c">
-				<view class="img">
-					<image src="/static/assets/rect.png" mode=""></image>
-					<text>测料调膘明细</text>
+			<view class="content-container">
+				<view class="editor-title flex ali-c">
+					<view class="img">
+						<image src="/static/assets/rect.png" mode=""></image>
+						<text>基本信息</text>
+					</view>
 				</view>
-				<view class="scan-icon" @click="scancode"><image class="icon" src="/static/assets/scan-icon.png" mode=""></image></view>
-				<button type="primary" class="new-btn" @click="pageToNew">新增</button>
+		
+				<!-- 表单 -->
+				<view class="card-form card">
+					<uni-cell title="配种批次" :value="form.projectName"></uni-cell>
+					<uni-cell title="任务名称" :value="form.projectName"></uni-cell>
+					<uni-cell title="任务日期" :value="form.projectName"></uni-cell>
+					<uni-cell title="检测头数" :value="form.projectName"></uni-cell>
+					<uni-cell title="执行人" :value="form.projectName"></uni-cell>
+					<uni-cell title="猪场" :value="form.projectName"></uni-cell>
+					<uni-cell title="分厂" :value="form.projectName" class="card-cell-last"></uni-cell>
+				</view>
+		
+				<!-- 标题 -->
+				<view class="editor-title flex ali-c">
+					<view class="img">
+						<image src="/static/assets/rect.png" mode=""></image>
+						<text>测料调膘明细</text>
+					</view>
+					<view class="scan-icon" @click="scancode"><image class="icon" src="/static/assets/scan-icon.png" mode=""></image></view>
+					<button type="primary" class="new-btn" @click="pageToNew">新增</button>
+				</view>
+		
+				<!-- 数据表格 -->
+				<view class="data__wrapper"><ztable :tableData="tableData" :columns="columns" :neddCheck="true" emptyText="-"></ztable></view>
+		
+				<view class="submitData">
+					<button type="primary" class="edit-btn">编辑</button>
+					<button type="primary" class="submit-btn">提交</button>
+				</view>
 			</view>
-
-			<!-- 数据表格 -->
-			<view class="data__wrapper"><ztable :tableData="tableData" :columns="columns" :neddCheck="true" emptyText="-"></ztable></view>
-
-			<view class="submitData">
-				<button type="primary" class="edit-btn">编辑</button>
-				<button type="primary" class="submit-btn">提交</button>
-			</view>
-			<!-- 选页 -->
-			<pageSider :pageNum="pageNum" :currentPage="pageInfo.page"></pageSider>
 		</view>
 	</view>
+	
 </template>
 
 <script>
@@ -57,8 +74,6 @@ import drawCell from '@/components/uni-cell/draw-cell.vue';
 import mpvuePicker from '@/components/mpvue-picker/mpvuePicker.vue';
 // 引入 表格
 import ztable from '@/components/z-table/z-table.vue';
-// 引入 选页
-import pageSider from '@/components/pageSider.vue';
 // 引入 时间转换
 import { timeFormat } from '@/utils/dateUtils.js';
 export default {
@@ -69,8 +84,7 @@ export default {
 		popupLayer,
 		drawCell,
 		mpvuePicker,
-		ztable,
-		pageSider
+		ztable
 	},
 	data() {
 		return {
@@ -153,15 +167,6 @@ export default {
 				this.togglePopup('middle');
 			}, 500);
 		},
-		onNavigationBarButtonTap() {
-			// 跳转至历史记录
-			uni.navigateTo({
-				url: `/pages/freed/fatMeasurement/measurementHistory`,
-				success: res => {},
-				fail: () => {},
-				complete: () => {}
-			});
-		},
 		pageToNew() {
 			uni.navigateTo({
 				url: `/pages/freed/fatMeasurement/measurementNew`,
@@ -181,9 +186,18 @@ export default {
 
 <style lang="scss">
 @import '../../../common/dataCollection.scss';
+
+.status-header {
+	padding-top: 26rpx;
+
+	.status-title {
+		padding-left: 35%;
+	}
+}
+
 .content-container {
 	background-color: #f5f5f5;
-	padding: 0 30rpx 120rpx;
+	padding: 130rpx 30rpx 120rpx;
 	.editor-title {
 		height: 90rpx;
 		.img {

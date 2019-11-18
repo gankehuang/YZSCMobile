@@ -69,7 +69,7 @@
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 16px;
   text-align: center;
 }
@@ -100,7 +100,7 @@
   height: 25rpx;
 }
 .more-icon {
-  padding-right: 8%;
+  padding-right: 40rpx;
 }
 .more-icon .icon {
     width: 7rpx;
@@ -166,7 +166,7 @@
   color: #4d4d4d;
 }
 .main .main-wrap {
-    padding: 293rpx 23rpx 23rpx 23rpx;
+    padding: 160rpx 23rpx 0 23rpx;
     background: #f5f5f5;
     display: -webkit-box;
     display: -webkit-flex;
@@ -179,7 +179,7 @@
             flex-direction: column;
 }
 .main .main-wrap .main-wrap-contetnt {
-      padding: 44rpx 26rpx 32rpx 36rpx;
+      padding: 0 26rpx 50rpx 26rpx;
       background: #ffffff;
       border-radius: 15px;
       margin-bottom: 15rpx;
@@ -193,7 +193,7 @@
           display: -ms-flexbox;
           display: flex;
           border-bottom: 1px solid #e7e8eb;
-          padding-bottom: 20rpx;
+          padding: 40rpx 0 20rpx 0;
 }
 .main .main-wrap .main-wrap-contetnt .main-wrap-contetnt-item .main-wrap-contetnt-item-title .main-wrap-contetnt-item-title-number {
             width: 10%;
@@ -218,10 +218,10 @@
               color: #FFFFFF;
 }
 .main .main-wrap .main-wrap-contetnt .main-wrap-contetnt-item .main-wrap-contetnt-item-title .main-wrap-contetnt-item-title-text {
-            margin-left: 15rpx;
             font-family: PingFangSC-Semibold;
-            font-size: 16px;
-            color: #4D4D4D;
+            font-weight: 600;
+            font-size: 14px;
+            color: #4785F3;
             width: 80%;
 }
 .main .main-wrap .main-wrap-contetnt .main-wrap-contetnt-item .main-wrap-contetnt-item-title .main-wrap-contetnt-item-title-del {
@@ -249,6 +249,10 @@
           -webkit-justify-content: space-between;
               -ms-flex-pack: justify;
                   justify-content: space-between;
+          -webkit-box-align: center;
+          -webkit-align-items: center;
+              -ms-flex-align: center;
+                  align-items: center;
           padding-top: 40rpx;
           padding-bottom: 20rpx;
           border-bottom: 1px solid #e7e8eb;
@@ -259,6 +263,7 @@
             display: -ms-flexbox;
             display: flex;
             font-family: PingFangSC-Heavy;
+            font-weight: 600;
             font-size: 14px;
             color: #4D4D4D;
 }
@@ -268,6 +273,14 @@
 .main .main-wrap .main-wrap-contetnt .main-wrap-contetnt-item .main-wrap-contetnt-item-field .main-wrap-contetnt-item-field-value {
             text-align: right;
             color: #757575;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+                -ms-flex-align: center;
+                    align-items: center;
 }
 .main .main-wrap .main-wrap-contetnt .main-wrap-contetnt-item .main-wrap-contetnt-item-field .main-wrap-contetnt-item-field-value .text {
               width: 200rpx;
@@ -306,6 +319,13 @@
 .main .main-wrap .main-wrap-contetnt .main-wrap-contetnt-item .main-wrap-contetnt-item-field .main-wrap-contetnt-item-field-value .grade .grade-item .grade-item-stars .grade-item-stars-star {
                   margin: 0 30rpx;
 }
+.main .main-wrap .main-wrap-contetnt .main-wrap-contetnt-item .main-wrap-contetnt-item-field .main-wrap-contetnt-item-field-value .main-wrap-contetnt-item-field-value-icon {
+              display: -webkit-box;
+              display: -webkit-flex;
+              display: -ms-flexbox;
+              display: flex;
+              margin-left: 20rpx;
+}
 .main .main-wrap .main-wrap-contetnt .main-wrap-contetnt-item .no-bottom {
           border-bottom: 0;
 }
@@ -314,7 +334,7 @@
           margin-bottom: -40rpx;
 }
 .editor-title .img {
-  line-height: 80rpx;
+  line-height: 100rpx;
 }
 .editor-title .img image {
     width: 12rpx;
@@ -415,25 +435,149 @@
       height: 53rpx;
       vertical-align: middle;
 }
+.card-cell-last {
+  border-bottom: 0rpx;
+}
+.popup-search .popup-search-item {
+  height: 20%;
+  padding: 0 26rpx;
+}
+.popup-search .popup-search-item .popup-search-item-field {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding-top: 40rpx;
+    padding-bottom: 20rpx;
+    border-bottom: 1px solid #e7e8eb;
+}
+.popup-search .popup-search-item .popup-search-item-field .popup-search-item-field-name {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      font-family: PingFangSC-Heavy;
+      font-weight: 600;
+      font-size: 14px;
+      color: #4D4D4D;
+}
+.popup-search .popup-search-item .popup-search-item-field .popup-search-item-field-name .popup-search-item-field-name-icon {
+        margin-left: 20rpx;
+}
+.popup-search .popup-search-item .popup-search-item-field .popup-search-item-field-value {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      text-align: right;
+      color: #757575;
+}
+.popup-search .popup-search-item .popup-search-item-field .popup-search-item-field-value .text {
+        width: 200rpx;
+}
+.popup-search .popup-search-item .popup-search-item-field .popup-search-item-field-value .picker {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+}
+.popup-search .popup-search-item .popup-search-item-field .popup-search-item-field-value .picker .uni-input {
+          padding: 0px;
+}
+.popup-search .popup-search-item .popup-search-item-field .popup-search-item-field-value .picker .dextrad-icon {
+          margin-left: 10rpx;
+}
+.popup-search .popup-search-item .popup-search-item-field .popup-search-item-field-value .popup-search-item-field-value-icon {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        margin-left: 20rpx;
+}
+.popup-search .search-list {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 80%;
+  padding: 0 26rpx;
+}
+.popup-search .search-list .search-list-item {
+    height: 82rpx;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border-top: 2rpx solid #e7e8eb;
+    margin-top: -2rpx;
+}
+.popup-search .search-list .search-list-item .search-list-item-text {
+      margin-left: 26rpx;
+      font-family: "PingFang-SC-Regular";
+      font-size: 28rpx;
+}
 .status {
   z-index: 99999;
+  height: 220rpx;
 }
-.status-search .search-wrap-qr,
-.status-search .search-wrap-search {
-  width: 10%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 0 15rpx;
+.status .status-header {
+    margin-top: 8rpx;
 }
-.status-search .search-wrap-input {
-  width: 80%;
-  text-align: left;
+.status .status-title {
+    padding-left: 40rpx;
+}
+.status-search {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background: none;
+  color: #B2B2B2;
+  padding: 20rpx 4%;
+}
+.status-search .search-wrap {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background: #ffffff;
+    height: 60rpx;
+    padding: 0 18rpx;
+    border-radius: 12rpx;
+}
+.status-search .search-wrap .uni-icon-search {
+      line-height: 25px;
+}
+.status-search .search-wrap .search-wrap-input {
+      width: 90%;
+      margin-left: 20rpx;
+      text-align: left;
+}
+.status-search .search-wrap .search-wrap-input .uni-input-placeholder {
+        font-size: 28rpx;
+}
+.list {
+  padding-top: 240rpx;
 }
 .draw {
   padding: 30rpx;

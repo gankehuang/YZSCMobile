@@ -3,7 +3,7 @@
 		<view v-show="ifshow" @tap="ableClose" @touchmove.stop.prevent class="popup-layer" >
 			
 		</view>
-		<view ref="popRef"  class="popup-content"   @tap.stop="stopEvent" :style="_location">
+		<view ref="popRef"  class="popup-content" @touchmove.stop.prevent  @tap.stop="stopEvent" :style="_location">
 			<slot></slot>
 		</view>
 	</view>
@@ -34,6 +34,7 @@
 			return {
 				ifshow: false, // 是否展示,
 				translateValue: -100, // 位移距离
+				scaleValue: 0, // 针对“居中弹出框的缩放值”
 				site:-100,
 				timer: null,
 				iftoggle: false,
@@ -46,7 +47,8 @@
 					'top': `transform:translateY(${-this.translateValue}%)`,
 					'bottom': `transform:translateY(${this.translateValue}%)`,
 					'left': `transform:translateX(${-this.translateValue}%)`,
-					'right': `transform:translateX(${this.translateValue}%)`
+					'right': `transform:translateX(${this.translateValue}%)`,
+					'center': `transform:scale(${this.scaleValue})`
 				};
 				return transformObj[this.direction]
 			},
@@ -56,6 +58,9 @@
 					'bottom': `top:${this.site}%;width:100%;`,
 					'left': `right:0px;top:0;height:100%;`,
 					'right': `left:0px;top:0;height:100%;`,
+					'center': `margin: auto; margin-left: 22rpx; margin-right: 22rpx;
+								top:0; right: 0; bottom: 0; left: 0; 
+								height:40%; border-radius: 30rpx;`
 				};
 				return positionValue[this.direction]+ this._translate;
 			}
@@ -85,6 +90,7 @@
 				this.site=0;
 				let _open = setTimeout(() => {
 					this.translateValue = 0;
+					this.scaleValue = 1; // 针对“居中弹出框的缩放值”
 					_open = null;
 				}, 100)
 				let _toggle = setTimeout(() => {
@@ -97,6 +103,7 @@
 					return;
 				}
 				this.translateValue = -100;
+				this.scaleValue = 0  // 针对“居中弹出框的缩放值”
 				this.timer = setTimeout(() => {
 					this.ifshow = false;
 					this.timer = null;

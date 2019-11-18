@@ -1,5 +1,17 @@
 <template>
 	<view>
+		<!-- 这里是状态栏 -->
+		<view class="status">
+			<image class="status-bg" src="/static/assets/top_bg@2x.png" mode="widthFix"></image>
+			<view class="status-header">
+				<view class="back-icon" @click="handOnClickBack">
+					<image class="icon" src="/static/assets/back.png"></image>
+				</view>
+				<view class="status-title">
+					新增测膘记录
+				</view>
+			</view>
+		</view>
 		<!-- 内容 -->
 		<view class="main">
 			<view class="main-wrap">
@@ -64,7 +76,7 @@
 							<view class="main-wrap-contetnt-item-field-value"><input type="text" placeholder="" /></view>
 						</view>
 						
-						<view class="main-wrap-contetnt-item-field">
+						<view class="main-wrap-contetnt-item-field field-nobottom">
 							<view style="display: flex;align-items: center;" class="main-wrap-contetnt-item-field-name">
 								标准料量
 								<text class="text-red">*</text>
@@ -118,7 +130,12 @@ export default {
 <style lang="scss">
 @import '../../../common/dataCollection.scss';
 
+.status-header {
+		padding-top: 26rpx;
+	}
+
 .main {
+	padding-top: 130rpx;
 	.main-wrap {
 		padding: 31rpx 23rpx 23rpx 23rpx;
 	}

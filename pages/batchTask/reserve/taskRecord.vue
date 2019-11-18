@@ -7,8 +7,8 @@
 			<view class="status__title">
 				任务记录
 			</view>
-			<view class="right__icon">
-				<image src="../../../static/search/ico-01.png" mode="" class="icon"></image>
+			<view class="right__icon" @tap="showFilter">
+				<image src="/static/assets/search.png" mode="" class="icon"></image>
 			</view> 
 		</view>
 		
@@ -34,6 +34,22 @@
 		<view class="uni-tab-bar-loading" @click="loadMore()">
 			<uni-load-more :status="status"  :loadingType="loadingType" :contentText="loadingText"></uni-load-more>
 		</view>
+		
+		<!-- 抽屉 -->
+		<uni-drawer :visible="boolShow" :mode="'right'" @close="boolShow=false">
+		    <scroll-view class="draw" scroll-y="true" style="padding-top: 65px;">
+				<draw-cell title="任务名称" required="false">
+					<view slot="value" class="bg-gray jus-j">
+						<input type="text" placeholder="请填写" />
+					</view>
+				</draw-cell>
+				
+			</scroll-view>
+				<view class="submits jus-b">
+					<view class="flexc reset-btn" @click="reset">重置</view>
+					<view class="flexc submit-btn" @click="find">确定</view>
+				</view>
+		</uni-drawer>
 	</view>
 </template>
 
@@ -44,13 +60,17 @@
 	import uniList from '@/components/uni-list/uni-list.vue'
 	import uniListItem from '@/components/uni-list-item/uni-list-item.vue'
 	import uniLoadMore from '@/components/uni-load-more.vue';  //  加载更多
+	import uniDrawer from "@/components/uni-drawer/uni-drawer.vue" //引入抽屉单元格组件
+	import drawCell from '@/components/uni-cell/draw-cell.vue';
 export default {
 	components: {
 		uniCollapse,
 		uniCollapseItem,
 		uniList,
 		uniListItem,
-		uniLoadMore
+		uniLoadMore,
+		uniDrawer,
+		drawCell
 	},
 	data() {
 		const listData = [{
@@ -158,6 +178,7 @@ export default {
 			},
 		]
 		return {
+			boolShow: false,  //抽屉显示状态
 			id: '',
 			list: listData,
 			url: '/pages/batchTask/matchPregnant/taskRecordDetail',//点击条目跳转地址
@@ -236,6 +257,12 @@ export default {
 				console.log(e);
 			})
 		},
+		showFilter() {
+			this.boolShow = true;
+		},
+		find() {
+			this.boolShow = false;
+		},
 		back () {
 			uni.navigateBack({
 			})
@@ -305,6 +332,38 @@ export default {
 	.button {
 		font-size: 26upx;
 		line-height: 90upx;
+	}
+	
+	//抽屉样式
+	.draw{
+		padding:30rpx;
+		width: 500rpx;
+		height:calc(100% - 118rpx);
+		.bg-gray{
+			background: #f5f5f5;
+			padding:16rpx 20rpx;
+			font-size:12px;
+			color: #4d4d4d;
+		}
+	}
+	.submits {
+		position:fixed;
+		bottom: 0rpx;
+		left:0;
+		width:100%;
+		.flexc {
+			width:50%;
+			height:86rpx;
+			&.reset-btn {
+				background-color: #FFFFFF;
+				border-top:2px solid #F5F5F5;
+			}
+			&.submit-btn {
+				border-top:2px solid #4684EA;
+				background-color: #4684EA;
+				color: #FFFFFF;
+			}
+		}
 	}
 	
 </style>

@@ -15,14 +15,13 @@
 					<image class="icon" src="/static/assets/more@2x.png"></image>
 				</view>
 			</view>
-			
 		</view>
 		<view class="main-container">
 			<view class="flex page__info">
 				<text>共2492条,50页</text>
 				<text>
 					每页50条
-					<image src="../../static/assets/arrow-b.png" class="icon-big" style="margin-left: 4px;"></image>
+					<image src="../../../static/assets/arrow-b.png" class="icon-big" style="margin-left: 4px;"></image>
 				</text>
 			</view>
 			<view class="data__wrapper">
@@ -30,10 +29,8 @@
 			</view>
 			<view class="submitData jus-b">
 				<button type="primary" class="flexc cancel-btn">取消计划</button>
-				<button type="primary" class="flexc submit-btn" @click="changePlan">调整计划</button>
+				<button type="primary" class="flexc submit-btn" @click="putoffPlan">推迟计划</button>
 			</view>
-			<!-- 选页 -->
-			<pageSider :pageNum="pageNum" :currentPage="pageInfo.page"></pageSider>
 			<!-- <uni-drawer :visible="showDrawer" mode="right" @close='closeDrawer'>
 			    <view style="padding:30rpx;">
 			        <view class="uni-title">{{name}}</view>
@@ -134,8 +131,6 @@
 	import mpvuePicker from '@/components/mpvue-picker/mpvuePicker.vue';
 	//引入图标
 	import uniIcon from '@/components/uni-icon/uni-icon.vue';
-	// 引入 选页
-	import pageSider from '@/components/pageSider.vue';
 	//引入时间转换
 	import {timeFormat} from '@/utils/dateUtils.js'
 	export default {
@@ -256,8 +251,7 @@
 			popupLayer,
 			drawCell,
 			mpvuePicker,
-			uniIcon,
-			pageSider
+			uniIcon
 		},
 		methods: {
 			rowTapHandler (row) {
@@ -268,9 +262,9 @@
 					complete: () => {}
 				});
 			},
-			changePlan(){
+			putoffPlan(){
 				uni.navigateTo({
-					url: `/pages/health/immunizationPlan/immunizationPlanEditor`,
+					url: `/pages/health/immunizationPlan/immunizationPlanPutoff`,
 					success: res => {},
 					fail: () => {},
 					complete: () => {}
@@ -338,11 +332,11 @@
 		padding: 0 20rpx;
 	}
 	.icon-big {
-		width: 24rpx;
-		height: 24rpx;
+		width: 16rpx;
+		height: 16rpx;
 	}
 	.main-container{
-		padding-top: 146rpx;
+		padding-top: 130rpx;
 		// padding-left: 20rpx;
 	}
 	//抽屉样式
@@ -388,6 +382,10 @@
 			background-color: #4684EA;
 			color: #FFFFFF;
 		}
+	}
+	
+	.data__wrapper {
+		padding: 0 20rpx
 	}
 	
 </style>
